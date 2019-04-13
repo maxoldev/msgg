@@ -8,17 +8,19 @@
 
 import Foundation
 
-typealias ChannelID = Int
+typealias IDType = Int
 
 struct Stream {
-    let channelID: ChannelID
+    let channelID: IDType
+    let title: String
     let streamer: String
-    let url: String
+    let avatarURL: String
     let viewers: Int
     let playerSrc: String
-    let title: String
-    let thumbURL: String
-    let game: Game
+    let previewURL: String
+    let channelPosterURL: String
+    let gameID: String?
+    let sources: [StreamSource]
 }
 
 struct PlayerInfo {
@@ -26,9 +28,10 @@ struct PlayerInfo {
 }
 
 struct Game {
+    let gameID: IDType
+    let url: String
     let coverURL: String
     let title: String
-    let url: String
 }
 
 struct Genre {

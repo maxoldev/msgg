@@ -8,39 +8,24 @@
 
 import Foundation
 
-enum StreamQuality: CaseIterable {
-    
+enum StreamQuality {
     case source
-    case _720
-    case _480
-    case _240
+    case scaled(resolution: Int)
 }
 
-extension StreamQuality {
-    
-    var urlSuffix: String {
-        switch self {
-        case .source:
-            return ""
-        case ._720:
-            return "_720"
-        case ._480:
-            return "_480"
-        case ._240:
-            return "_240"
-        }
-    }
+struct StreamSource {
+    let quality: StreamQuality
+    let url: String
+}
 
+extension StreamSource {
+    
     var title: String {
-        switch self {
+        switch quality {
         case .source:
-            return "Source"
-        case ._720:
-            return "720p"
-        case ._480:
-            return "480p"
-        case ._240:
-            return "240p"
+            return NSLocalizedString("Source", comment: "")
+        case let (.scaled(resolution)):
+            return String(resolution)
         }
     }
 }

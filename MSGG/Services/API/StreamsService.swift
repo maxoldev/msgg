@@ -10,8 +10,12 @@ import Foundation
 
 class StreamsService: BaseAPIService {
 
-    func getStreams(completion: @escaping ([Stream], Error?) -> ()) {
-        let request = makeURLRequest(endpoint: .streams)
+    func getStreams(limit: Int = 1000, gameURL: String? = nil, completion: @escaping ([Stream], Error?) -> ()) {
+        var queryItems = [URLQueryItem(name: "onpage", value: String(limit))]
+        if let gameURL = gameURL {
+            queryItems.append(URLQueryItem(name: "game", value: gameURL))
+        }
+        let request = makeURLRequest4(endpoint: .stream, queryItems: queryItems)
         let session = URLSession(configuration: .default)
         
         session.dataTask(with: request) { (data, response, error) in
@@ -22,11 +26,19 @@ class StreamsService: BaseAPIService {
                 }
                 return
             }
-
+            
             do {
                 let jsonDecoder = JSONDecoder()
                 let ggStreams = try jsonDecoder.decode(GoodGame.Streams.self, from: data!)
-                let streams = ggStreams._embedded.streams.map({Stream(goodgameStream: $0)})
+                let ggStreamsArray = ggStreams.streams.compactMap({$0.base})  // skip objects with incomplete data model
+                let streams = ggStreamsArray.compactMap({ (ggStream) -> Stream? in
+                    let stream = Stream(goodgameStream: ggStream)
+                    if stream.sources.isEmpty {  // has only smil source
+                        return nil
+                    } else {
+                        return stream
+                    }
+                })
                 DispatchQueue.main.async {
                     completion(streams, nil)
                 }
@@ -54,7 +66,7 @@ class StreamsService: BaseAPIService {
             
             do {
                 let jsonDecoder = JSONDecoder()
-                let ggStream = try jsonDecoder.decode(GoodGame.Stream.self, from: data!)
+                let ggStream = try jsonDecoder.decode(GoodGame.StreamOld.self, from: data!)
                 DispatchQueue.main.async {
                     completion(Int(ggStream.viewers) ?? 0, nil)
                 }
@@ -64,7 +76,7 @@ class StreamsService: BaseAPIService {
                     completion(0, error)
                 }
             }
-            }.resume()
+        }.resume()
     }
 
     func getPlayerInfo(playerSrc: String, completion: @escaping (PlayerInfo?, Error?) -> ()) {

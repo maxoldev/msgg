@@ -26,9 +26,8 @@ class CategoryCVCell: UICollectionViewCell {
         streamsLabel.text = "\(streams) " + NSLocalizedString("streams", comment: "")
         coverImageView.sd_setImage(with: URL(string: thumbURL),
                                    placeholderImage: nil,
-                                   options: [SDWebImageOptions.fromLoaderOnly, SDWebImageOptions.retryFailed],
+                                   options: [SDWebImageOptions.retryFailed],
                                    context: nil)
-        
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {

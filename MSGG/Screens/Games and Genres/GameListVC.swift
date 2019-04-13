@@ -13,14 +13,13 @@ class GameListVC: CatergoryListVC<Game> {
     let service = CategoriesService()
     
     override func loadData() {
-        collectionView.isHidden = true
-        activityIndicator.startAnimating()
+        isLoading = true
+        
         service.getCategories { [weak self] (games, genres, error) in
             guard let self = self else {
                 return
             }
-            self.activityIndicator.stopAnimating()
-            self.collectionView.isHidden = false
+            self.isLoading = false
             
             guard error == nil else {
                 return
@@ -38,5 +37,14 @@ class GameListVC: CatergoryListVC<Game> {
         let category = items[indexPath.row]
         cell.setup(title: category.title, streams: 0, thumbURL: category.coverURL)
         return cell
+    }
+    
+    //MARK: - UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let game = items[indexPath.row]
+        let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
+        vc.context = .game(gameID: String(game.gameID), gameURL: game.url)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

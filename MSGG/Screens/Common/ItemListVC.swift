@@ -12,6 +12,7 @@ class ItemListVC<T>: UIViewController,
     UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var items = [T]()
@@ -35,6 +36,18 @@ class ItemListVC<T>: UIViewController,
     
     func registerCellAndViews() {
         collectionView.register(UINib(nibName: String(describing: StreamListHeaderReusableView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: StreamListHeaderReusableView.self))
+    }
+    
+    var isLoading = false {
+        didSet {
+            if isLoading {
+                fadeView.isHidden = false
+                activityIndicator.startAnimating()
+            } else {
+                fadeView.isHidden = true
+                activityIndicator.stopAnimating()
+            }
+        }
     }
     
     func loadData() {

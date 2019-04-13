@@ -8,27 +8,55 @@
 
 import Foundation
 
+extension String {
+    
+    var normalizedGGURL: String {
+        guard var urlComponents = URLComponents(string: self) else {
+            return ""
+        }
+        urlComponents.scheme = "https"
+        if urlComponents.host == nil {
+            urlComponents.host = "goodgame.ru"
+        }
+        let url = urlComponents.url?.absoluteString ?? ""
+        return url
+    }
+}
+
 extension Stream {
     
     init(goodgameStream: GoodGame.Stream) {
         let gg = goodgameStream
-        let viewers = Int(gg.viewers) ?? 0
-        let game = Game(coverURL: gg.channel.img, title: gg.channel.games.first?.title ?? "", url: gg.channel.games.first?.url ?? "")
-        self.init(channelID: gg.id, streamer: gg.key, url: gg.url, viewers: viewers, playerSrc: gg.channel.gg_player_src, title: gg.channel.title ?? "", thumbURL: Stream.makeThumbURLString(incompleteURL: gg.channel.thumb), game: game)
-    }
-    
-    fileprivate static func makeThumbURLString(incompleteURL: String) -> String {
-        var thumbURLComponents = URLComponents(string: incompleteURL)!
-        thumbURLComponents.scheme = "https"
-        let thumbURL = thumbURLComponents.url?.absoluteString ?? ""
-        return thumbURL
+        let sources = gg.sources.compactMap({ (key: String, value: String) -> StreamSource? in
+            if key == "source" {
+                if value.hasSuffix(APIConstants.smilExt) {
+                    return nil
+                } else {
+                    return StreamSource(quality: .source, url: value)
+                }
+            } else if let resolution = Int(key) {
+                return StreamSource(quality: .scaled(resolution: resolution), url: value)
+            } else {
+                return nil
+            }
+        }).sorted(by: { (q1, q2) -> Bool in
+            switch (q1.quality, q2.quality) {
+            case (.source, _):
+                return true
+            case (_, .source):
+                return false
+            case let (.scaled(resolution1), .scaled(resolution2)):
+                return resolution1 > resolution2
+            }
+        })
+        self.init(channelID: gg.id, title: gg.title, streamer: gg.streamer ?? "", avatarURL: gg.avatar.normalizedGGURL, viewers: gg.viewers, playerSrc: gg.streamkey, previewURL: gg.preview.normalizedGGURL, channelPosterURL: gg.poster, gameID: gg.game, sources: sources)
     }
 }
 
 extension Game {
     
     init(goodgameGame: GoodGame.Game) {
-        self.init(coverURL: goodgameGame.poster ?? "", title: goodgameGame.title ?? "", url: goodgameGame.url ?? "")
+        self.init(gameID: goodgameGame.id, url: goodgameGame.url, coverURL: goodgameGame.poster ?? "", title: goodgameGame.title ?? "")
     }
 }
 

@@ -10,22 +10,22 @@ import Foundation
 
 class FavoritesService {
     
-    fileprivate(set) var favoriteStreamIDList: [ChannelID]
+    fileprivate(set) var favoriteStreamIDList: [IDType]
     
     init() {
-        if let idArray = UserDefaults.standard.array(forKey: UserDefaultsKeys.favorites.rawValue) as? [ChannelID] {
+        if let idArray = UserDefaults.standard.array(forKey: UserDefaultsKeys.favorites.rawValue) as? [IDType] {
             favoriteStreamIDList = idArray
         } else {
             favoriteStreamIDList = []
         }
     }
     
-    func addToFavorites(channelID: ChannelID) {
+    func addToFavorites(channelID: IDType) {
         favoriteStreamIDList.append(channelID)
         saveListOnDisk()
     }
 
-    func removeFromFavorites(channelID: ChannelID) {
+    func removeFromFavorites(channelID: IDType) {
         favoriteStreamIDList.removeAll(where: {$0 == channelID})
         saveListOnDisk()
     }
@@ -34,7 +34,7 @@ class FavoritesService {
 //        return favoriteStreamIDList
 //    }
     
-    func isFavorite(channelID: ChannelID) -> Bool {
+    func isFavorite(channelID: IDType) -> Bool {
         return favoriteStreamIDList.contains(channelID)
     }
     

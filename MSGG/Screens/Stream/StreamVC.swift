@@ -14,7 +14,7 @@ class StreamVC: UIViewController {
 
     var stream: Stream?
     var currentViewerCount = 0
-    var selectedQuality = StreamQuality.source
+    var selectedSource: StreamSource?
     
     @IBOutlet weak var playerView: PlayerView!
     @IBOutlet weak var controlsView: UIView!
@@ -42,10 +42,11 @@ class StreamVC: UIViewController {
         
         setupGestureRecognizers()
         
-        if let _ = stream {
-            currentViewerCount = stream!.viewers
+        if let stream = stream, let selectedSource = stream.sources.first {
+            self.selectedSource = selectedSource
+            currentViewerCount = stream.viewers
             setupUI()
-            restartStreamWithQuality(selectedQuality)
+            restartVideo(url: selectedSource.url)
             updateStreamInfo()
         }
         
@@ -60,7 +61,7 @@ class StreamVC: UIViewController {
     }
     
     fileprivate func setupUI() {
-        gameButton.setTitle(stream!.game.title, for: .normal)
+//        gameButton.setTitle(stream!.game.title, for: .normal)
         titleLabel.text = stream!.title
         streamerLabel.text = stream!.streamer
         viewersLabel.text = "\(stream!.viewers)"
@@ -185,26 +186,17 @@ class StreamVC: UIViewController {
         return player.timeControlStatus != .paused
     }
     
-    fileprivate func restartStreamWithQuality(_ quality: StreamQuality) {
-        let videoURL = makeVideoURLForStreamQuality(quality)
-        player.replaceCurrentItem(with: AVPlayerItem(url: videoURL))
+    fileprivate func restartVideo(url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        player.replaceCurrentItem(with: AVPlayerItem(url: url))
         player.play()
     }
     
-    fileprivate func setStreamQuality(_ quality: StreamQuality) {
-        selectedQuality = quality
-        restartStreamWithQuality(quality)
-    }
-    
-//    fileprivate func updateQualityButton() {
-//        qualityButton.setTitle(selectedQuality.title, for: .normal)
-//    }
-    
-    fileprivate func makeVideoURLForStreamQuality(_ quality: StreamQuality) -> URL {
-        let hls_id = stream!.playerSrc
-        let string = String(format: APIConstants.baseVideoURL, "\(hls_id)\(quality.urlSuffix)")
-        let videoURL = URL(string: string)!
-        return videoURL
+    fileprivate func selectStreamSource(_ source: StreamSource) {
+        selectedSource = source
+        restartVideo(url: source.url)
     }
     
     //MARK: - Actions
@@ -214,14 +206,15 @@ class StreamVC: UIViewController {
     
     @IBAction func qualityButtonTriggered(_ sender: UIButton) {
         let alert = UIAlertController(title: NSLocalizedString("Select stream quality", comment: ""), message: nil, preferredStyle: .alert)
-        StreamQuality.allCases.forEach { (quality) in
-            let action = UIAlertAction(title: quality.title, style: .default, handler: { _ in
-                self.setStreamQuality(quality)
+        stream!.sources.forEach { (source) in
+            let title = source.title
+            let action = UIAlertAction(title: title, style: .default, handler: { _ in
+                self.selectStreamSource(source)
 //                self.dismiss(animated: true, completion: nil)
             })
             alert.addAction(action)
             
-            if quality == selectedQuality {
+            if source.url == selectedSource!.url {
                 alert.preferredAction = action
             }
         }

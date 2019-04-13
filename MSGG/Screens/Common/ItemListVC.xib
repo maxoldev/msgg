@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +14,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="i2L-Uq-V09" id="5ff-UF-ZLd"/>
                 <outlet property="collectionView" destination="7pn-OV-XYQ" id="FgG-2o-hQh"/>
+                <outlet property="fadeView" destination="pPc-Tz-8qf" id="ZVJ-Ya-Kfv"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Eym-vH-oyN"/>
             </connections>
         </placeholder>
@@ -32,21 +34,38 @@
                     </collectionViewFlowLayout>
                     <cells/>
                 </collectionView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="i2L-Uq-V09">
-                    <rect key="frame" x="940" y="520" width="40" height="40"/>
-                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPc-Tz-8qf">
+                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="i2L-Uq-V09">
+                            <rect key="frame" x="940" y="520" width="40" height="40"/>
+                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" name="color-fade"/>
+                    <constraints>
+                        <constraint firstItem="i2L-Uq-V09" firstAttribute="centerY" secondItem="pPc-Tz-8qf" secondAttribute="centerY" id="Ulp-Fw-bKM"/>
+                        <constraint firstItem="i2L-Uq-V09" firstAttribute="centerX" secondItem="pPc-Tz-8qf" secondAttribute="centerX" id="jWY-0i-A2t"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="pPc-Tz-8qf" secondAttribute="bottom" id="5du-jb-J0s"/>
                 <constraint firstAttribute="bottom" secondItem="7pn-OV-XYQ" secondAttribute="bottom" id="8zo-yX-6aC"/>
-                <constraint firstItem="i2L-Uq-V09" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="O0S-Wt-sIt"/>
+                <constraint firstAttribute="trailing" secondItem="pPc-Tz-8qf" secondAttribute="trailing" id="Bt1-eC-zCg"/>
+                <constraint firstItem="pPc-Tz-8qf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ogp-ND-C3V"/>
                 <constraint firstItem="7pn-OV-XYQ" firstAttribute="leading" secondItem="nkI-NY-t1X" secondAttribute="leading" id="SQC-jb-oBE"/>
-                <constraint firstItem="i2L-Uq-V09" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UXY-E4-m42"/>
                 <constraint firstItem="7pn-OV-XYQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aj6-C7-x7w"/>
                 <constraint firstItem="7pn-OV-XYQ" firstAttribute="trailing" secondItem="nkI-NY-t1X" secondAttribute="trailing" id="bSw-hX-qqY"/>
+                <constraint firstItem="pPc-Tz-8qf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x6I-mB-lSm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="nkI-NY-t1X"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="color-fade">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

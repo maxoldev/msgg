@@ -13,10 +13,12 @@ struct APIConstants {
     static let baseAPIUrl = "https://api2.goodgame.ru/v2/"
     static let baseVideoURL = "https://hls.goodgame.ru/hls/%@.m3u8"
     static let baseAPIUrl4 = "https://goodgame.ru/api/4/"
+    static let smilExt = "smil"
 }
 
 enum APIEndpoint: String {
     case streams
+    case stream
     case player
     case games
 }

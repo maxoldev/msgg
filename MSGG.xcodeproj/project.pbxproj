@@ -24,6 +24,7 @@
 		94560D0A22621C77008EE0B1 /* CategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560D0822621C77008EE0B1 /* CategoryCVCell.xib */; };
 		94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D0B22621D38008EE0B1 /* GenreListVC.swift */; };
 		94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */; };
+		94560D1922624123008EE0B1 /* FailableDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D1822624123008EE0B1 /* FailableDecodable.swift */; };
 		949330EB2182707100B29B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EA2182707100B29B0D /* AppDelegate.swift */; };
 		949330ED2182707100B29B0D /* StreamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EC2182707100B29B0D /* StreamListVC.swift */; };
 		949330F02182707100B29B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949330EE2182707100B29B0D /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		94560D0822621C77008EE0B1 /* CategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCVCell.xib; sourceTree = "<group>"; };
 		94560D0B22621D38008EE0B1 /* GenreListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListVC.swift; sourceTree = "<group>"; };
 		94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryListVC.swift; sourceTree = "<group>"; };
+		94560D1822624123008EE0B1 /* FailableDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableDecodable.swift; sourceTree = "<group>"; };
 		949330E72182707100B29B0D /* MSGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949330EA2182707100B29B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949330EC2182707100B29B0D /* StreamListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListVC.swift; sourceTree = "<group>"; };
@@ -202,6 +204,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		94560D1722624103008EE0B1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				94560D1822624123008EE0B1 /* FailableDecodable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		949330DE2182707100B29B0D = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 		949330E92182707100B29B0D /* MSGG */ = {
 			isa = PBXGroup;
 			children = (
+				94560D1722624103008EE0B1 /* Common */,
 				94418EED224D01FB007614DD /* Model */,
 				94418EF4224D091C007614DD /* Services */,
 				94336FEB21866350000E8491 /* Screens */,
@@ -399,6 +410,7 @@
 				94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */,
 				94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */,
 				94EB768C225DF04C00297DCD /* VCFactory.swift in Sources */,
+				94560D1922624123008EE0B1 /* FailableDecodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

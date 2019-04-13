@@ -12,17 +12,31 @@ import AVKit
 
 class StreamListVC: ItemListVC<Stream> {
     
+    enum Context {
+        case allStreams
+        case game(gameID: String, gameURL: String)
+        case genre(genreID: String)
+    }
+    
     let service = StreamsService()
+    var context = Context.allStreams
     
     override func loadData() {
-        collectionView.isHidden = true
-        activityIndicator.startAnimating()
-        service.getStreams { [weak self] (streams, error) in
+        isLoading = true
+        
+        var gameURL: String?
+        switch context {
+        case let .game(_, url):
+            gameURL = url
+        default:
+            break
+        }
+        
+        service.getStreams(gameURL: gameURL) { [weak self] (streams, error) in
             guard let self = self else {
                 return
             }
-            self.activityIndicator.stopAnimating()
-            self.collectionView.isHidden = false
+            self.isLoading = false
             
             guard error == nil else {
                 return
@@ -55,7 +69,7 @@ class StreamListVC: ItemListVC<Stream> {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StreamCVCell.self), for: indexPath) as! StreamCVCell
         let stream = items[indexPath.row]
-        cell.setup(streamer: stream.streamer, title: stream.title, viewers: stream.viewers, thumbURL: stream.thumbURL)
+        cell.setup(streamer: stream.streamer, title: stream.title, viewers: stream.viewers, previewURL: stream.previewURL, posterURL: stream.channelPosterURL)
         return cell
     }
     

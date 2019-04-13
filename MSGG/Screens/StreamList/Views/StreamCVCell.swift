@@ -22,15 +22,21 @@ class StreamCVCell: UICollectionViewCell {
         thumbImageView.adjustsImageWhenAncestorFocused = true
     }
     
-    func setup(streamer: String, title: String, viewers: Int, thumbURL: String) {
+    func setup(streamer: String, title: String, viewers: Int, previewURL: String, posterURL: String) {
         streamerLabel.text = streamer
         titleLabel.text = title
         viewersLabel.text = "\(viewers)"
-        thumbImageView.sd_setImage(with: URL(string: thumbURL),
-                                   placeholderImage: nil,
-                                   options: [SDWebImageOptions.fromLoaderOnly, SDWebImageOptions.retryFailed],
-                                   context: nil)
-        
+        thumbImageView.sd_setImage(with: URL(string: previewURL),
+                                   placeholderImage: UIImage(named: "gg-logo"),
+                                   options: [SDWebImageOptions.fromLoaderOnly, SDWebImageOptions.retryFailed])
+        { [weak self] (image, error, _, _) in
+            guard error != nil, let self = self else {
+                return
+            }
+            self.thumbImageView.sd_setImage(with: URL(string: posterURL),
+                                       placeholderImage: UIImage(named: "gg-logo"),
+                                       options: [SDWebImageOptions.fromLoaderOnly])
+        }
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
