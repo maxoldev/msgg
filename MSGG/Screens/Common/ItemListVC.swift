@@ -17,6 +17,8 @@ class ItemListVC<T>: UIViewController,
 
     var items = [T]()
 
+    fileprivate var prevFocusedView: UIView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -54,10 +56,28 @@ class ItemListVC<T>: UIViewController,
         fatalError("Must me overridden")
     }
     
-    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return [collectionView]
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        if prevFocusedView != nil {
+            setNeedsFocusUpdate()
+            return false
+        }
+        return true
     }
     
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if context.nextFocusedView is UIButton {
+            prevFocusedView = context.previouslyFocusedView  // save last focused cell to return to it after the button
+        }
+    }
+    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        if let prevFocusedView = prevFocusedView {
+            self.prevFocusedView = nil
+            return [prevFocusedView]
+        }
+        return [collectionView]
+    }
+
     var itemSize: CGSize {
         return CGSize(width: 548, height: 340)
     }
@@ -73,6 +93,7 @@ class ItemListVC<T>: UIViewController,
     //MARK: - Actions
 
     @objc func onReload(_ sender: Any) {
+        prevFocusedView = nil
         loadData()
     }
 
@@ -103,13 +124,4 @@ class ItemListVC<T>: UIViewController,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let collectionViewWidth = collectionView.bounds.width
-//        let itemsInRow = 3
-//        let itemWidth = (collectionViewWidth - (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing * CGFloat(itemsInRow - 1)) / CGFloat(itemsInRow)
-//        let itemHeight = itemWidth * 0.6
-//        let size = CGSize(width: itemWidth, height: itemHeight)
-//        return size
-//    }
 }
