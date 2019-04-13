@@ -19,15 +19,6 @@ class PlayerView: UIView {
         return layer as! AVPlayerLayer
     }
 
-//    var player: AVPlayer! {
-//        get {
-//            return playerLayer.player
-//        }
-//
-//        set {
-//            playerLayer.player = newValue
-//        }
-//    }
     let player = AVPlayer()
     
     override init(frame: CGRect) {

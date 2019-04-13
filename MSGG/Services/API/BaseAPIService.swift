@@ -19,6 +19,14 @@ class BaseAPIService {
         return request
     }
     
+    func makeURLRequest4(endpoint: APIEndpoint, ID: String? = nil) -> URLRequest {
+        let fullEndpoint = ID != nil ? "\(endpoint.rawValue)/\(ID!)" : "\(endpoint.rawValue)"
+        let urlComponents = URLComponents(string: "\(APIConstants.baseAPIUrl4)\(fullEndpoint)")!
+        var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = "GET"
+        return request
+    }
+    
     func getError(data: Data?, urlResponse: URLResponse?, error: Error?) -> Error? {
         guard error == nil else {
             return error

@@ -2,7 +2,7 @@
 //  StreamListHeaderReusableView.swift
 //  MSGG
 //
-//  Created by Maxim Solovyov on 12/04/2019.
+//  Created by Maxim Solovyov on 13/04/2019.
 //  Copyright © 2019 MaximSolovyov. All rights reserved.
 //
 

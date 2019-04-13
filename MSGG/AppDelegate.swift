@@ -16,9 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupRootViewController()
+        
         return true
     }
 
+    fileprivate func setupRootViewController() {
+        let streamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
+        streamListVC.title = NSLocalizedString("Streams", comment: "")
+        
+        let favoriteStreamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
+        favoriteStreamListVC.title = NSLocalizedString("Favorites", comment: "")
+
+        let gameListVC = SharedComponents.vcFactory.create(.categoryList) as GameListVC
+        gameListVC.title = NSLocalizedString("Games", comment: "")
+
+        let genreListVC = SharedComponents.vcFactory.create(.categoryList) as GenreListVC
+        genreListVC.title = NSLocalizedString("Genres", comment: "")
+
+        let controllers = [streamListVC, gameListVC, genreListVC, favoriteStreamListVC].map({UINavigationController(rootViewController: $0)})
+        controllers.forEach({$0.isNavigationBarHidden = true})
+        let tabBarController = window!.rootViewController as! UITabBarController
+        tabBarController.setViewControllers(controllers, animated: false)
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

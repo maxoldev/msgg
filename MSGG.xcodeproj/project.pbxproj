@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0B85DD70217B0308C582DC48 /* libPods-MSGG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D6EC55F27ADCFF317CA559 /* libPods-MSGG.a */; };
-		942D426C22611DD3006AF281 /* StreamListHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426B22611DD3006AF281 /* StreamListHeaderReusableView.swift */; };
 		942D426E2261262B006AF281 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaults.swift */; };
+		942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D4271226149B2006AF281 /* CategoryCVCell.swift */; };
+		942D427422614A31006AF281 /* GameListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D427322614A31006AF281 /* GameListVC.swift */; };
+		942D427622614B17006AF281 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D427522614B17006AF281 /* CategoriesService.swift */; };
 		94336FEF21866392000E8491 /* ClassicStreamCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94336FEE21866392000E8491 /* ClassicStreamCVCell.swift */; };
 		9439C396225FEF02001E55EB /* StreamCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439C395225FEF02001E55EB /* StreamCVCell.swift */; };
 		94418EEF224D0210007614DD /* GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94418EEE224D0210007614DD /* GoodGame.swift */; };
 		94418EF6224D0951007614DD /* StreamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94418EF5224D0951007614DD /* StreamsService.swift */; };
+		94560CF922620774008EE0B1 /* StreamListHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560CF722620774008EE0B1 /* StreamListHeaderReusableView.swift */; };
+		94560CFA22620774008EE0B1 /* StreamListHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */; };
+		94560CFE22621299008EE0B1 /* ItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560CFC22621299008EE0B1 /* ItemListVC.swift */; };
+		94560CFF22621299008EE0B1 /* ItemListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560CFD22621299008EE0B1 /* ItemListVC.xib */; };
+		94560D0422621BAE008EE0B1 /* StreamCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560D0222621BAE008EE0B1 /* StreamCVCell.xib */; };
+		94560D0A22621C77008EE0B1 /* CategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560D0822621C77008EE0B1 /* CategoryCVCell.xib */; };
+		94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D0B22621D38008EE0B1 /* GenreListVC.swift */; };
+		94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */; };
 		949330EB2182707100B29B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EA2182707100B29B0D /* AppDelegate.swift */; };
 		949330ED2182707100B29B0D /* StreamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EC2182707100B29B0D /* StreamListVC.swift */; };
 		949330F02182707100B29B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949330EE2182707100B29B0D /* Main.storyboard */; };
@@ -33,12 +43,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		942D426B22611DD3006AF281 /* StreamListHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListHeaderReusableView.swift; sourceTree = "<group>"; };
 		942D426D2261262B006AF281 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		942D4271226149B2006AF281 /* CategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCVCell.swift; sourceTree = "<group>"; };
+		942D427322614A31006AF281 /* GameListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListVC.swift; sourceTree = "<group>"; };
+		942D427522614B17006AF281 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		94336FEE21866392000E8491 /* ClassicStreamCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicStreamCVCell.swift; sourceTree = "<group>"; };
 		9439C395225FEF02001E55EB /* StreamCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamCVCell.swift; sourceTree = "<group>"; };
 		94418EEE224D0210007614DD /* GoodGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodGame.swift; sourceTree = "<group>"; };
 		94418EF5224D0951007614DD /* StreamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsService.swift; sourceTree = "<group>"; };
+		94560CF722620774008EE0B1 /* StreamListHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListHeaderReusableView.swift; sourceTree = "<group>"; };
+		94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamListHeaderReusableView.xib; sourceTree = "<group>"; };
+		94560CFC22621299008EE0B1 /* ItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListVC.swift; sourceTree = "<group>"; };
+		94560CFD22621299008EE0B1 /* ItemListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListVC.xib; sourceTree = "<group>"; };
+		94560D0222621BAE008EE0B1 /* StreamCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamCVCell.xib; sourceTree = "<group>"; };
+		94560D0822621C77008EE0B1 /* CategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCVCell.xib; sourceTree = "<group>"; };
+		94560D0B22621D38008EE0B1 /* GenreListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListVC.swift; sourceTree = "<group>"; };
+		94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryListVC.swift; sourceTree = "<group>"; };
 		949330E72182707100B29B0D /* MSGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949330EA2182707100B29B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949330EC2182707100B29B0D /* StreamListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListVC.swift; sourceTree = "<group>"; };
@@ -91,10 +111,32 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		942D426F2261494C006AF281 /* Games and Genres */ = {
+			isa = PBXGroup;
+			children = (
+				942D427022614962006AF281 /* Views */,
+				94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */,
+				942D427322614A31006AF281 /* GameListVC.swift */,
+				94560D0B22621D38008EE0B1 /* GenreListVC.swift */,
+			);
+			path = "Games and Genres";
+			sourceTree = "<group>";
+		};
+		942D427022614962006AF281 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				942D4271226149B2006AF281 /* CategoryCVCell.swift */,
+				94560D0822621C77008EE0B1 /* CategoryCVCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		94336FEB21866350000E8491 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				94560CFB22621272008EE0B1 /* Common */,
 				94336FEC21866359000E8491 /* StreamList */,
+				942D426F2261494C006AF281 /* Games and Genres */,
 				94B60B9D225CB76C0099A4DA /* Stream */,
 				94EB768B225DF04C00297DCD /* VCFactory.swift */,
 			);
@@ -115,7 +157,7 @@
 			children = (
 				94336FEE21866392000E8491 /* ClassicStreamCVCell.swift */,
 				9439C395225FEF02001E55EB /* StreamCVCell.swift */,
-				942D426B22611DD3006AF281 /* StreamListHeaderReusableView.swift */,
+				94560D0222621BAE008EE0B1 /* StreamCVCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +181,25 @@
 				942D426D2261262B006AF281 /* UserDefaults.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		94560CFB22621272008EE0B1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				94560D0022621B7C008EE0B1 /* Views */,
+				94560CFC22621299008EE0B1 /* ItemListVC.swift */,
+				94560CFD22621299008EE0B1 /* ItemListVC.xib */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		94560D0022621B7C008EE0B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94560CF722620774008EE0B1 /* StreamListHeaderReusableView.swift */,
+				94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		949330DE2182707100B29B0D = {
@@ -190,6 +251,7 @@
 				94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */,
 				94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */,
 				94418EF5224D0951007614DD /* StreamsService.swift */,
+				942D427522614B17006AF281 /* CategoriesService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -270,8 +332,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94560CFA22620774008EE0B1 /* StreamListHeaderReusableView.xib in Resources */,
 				949330F22182707200B29B0D /* Assets.xcassets in Resources */,
+				94560D0A22621C77008EE0B1 /* CategoryCVCell.xib in Resources */,
 				949330F02182707100B29B0D /* Main.storyboard in Resources */,
+				94560CFF22621299008EE0B1 /* ItemListVC.xib in Resources */,
+				94560D0422621BAE008EE0B1 /* StreamCVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,21 +373,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */,
+				94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */,
 				949330ED2182707100B29B0D /* StreamListVC.swift in Sources */,
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
 				94336FEF21866392000E8491 /* ClassicStreamCVCell.swift in Sources */,
 				94EB7686225DEECB00297DCD /* PlayerView.swift in Sources */,
+				942D427622614B17006AF281 /* CategoriesService.swift in Sources */,
 				94418EF6224D0951007614DD /* StreamsService.swift in Sources */,
 				94B60BC4225D0BF60099A4DA /* APIConstants.swift in Sources */,
+				94560CFE22621299008EE0B1 /* ItemListVC.swift in Sources */,
 				9439C396225FEF02001E55EB /* StreamCVCell.swift in Sources */,
 				94EB7690225E1BCC00297DCD /* PlayerControlButton.swift in Sources */,
 				949E9F92225D2F0A00E6182E /* Stream.swift in Sources */,
 				94D83C27225E94620014C5A3 /* StreamQuality.swift in Sources */,
 				94D83C29225F46DB0014C5A3 /* FavoritesService.swift in Sources */,
+				94560CF922620774008EE0B1 /* StreamListHeaderReusableView.swift in Sources */,
 				94418EEF224D0210007614DD /* GoodGame.swift in Sources */,
-				942D426C22611DD3006AF281 /* StreamListHeaderReusableView.swift in Sources */,
 				94B60BC2225D09FC0099A4DA /* BaseAPIService.swift in Sources */,
+				942D427422614A31006AF281 /* GameListVC.swift in Sources */,
 				949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */,
+				942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */,
 				94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */,
 				942D426E2261262B006AF281 /* UserDefaults.swift in Sources */,
 				94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */,

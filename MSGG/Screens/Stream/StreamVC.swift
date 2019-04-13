@@ -213,7 +213,7 @@ class StreamVC: UIViewController {
     }
     
     @IBAction func qualityButtonTriggered(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Select stream quality", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Select stream quality", comment: ""), message: nil, preferredStyle: .alert)
         StreamQuality.allCases.forEach { (quality) in
             let action = UIAlertAction(title: quality.title, style: .default, handler: { _ in
                 self.setStreamQuality(quality)
@@ -243,8 +243,8 @@ class StreamVC: UIViewController {
             SharedComponents.favoritesService.addToFavorites(channelID: channelID)
             updateFavoriteButton(isFavorite: newFavoriteState)
         } else {
-            let alert = UIAlertController(title: "Do you want to remove channel from the favorite?", message: nil, preferredStyle: .alert)
-            let action = UIAlertAction(title: "Remove", style: .destructive, handler: { (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Do you want to remove channel from the favorite?", comment: ""), message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive, handler: { (_) in
                 SharedComponents.favoritesService.removeFromFavorites(channelID: channelID)
                 self.updateFavoriteButton(isFavorite: false)
 //                self.dismiss(animated: true, completion: nil)

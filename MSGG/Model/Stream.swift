@@ -30,3 +30,9 @@ struct Game {
     let title: String
     let url: String
 }
+
+struct Genre {
+    let enTitle: String
+    let ruTitle: String
+    let coverURL: String
+}

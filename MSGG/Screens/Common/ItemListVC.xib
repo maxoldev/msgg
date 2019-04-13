@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemListVC" customModule="MSGG" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="i2L-Uq-V09" id="5ff-UF-ZLd"/>
+                <outlet property="collectionView" destination="7pn-OV-XYQ" id="FgG-2o-hQh"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Eym-vH-oyN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7pn-OV-XYQ">
+                    <rect key="frame" x="90" y="0.0" width="1740" height="1080"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="10" id="7bh-4A-szF">
+                        <size key="itemSize" width="573" height="343"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                </collectionView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="i2L-Uq-V09">
+                    <rect key="frame" x="940" y="520" width="40" height="40"/>
+                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7pn-OV-XYQ" secondAttribute="bottom" id="8zo-yX-6aC"/>
+                <constraint firstItem="i2L-Uq-V09" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="O0S-Wt-sIt"/>
+                <constraint firstItem="7pn-OV-XYQ" firstAttribute="leading" secondItem="nkI-NY-t1X" secondAttribute="leading" id="SQC-jb-oBE"/>
+                <constraint firstItem="i2L-Uq-V09" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UXY-E4-m42"/>
+                <constraint firstItem="7pn-OV-XYQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aj6-C7-x7w"/>
+                <constraint firstItem="7pn-OV-XYQ" firstAttribute="trailing" secondItem="nkI-NY-t1X" secondAttribute="trailing" id="bSw-hX-qqY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="nkI-NY-t1X"/>
+        </view>
+    </objects>
+</document>
