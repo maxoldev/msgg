@@ -27,6 +27,7 @@ class BaseCollectionVC: UIViewController,
     func setupUI() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.remembersLastFocusedIndexPath = true
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 80)
         layout.itemSize = itemSize
