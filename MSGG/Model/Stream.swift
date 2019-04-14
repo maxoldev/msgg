@@ -20,6 +20,7 @@ struct Stream {
     let previewURL: String
     let channelPosterURL: String
     let gameID: String?
+    let isOnline: Bool
     let sources: [StreamSource]
 }
 
@@ -38,4 +39,11 @@ struct Genre {
     let enTitle: String
     let ruTitle: String
     let coverURL: String
+}
+
+extension Stream {
+    
+    static func makeOffline(channelID: IDType, streamer: String, avatarURL: String) -> Stream {
+        return Stream(channelID: channelID, title: "", streamer: streamer, avatarURL: avatarURL, viewers: 0, playerSrc: "", previewURL: "", channelPosterURL: "", gameID: nil, isOnline: false, sources: [])
+    }
 }

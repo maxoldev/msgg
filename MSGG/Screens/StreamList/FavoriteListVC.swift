@@ -115,7 +115,7 @@ class FavoriteListVC: BaseCollectionVC {
             
         case let .offline(streamInfos):
             let si = streamInfos[indexPath.row]
-            stream = Stream(channelID: si.channelID, title: "", streamer: si.streamer, avatarURL: si.avatarURL, viewers: 0, playerSrc: "", previewURL: "", channelPosterURL: "", gameID: nil, sources: [])
+            stream = Stream.makeOffline(channelID: si.channelID, streamer: si.streamer, avatarURL: si.avatarURL)
         }
         let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
         vc.stream = stream

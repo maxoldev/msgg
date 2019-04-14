@@ -44,14 +44,18 @@ class StreamVC: UIViewController {
         super.viewDidLoad()
 
         showControls(false)
-        
         setupGestureRecognizers()
         
+        tryToLoadStream()
+    }
+
+    fileprivate func tryToLoadStream() {
         if let stream = stream {
             currentViewerCount = stream.viewers
             setupUI()
             tryToLoadGameInfo()
             setupUpdatingViewerCountTimer()
+            
             if let selectedSource = stream.sources.first {
                 noSupportedVideoFoundView.isHidden = true
                 playPauseButton.isHidden = false
@@ -60,7 +64,7 @@ class StreamVC: UIViewController {
                 restartVideo(url: selectedSource.url)
             } else {
                 noSupportedVideoFoundView.isHidden = false
-                messageLabel.text = NSLocalizedString("No supported video streams found", comment: "")
+                messageLabel.text = stream.isOnline ? NSLocalizedString("No supported video streams found", comment: "") : NSLocalizedString("Stream offline", comment: "")
                 playPauseButton.isHidden = true
                 qualityButton.isHidden = true
             }
@@ -69,7 +73,7 @@ class StreamVC: UIViewController {
             messageLabel.text = NSLocalizedString("No stream data passed", comment: "")
         }
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
