@@ -8,10 +8,11 @@
 
 import UIKit
 import SDWebImage
+import MarqueeLabel
 
 class CategoryCVCell: UICollectionViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: MarqueeLabel!
     @IBOutlet weak var streamsLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
     
@@ -32,6 +33,7 @@ class CategoryCVCell: UICollectionViewCell {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         let isFocused = context.nextFocusedView == self
+        titleLabel.labelize = isFocused ? false : true
         coordinator.addCoordinatedAnimations({
             self.titleLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
             self.streamsLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha

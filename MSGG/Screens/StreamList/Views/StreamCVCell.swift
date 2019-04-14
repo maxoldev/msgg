@@ -8,10 +8,11 @@
 
 import UIKit
 import SDWebImage
+import MarqueeLabel
 
 class StreamCVCell: UICollectionViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: MarqueeLabel!
     @IBOutlet weak var streamerLabel: UILabel!
     @IBOutlet weak var viewersIcon: UIImageView!
     @IBOutlet weak var viewersLabel: UILabel!
@@ -44,6 +45,8 @@ class StreamCVCell: UICollectionViewCell {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         let isFocused = context.nextFocusedView == self
+        titleLabel.labelize = isFocused ? false : true
+
         coordinator.addCoordinatedAnimations({
             self.titleLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
             self.streamerLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha

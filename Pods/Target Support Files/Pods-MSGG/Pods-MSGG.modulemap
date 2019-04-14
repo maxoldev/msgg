@@ -1,0 +1,6 @@
+framework module Pods_MSGG {
+  umbrella header "Pods-MSGG-umbrella.h"
+
+  export *
+  module * { export * }
+}

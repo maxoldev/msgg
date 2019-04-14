@@ -25,11 +25,17 @@
                             <constraint firstAttribute="width" secondItem="BYB-gb-sVG" secondAttribute="height" multiplier="272:380" id="HI6-d5-yUc"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taz-ab-1Zn">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taz-ab-1Zn" customClass="MarqueeLabel" customModule="MarqueeLabel">
                         <rect key="frame" x="0.0" y="330" width="204" height="28"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="labelize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <variation key="userInterfaceStyle=dark">
                             <color key="textColor" name="color-for-dark"/>
                         </variation>
