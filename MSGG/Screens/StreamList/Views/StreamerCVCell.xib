@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,10 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StreamerCVCell" id="5gN-br-lB5" customClass="StreamerCVCell" customModule="MSGG" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="204" height="243"/>
+            <rect key="frame" x="0.0" y="0.0" width="204" height="271"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="204" height="243"/>
+                <rect key="frame" x="0.0" y="0.0" width="204" height="271"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gks-mf-TpI">
@@ -25,30 +26,43 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Streamer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-xU-9De">
-                        <rect key="frame" x="0.0" y="221" width="204" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <rect key="frame" x="0.0" y="249" width="204" height="22"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
+                        <variation key="userInterfaceStyle=dark">
+                            <color key="textColor" name="color-for-dark"/>
+                        </variation>
+                        <variation key="userInterfaceStyle=light">
+                            <color key="textColor" name="color-for-light"/>
+                        </variation>
                     </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="Nnh-xU-9De" firstAttribute="top" secondItem="Gks-mf-TpI" secondAttribute="bottom" constant="45" id="77r-Xv-LvO"/>
                 <constraint firstItem="Nnh-xU-9De" firstAttribute="leading" secondItem="Gks-mf-TpI" secondAttribute="leading" id="Njv-lz-zvY"/>
                 <constraint firstItem="Gks-mf-TpI" firstAttribute="leading" secondItem="5gN-br-lB5" secondAttribute="leading" id="S50-T4-lrC"/>
                 <constraint firstItem="Gks-mf-TpI" firstAttribute="top" secondItem="5gN-br-lB5" secondAttribute="top" id="TBi-an-mPc"/>
                 <constraint firstAttribute="trailing" secondItem="Gks-mf-TpI" secondAttribute="trailing" id="bI4-IV-a8d"/>
                 <constraint firstItem="Nnh-xU-9De" firstAttribute="trailing" secondItem="Gks-mf-TpI" secondAttribute="trailing" id="hlP-ir-E5J"/>
-                <constraint firstAttribute="bottom" secondItem="Nnh-xU-9De" secondAttribute="bottom" id="kdB-Xp-udo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SXD-7U-Mhl"/>
-            <size key="customSize" width="204" height="243"/>
+            <size key="customSize" width="204" height="271"/>
             <connections>
-                <outlet property="bottomSpacingCs" destination="kdB-Xp-udo" id="Mbo-qZ-JlF"/>
                 <outlet property="streamerLabel" destination="Nnh-xU-9De" id="NMZ-Ma-2k2"/>
                 <outlet property="thumbImageView" destination="Gks-mf-TpI" id="Jy6-sX-PHW"/>
             </connections>
-            <point key="canvasLocation" x="-114" y="56.5"/>
+            <point key="canvasLocation" x="-114" y="70.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="color-for-dark">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color-for-light">
+            <color red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -36,6 +36,7 @@
 		94B60BC2225D09FC0099A4DA /* BaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */; };
 		94B60BC4225D0BF60099A4DA /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC3225D0BF60099A4DA /* APIConstants.swift */; };
 		94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */; };
+		94D4CA682263EA45004BE0E7 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4CA672263EA45004BE0E7 /* AppAppearance.swift */; };
 		94D7E7422263BE5C00A7784A /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E7412263BE5C00A7784A /* BaseCollectionVC.swift */; };
 		94D7E7452263C8FF00A7784A /* StreamerCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D7E7432263C8FF00A7784A /* StreamerCVCell.xib */; };
 		94D7E7462263C8FF00A7784A /* StreamerCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E7442263C8FF00A7784A /* StreamerCVCell.swift */; };
@@ -80,6 +81,7 @@
 		94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIService.swift; sourceTree = "<group>"; };
 		94B60BC3225D0BF60099A4DA /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
+		94D4CA672263EA45004BE0E7 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		94D7E7412263BE5C00A7784A /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
 		94D7E7432263C8FF00A7784A /* StreamerCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamerCVCell.xib; sourceTree = "<group>"; };
 		94D7E7442263C8FF00A7784A /* StreamerCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamerCVCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				942D426F2261494C006AF281 /* Games and Genres */,
 				94B60B9D225CB76C0099A4DA /* Stream */,
 				94EB768B225DF04C00297DCD /* VCFactory.swift */,
+				94D4CA672263EA45004BE0E7 /* AppAppearance.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				94D7E7462263C8FF00A7784A /* StreamerCVCell.swift in Sources */,
 				94EB768C225DF04C00297DCD /* VCFactory.swift in Sources */,
 				94560D1922624123008EE0B1 /* FailableDecodable.swift in Sources */,
+				94D4CA682263EA45004BE0E7 /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

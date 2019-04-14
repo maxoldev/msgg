@@ -131,10 +131,11 @@ class FavoriteListVC: BaseCollectionVC {
             fatalError("Reload button section must not contain cells")
         
         case .online:
-            return CGSize(width: 573, height: 343)
+            return CGSize(width: 375, height: 301)
 
         case .offline:
-            return CGSize(width: 204, height: 243)
+            return CGSize(width: 204, height: 271
+            )
         }
     }
     
@@ -145,10 +146,28 @@ class FavoriteListVC: BaseCollectionVC {
             return 0
         
         case .online:
-            return 10
+            return 80
 
         case .offline:
             return 52
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        let sectionType = sections[section]
+        switch sectionType {
+        case .reload:
+            return 0
+            
+        case .online:
+            return 50
+            
+        case .offline:
+            return 50
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 10, height: 80)
     }
 }

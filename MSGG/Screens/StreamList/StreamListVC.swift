@@ -50,11 +50,11 @@ class StreamListVC: ItemListVC<Stream> {
     }
     
     override var itemSize: CGSize {
-        return CGSize(width: 573, height: 343)
+        return CGSize(width: 375, height: 301)
     }
     
     override var horizontalSpacing: CGFloat {
-        return 10
+        return 80
     }
     
     override var verticalSpacing: CGFloat {

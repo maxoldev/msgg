@@ -16,14 +16,14 @@ class CatergoryListVC<T>: ItemListVC<T> {
     }
 
     override var itemSize: CGSize {
-        return CGSize(width: 340, height: 425)
+        return CGSize(width: 204, height: 384)
     }
     
     override var horizontalSpacing: CGFloat {
-        return 10
+        return 48
     }
     
     override var verticalSpacing: CGFloat {
-        return 30
+        return 80
     }
 }

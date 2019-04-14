@@ -14,11 +14,11 @@ class CategoryCVCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var streamsLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var bottomSpacingCs: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         coverImageView.adjustsImageWhenAncestorFocused = true
+        [titleLabel, streamsLabel].forEach({ $0.alpha = AppAppearance.unfocusedAlpha })
     }
     
     func setup(title: String, streams: Int, thumbURL: String) {
@@ -31,9 +31,10 @@ class CategoryCVCell: UICollectionViewCell {
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        bottomSpacingCs.constant = context.nextFocusedView == self ? -30 : 0
+        let isFocused = context.nextFocusedView == self
         coordinator.addCoordinatedAnimations({
-            self.layoutIfNeeded()
+            self.titleLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
+            self.streamsLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
         }, completion: nil)
     }
 }

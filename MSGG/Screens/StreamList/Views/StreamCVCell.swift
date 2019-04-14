@@ -13,14 +13,15 @@ class StreamCVCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var streamerLabel: UILabel!
+    @IBOutlet weak var viewersIcon: UIImageView!
     @IBOutlet weak var viewersLabel: UILabel!
     @IBOutlet weak var thumbImageView: UIImageView!
-    @IBOutlet weak var bottomSpacingCs: NSLayoutConstraint!
     @IBOutlet weak var warningImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         thumbImageView.adjustsImageWhenAncestorFocused = true
+        [titleLabel, streamerLabel, viewersIcon, viewersLabel].forEach({ $0.alpha = AppAppearance.unfocusedAlpha })
     }
     
     func setup(streamer: String, title: String, viewers: Int, previewURL: String, posterURL: String, warning: Bool) {
@@ -42,9 +43,12 @@ class StreamCVCell: UICollectionViewCell {
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        bottomSpacingCs.constant = context.nextFocusedView == self ? -20 : 0
+        let isFocused = context.nextFocusedView == self
         coordinator.addCoordinatedAnimations({
-            self.layoutIfNeeded()
+            self.titleLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
+            self.streamerLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
+            self.viewersIcon.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
+            self.viewersLabel.alpha = isFocused ? 1 : AppAppearance.unfocusedAlpha
         }, completion: nil)
     }
 }
