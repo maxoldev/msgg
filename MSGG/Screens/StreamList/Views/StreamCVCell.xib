@@ -25,37 +25,42 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDt-dJ-jv5">
-                        <rect key="frame" x="40" y="291" width="493" height="27"/>
+                        <rect key="frame" x="40" y="290" width="493" height="27"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Streamer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-xU-9De">
-                        <rect key="frame" x="40" y="322" width="71" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="40" y="321" width="75" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_person_white" translatesAutoresizingMaskIntoConstraints="NO" id="Uxq-d6-DlS">
-                        <rect key="frame" x="119" y="323" width="20" height="20"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_person_white" translatesAutoresizingMaskIntoConstraints="NO" id="Uxq-d6-DlS">
+                        <rect key="frame" x="123" y="323" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Uxq-d6-DlS" secondAttribute="height" id="9Gb-aY-gBs"/>
                             <constraint firstAttribute="height" constant="20" id="bSS-1G-kML"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="53" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-D9-Q89">
-                        <rect key="frame" x="143" y="322" width="21" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="147" y="321" width="22" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="round_cancel_white" translatesAutoresizingMaskIntoConstraints="NO" id="kox-iT-Rne">
+                        <rect key="frame" x="269" y="136" width="36" height="36"/>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="0kf-D9-Q89" firstAttribute="leading" secondItem="Uxq-d6-DlS" secondAttribute="trailing" constant="4" id="F2N-RR-BIu"/>
+                <constraint firstItem="kox-iT-Rne" firstAttribute="centerY" secondItem="Gks-mf-TpI" secondAttribute="centerY" id="Gfx-7n-YVO"/>
                 <constraint firstItem="UDt-dJ-jv5" firstAttribute="trailing" secondItem="Gks-mf-TpI" secondAttribute="trailing" id="Ht4-LA-PKe"/>
                 <constraint firstItem="Nnh-xU-9De" firstAttribute="leading" secondItem="UDt-dJ-jv5" secondAttribute="leading" id="Jbc-0m-IJ6"/>
+                <constraint firstItem="kox-iT-Rne" firstAttribute="centerX" secondItem="Gks-mf-TpI" secondAttribute="centerX" id="Nrm-Xc-ZZS"/>
                 <constraint firstItem="0kf-D9-Q89" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Gks-mf-TpI" secondAttribute="trailing" id="O1X-Ft-Cm4"/>
                 <constraint firstItem="Gks-mf-TpI" firstAttribute="leading" secondItem="5gN-br-lB5" secondAttribute="leading" constant="40" id="S50-T4-lrC"/>
                 <constraint firstItem="0kf-D9-Q89" firstAttribute="bottom" secondItem="Uxq-d6-DlS" secondAttribute="bottom" id="Snz-FD-s21"/>
@@ -74,10 +79,12 @@
                 <outlet property="thumbImageView" destination="Gks-mf-TpI" id="Jy6-sX-PHW"/>
                 <outlet property="titleLabel" destination="UDt-dJ-jv5" id="V5H-ta-K4M"/>
                 <outlet property="viewersLabel" destination="0kf-D9-Q89" id="h0c-ds-UhH"/>
+                <outlet property="warningImageView" destination="kox-iT-Rne" id="wnA-AV-5La"/>
             </connections>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="baseline_person_white" width="27" height="27"/>
+        <image name="round_cancel_white" width="36" height="36"/>
     </resources>
 </document>

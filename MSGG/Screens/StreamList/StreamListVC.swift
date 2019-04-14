@@ -14,7 +14,7 @@ class StreamListVC: ItemListVC<Stream> {
     
     enum Context {
         case allStreams
-        case game(gameID: String, gameURL: String)
+        case game(gameID: Int, gameURL: String)
         case genre(genreID: String)
     }
     
@@ -32,13 +32,10 @@ class StreamListVC: ItemListVC<Stream> {
             break
         }
         
-        service.getStreams(gameURL: gameURL) { [weak self] (streams, error) in
-            guard let self = self else {
-                return
-            }
-            self.isLoading = false
+        service.getStreams(gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
+            self?.isLoading = false
             
-            guard error == nil else {
+            guard error == nil, let self = self else {
                 return
             }
             self.items = streams
@@ -69,7 +66,8 @@ class StreamListVC: ItemListVC<Stream> {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StreamCVCell.self), for: indexPath) as! StreamCVCell
         let stream = items[indexPath.row]
-        cell.setup(streamer: stream.streamer, title: stream.title, viewers: stream.viewers, previewURL: stream.previewURL, posterURL: stream.channelPosterURL)
+        let needToShowWarning = stream.sources.isEmpty
+        cell.setup(streamer: stream.streamer, title: stream.title, viewers: stream.viewers, previewURL: stream.previewURL, posterURL: stream.channelPosterURL, warning: needToShowWarning)
         return cell
     }
     

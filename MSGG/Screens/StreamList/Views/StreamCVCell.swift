@@ -16,13 +16,14 @@ class StreamCVCell: UICollectionViewCell {
     @IBOutlet weak var viewersLabel: UILabel!
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var bottomSpacingCs: NSLayoutConstraint!
+    @IBOutlet weak var warningImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         thumbImageView.adjustsImageWhenAncestorFocused = true
     }
     
-    func setup(streamer: String, title: String, viewers: Int, previewURL: String, posterURL: String) {
+    func setup(streamer: String, title: String, viewers: Int, previewURL: String, posterURL: String, warning: Bool) {
         streamerLabel.text = streamer
         titleLabel.text = title
         viewersLabel.text = "\(viewers)"
@@ -37,6 +38,7 @@ class StreamCVCell: UICollectionViewCell {
                                        placeholderImage: UIImage(named: "gg-logo"),
                                        options: [SDWebImageOptions.fromLoaderOnly])
         }
+        warningImageView.isHidden = !warning
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {

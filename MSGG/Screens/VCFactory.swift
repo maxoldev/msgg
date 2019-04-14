@@ -23,6 +23,7 @@ class VCFactoryImpl: VCFactory {
 enum VCEnum: String {
     
     case streamList
+    case favoriteList
     case categoryList
     case stream
     
@@ -37,7 +38,7 @@ enum VCEnum: String {
     
     fileprivate var nibName: String {
         switch self {
-        case .streamList, .categoryList:
+        case .streamList, .favoriteList, .categoryList:
             return "ItemListVC"
         default:
             return ""
@@ -61,6 +62,6 @@ enum VCEnum: String {
     }
     
     fileprivate func fromNib<T>(nibName: String) -> T where T: UIViewController  {
-        return T(nibName: "ItemListVC", bundle: nil)
+        return T(nibName: nibName, bundle: nil)
     }
 }

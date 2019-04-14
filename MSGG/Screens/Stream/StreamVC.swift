@@ -13,6 +13,7 @@ import SDWebImage
 class StreamVC: UIViewController {
 
     var stream: Stream?
+    var currentGame: Game?
     var currentViewerCount = 0
     var selectedSource: StreamSource?
     
@@ -26,8 +27,12 @@ class StreamVC: UIViewController {
     @IBOutlet weak var qualityButton: UIButton!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var noSupportedVideoFoundView: UIStackView!
+    @IBOutlet weak var messageLabel: UILabel!
     
-    let service = StreamsService()
+    let streamService = StreamsService()
+    let gameService = CategoriesService()
+    
     var updatingViewerCountTimer: Timer?
     var hidingControlsTimer: Timer?
     
@@ -42,15 +47,27 @@ class StreamVC: UIViewController {
         
         setupGestureRecognizers()
         
-        if let stream = stream, let selectedSource = stream.sources.first {
-            self.selectedSource = selectedSource
+        if let stream = stream {
             currentViewerCount = stream.viewers
             setupUI()
-            restartVideo(url: selectedSource.url)
-            updateStreamInfo()
+            tryToLoadGameInfo()
+            setupUpdatingViewerCountTimer()
+            if let selectedSource = stream.sources.first {
+                noSupportedVideoFoundView.isHidden = true
+                playPauseButton.isHidden = false
+                qualityButton.isHidden = false
+                self.selectedSource = selectedSource
+                restartVideo(url: selectedSource.url)
+            } else {
+                noSupportedVideoFoundView.isHidden = false
+                messageLabel.text = NSLocalizedString("No supported video streams found", comment: "")
+                playPauseButton.isHidden = true
+                qualityButton.isHidden = true
+            }
+        } else {
+            noSupportedVideoFoundView.isHidden = false
+            messageLabel.text = NSLocalizedString("No stream data passed", comment: "")
         }
-        
-        setupUpdatingViewerCountTimer()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,11 +78,11 @@ class StreamVC: UIViewController {
     }
     
     fileprivate func setupUI() {
-//        gameButton.setTitle(stream!.game.title, for: .normal)
         titleLabel.text = stream!.title
         streamerLabel.text = stream!.streamer
         viewersLabel.text = "\(stream!.viewers)"
         updateFavoriteButton(isFavorite: SharedComponents.favoritesService.isFavorite(channelID: stream!.channelID))
+        updateStreamerAvatar(url: stream!.avatarURL)
     }
     
     fileprivate func setupUpdatingViewerCountTimer() {
@@ -83,24 +100,31 @@ class StreamVC: UIViewController {
     }
 
     fileprivate func updateStreamerAvatar(url: String) {
-        avatarImageView.sd_setImage(with: URL(string: url), placeholderImage: nil, options: [SDWebImageOptions.refreshCached, SDWebImageOptions.retryFailed], context: nil)
+        avatarImageView.sd_setImage(with: URL(string: url), placeholderImage: nil,
+                                    options: [SDWebImageOptions.refreshCached, SDWebImageOptions.retryFailed])
     }
     
     fileprivate func updateViewerCount(_ count: Int) {
         viewersLabel.text = "\(count)"
     }
     
-    fileprivate func updateStreamInfo() {
-        service.getPlayerInfo(playerSrc: stream!.playerSrc) { [weak self] (info, error) in
-            guard let self = self, error == nil, let info = info else {
+    fileprivate func tryToLoadGameInfo() {
+        gameButton.isHidden = true
+        guard let gameID = stream!.gameID else {
+            return
+        }
+        gameService.getGameInfo(gameID: gameID) { [weak self] (game, error) in
+            guard let self = self, let game = game else {
                 return
             }
-            self.updateStreamerAvatar(url: info.streamerAvatarURL)
+            self.currentGame = game
+            self.gameButton.isHidden = false
+            self.gameButton.setTitle(game.title, for: .normal)
         }
     }
-
+    
     fileprivate func updateViewerCount() {
-        service.getViewers(streamID: stream!.channelID) { [weak self] (viewerCount, error) in
+        streamService.getViewers(streamID: stream!.channelID) { [weak self] (viewerCount, error) in
             guard let self = self, error == nil else {
                 return
             }
@@ -139,7 +163,7 @@ class StreamVC: UIViewController {
     }
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return [playPauseButton]
+        return [playPauseButton, favoriteButton]
     }
     
     fileprivate func showControls(_ show: Bool) {
@@ -202,11 +226,22 @@ class StreamVC: UIViewController {
     //MARK: - Actions
     
     @IBAction func gameButtonTriggered(_ sender: UIButton) {
+        guard let currentGame = currentGame else {
+            return
+        }
+        let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
+        vc.context = .game(gameID: currentGame.gameID, gameURL: currentGame.url)
+        var viewControllersArray = navigationController!.viewControllers
+        viewControllersArray = [viewControllersArray.first!, vc]
+        navigationController?.setViewControllers(viewControllersArray, animated: true)
     }
-    
+     
     @IBAction func qualityButtonTriggered(_ sender: UIButton) {
+        guard let sources = stream?.sources else {
+            return
+        }
         let alert = UIAlertController(title: NSLocalizedString("Select stream quality", comment: ""), message: nil, preferredStyle: .alert)
-        stream!.sources.forEach { (source) in
+        sources.forEach { (source) in
             let title = source.title
             let action = UIAlertAction(title: title, style: .default, handler: { _ in
                 self.selectStreamSource(source)
@@ -233,7 +268,7 @@ class StreamVC: UIViewController {
         let channelID = stream!.channelID
         let newFavoriteState = !SharedComponents.favoritesService.isFavorite(channelID: channelID)
         if newFavoriteState {
-            SharedComponents.favoritesService.addToFavorites(channelID: channelID)
+            SharedComponents.favoritesService.addToFavorites(stream: stream!)
             updateFavoriteButton(isFavorite: newFavoriteState)
         } else {
             let alert = UIAlertController(title: NSLocalizedString("Do you want to remove channel from the favorite?", comment: ""), message: nil, preferredStyle: .alert)

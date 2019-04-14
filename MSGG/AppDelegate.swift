@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let streamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
         streamListVC.title = NSLocalizedString("Streams", comment: "")
         
-        let favoriteStreamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
+        let favoriteStreamListVC = SharedComponents.vcFactory.create(.streamList) as FavoriteListVC
         favoriteStreamListVC.title = NSLocalizedString("Favorites", comment: "")
 
         let gameListVC = SharedComponents.vcFactory.create(.categoryList) as GameListVC

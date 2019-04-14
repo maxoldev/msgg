@@ -37,6 +37,35 @@ class CategoriesService: BaseAPIService {
                     completion([], [], error)
                 }
             }
-            }.resume()
+        }.resume()
+    }
+    
+    func getGameInfo(gameID: String, completion: @escaping (Game?, Error?) -> ()) {
+        let request = makeURLRequest4(endpoint: .games, ID: gameID)
+        let session = URLSession(configuration: .default)
+        
+        session.dataTask(with: request) { (data, response, error) in
+            let foundError = self.getError(data: data, urlResponse: response, error: error)
+            guard foundError == nil else {
+                DispatchQueue.main.async {
+                    completion(nil, foundError)
+                }
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let ggGame = try jsonDecoder.decode(GoodGame.Game.self, from: data!)
+                let game = Game(goodgameGame: ggGame)
+                DispatchQueue.main.async {
+                    completion(game, nil)
+                }
+            } catch {
+                print(error)
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }.resume()
     }
 }

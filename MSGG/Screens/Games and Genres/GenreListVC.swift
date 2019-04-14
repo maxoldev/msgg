@@ -16,12 +16,8 @@ class GenreListVC: CatergoryListVC<Genre> {
         isLoading = true
         
         service.getCategories { [weak self] (games, genres, error) in
-            guard let self = self else {
-                return
-            }
-            self.isLoading = false
-            
-            guard error == nil else {
+            self?.isLoading = false
+            guard error == nil, let self = self else {
                 return
             }
             self.items = genres

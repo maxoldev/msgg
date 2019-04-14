@@ -16,12 +16,8 @@ class GameListVC: CatergoryListVC<Game> {
         isLoading = true
         
         service.getCategories { [weak self] (games, genres, error) in
-            guard let self = self else {
-                return
-            }
-            self.isLoading = false
-            
-            guard error == nil else {
+            self?.isLoading = false
+            guard error == nil, let self = self else {
                 return
             }
             self.items = games
@@ -44,7 +40,7 @@ class GameListVC: CatergoryListVC<Game> {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let game = items[indexPath.row]
         let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
-        vc.context = .game(gameID: String(game.gameID), gameURL: game.url)
+        vc.context = .game(gameID: game.gameID, gameURL: game.url)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

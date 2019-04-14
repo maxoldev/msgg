@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TitleHeaderReusableView" id="eyf-2P-ouR" customClass="TitleHeaderReusableView" customModule="MSGG" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1740" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC6-J4-dA3">
+                    <rect key="frame" x="90" y="17" width="75" height="46"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="userInterfaceStyle=dark">
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </variation>
+                    <variation key="userInterfaceStyle=light">
+                        <nil key="textColor"/>
+                    </variation>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="hC6-J4-dA3" firstAttribute="leading" secondItem="Fiw-Rd-c9O" secondAttribute="leading" id="Ihb-Cb-eTV"/>
+                <constraint firstItem="hC6-J4-dA3" firstAttribute="centerY" secondItem="eyf-2P-ouR" secondAttribute="centerYWithinMargins" id="d5w-KC-2of"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Fiw-Rd-c9O"/>
+            <connections>
+                <outlet property="titleLabel" destination="hC6-J4-dA3" id="LUU-Vq-nAw"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+</document>

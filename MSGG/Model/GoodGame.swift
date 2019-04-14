@@ -25,6 +25,7 @@ struct GoodGame {
         let poster: String
         let streamkey: String
         let channelkey: String
+        let status: Bool
         let sources: Dictionary<String, String>
     }
     

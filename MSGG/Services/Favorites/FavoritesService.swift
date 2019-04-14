@@ -8,37 +8,58 @@
 
 import Foundation
 
+struct FavoriteStreamInfo: Codable {
+    let channelID: IDType
+    let streamer: String
+    let avatarURL: String
+}
+
 class FavoritesService {
     
-    fileprivate(set) var favoriteStreamIDList: [IDType]
+    fileprivate(set) var favoriteStreamInfoList: [FavoriteStreamInfo]
+    fileprivate let streamsService: StreamsService
     
-    init() {
-        if let idArray = UserDefaults.standard.array(forKey: UserDefaultsKeys.favorites.rawValue) as? [IDType] {
-            favoriteStreamIDList = idArray
+    init(streamsService: StreamsService) {
+        self.streamsService = streamsService
+        
+        if let data = UserDefaults.standard.data(forKey: UserDefaultsKeys.favorites.rawValue) {
+            favoriteStreamInfoList = try! JSONDecoder().decode([FavoriteStreamInfo].self, from: data)
         } else {
-            favoriteStreamIDList = []
+            favoriteStreamInfoList = []
         }
     }
     
-    func addToFavorites(channelID: IDType) {
-        favoriteStreamIDList.append(channelID)
+    func getStreams(completion: @escaping (_ online: [Stream], _ offline: [FavoriteStreamInfo], Error?) -> ()) {
+        streamsService.getStreams(skipStreamsWithoutSupportedVideo: true) { [weak self] (streams, error) in
+            guard error == nil, let self = self else {
+                return
+            }
+            let favoriteStreamIDSet = Set(self.favoriteStreamInfoList.map({ $0.channelID }))
+            let onlineFavoriteStreams = streams.filter({ favoriteStreamIDSet.contains($0.channelID) })
+            let onlineStreamIDSet = Set(onlineFavoriteStreams.map({ $0.channelID }))
+            let offlineStreamIDSet = favoriteStreamIDSet.subtracting(onlineStreamIDSet)
+            let offlineFavoriteStreamInfoList = self.favoriteStreamInfoList.filter({ offlineStreamIDSet.contains($0.channelID) })
+            completion(onlineFavoriteStreams, offlineFavoriteStreamInfoList, nil)
+        }
+    }
+    
+    func addToFavorites(stream: Stream) {
+        let favStreamInfo = FavoriteStreamInfo(channelID: stream.channelID, streamer: stream.streamer, avatarURL: stream.avatarURL)
+        favoriteStreamInfoList.append(favStreamInfo)
         saveListOnDisk()
     }
 
     func removeFromFavorites(channelID: IDType) {
-        favoriteStreamIDList.removeAll(where: {$0 == channelID})
+        favoriteStreamInfoList.removeAll(where: { $0.channelID == channelID })
         saveListOnDisk()
     }
-
-//    func getFavoriteChannelIDs() -> [ChannelID] {
-//        return favoriteStreamIDList
-//    }
     
     func isFavorite(channelID: IDType) -> Bool {
-        return favoriteStreamIDList.contains(channelID)
+        return favoriteStreamInfoList.contains(where: { $0.channelID == channelID })
     }
     
     fileprivate func saveListOnDisk() {
-        UserDefaults.standard.set(favoriteStreamIDList, forKey: UserDefaultsKeys.favorites.rawValue)
+        let data = try! JSONEncoder().encode(favoriteStreamInfoList)
+        UserDefaults.standard.set(data, forKey: UserDefaultsKeys.favorites.rawValue)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class StreamsService: BaseAPIService {
 
-    func getStreams(limit: Int = 1000, gameURL: String? = nil, completion: @escaping ([Stream], Error?) -> ()) {
+    func getStreams(limit: Int = 5000, gameURL: String? = nil, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping ([Stream], Error?) -> ()) {
         var queryItems = [URLQueryItem(name: "onpage", value: String(limit))]
         if let gameURL = gameURL {
             queryItems.append(URLQueryItem(name: "game", value: gameURL))
@@ -30,15 +30,23 @@ class StreamsService: BaseAPIService {
             do {
                 let jsonDecoder = JSONDecoder()
                 let ggStreams = try jsonDecoder.decode(GoodGame.Streams.self, from: data!)
-                let ggStreamsArray = ggStreams.streams.compactMap({$0.base})  // skip objects with incomplete data model
-                let streams = ggStreamsArray.compactMap({ (ggStream) -> Stream? in
-                    let stream = Stream(goodgameStream: ggStream)
-                    if stream.sources.isEmpty {  // has only smil source
-                        return nil
-                    } else {
-                        return stream
-                    }
-                })
+                let ggStreamsArray = ggStreams.streams.compactMap({ $0.base })  // skip objects with incomplete data model
+                let streams: [Stream]
+                if skipStreamsWithoutSupportedVideo {
+                    streams = ggStreamsArray.compactMap({ (ggStream) -> Stream? in
+                        if !ggStream.status {  // offline
+                            return nil
+                        }
+                        let stream = Stream(goodgameStream: ggStream)
+                        if stream.sources.isEmpty {  // has only smil source
+                            return nil
+                        } else {
+                            return stream
+                        }
+                    })
+                } else {
+                    streams = ggStreamsArray.map({Stream(goodgameStream: $0)})
+                }
                 DispatchQueue.main.async {
                     completion(streams, nil)
                 }
