@@ -118,22 +118,26 @@ class StreamVC: UIViewController {
             return
         }
         gameService.getGameInfo(gameID: gameID) { [weak self] (game, error) in
-            guard let self = self, let game = game else {
-                return
+            DispatchQueue.main.async {
+                guard let self = self, let game = game else {
+                    return
+                }
+                self.currentGame = game
+                self.gameButton.isHidden = false
+                self.gameButton.setTitle(game.title, for: .normal)
             }
-            self.currentGame = game
-            self.gameButton.isHidden = false
-            self.gameButton.setTitle(game.title, for: .normal)
         }
     }
     
     fileprivate func updateViewerCount() {
         streamService.getViewers(streamID: stream!.channelID) { [weak self] (viewerCount, error) in
-            guard let self = self, error == nil else {
-                return
+            DispatchQueue.main.async {
+                guard let self = self, error == nil else {
+                    return
+                }
+                self.currentViewerCount = viewerCount
+                self.updateViewerCount(viewerCount)
             }
-            self.currentViewerCount = viewerCount
-            self.updateViewerCount(viewerCount)
         }
     }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TVServices
 
 struct FavoriteStreamInfo: Codable {
     let channelID: IDType
@@ -26,16 +27,21 @@ class FavoritesService {
     init(streamsService: StreamsService) {
         self.streamsService = streamsService
         
-        if let data = UserDefaults.standard.data(forKey: UserDefaultsKeys.favorites.rawValue) {
+        if let data = FavoritesService.userDefaults.data(forKey: UserDefaultsKeys.favorites.rawValue) {
             favoriteStreamInfoList = try! JSONDecoder().decode([FavoriteStreamInfo].self, from: data)
         } else {
             favoriteStreamInfoList = []
         }
     }
     
+    static var userDefaults: UserDefaults {
+        return UserDefaults.init(suiteName: "group.com.ms.MSGG2")!
+    }
+    
     func getStreams(completion: @escaping (_ online: [Stream], _ offline: [FavoriteStreamInfo], Error?) -> ()) {
         streamsService.getStreams(skipStreamsWithoutSupportedVideo: true) { [weak self] (streams, error) in
             guard error == nil, let self = self else {
+                completion([], [], nil)
                 return
             }
             let favoriteStreamIDSet = Set(self.favoriteStreamInfoList.map({ $0.channelID }))
@@ -94,10 +100,12 @@ class FavoritesService {
     fileprivate func saveListOnDisk() {
 //        favoriteStreamInfoList.append(FavoriteStreamInfo(channelID: 999, streamer: "Test", avatarURL: ""))
         let data = try! JSONEncoder().encode(favoriteStreamInfoList)
-        UserDefaults.standard.set(data, forKey: UserDefaultsKeys.favorites.rawValue)
+        FavoritesService.userDefaults.set(data, forKey: UserDefaultsKeys.favorites.rawValue)
+        FavoritesService.userDefaults.synchronize()
     }
     
     fileprivate func notifyChanges() {
         NotificationCenter.default.post(name: FavoritesService.listUpdatedNotification, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.TVTopShelfItemsDidChange, object: nil)
     }
 }

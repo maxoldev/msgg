@@ -16,13 +16,15 @@ class GenreListVC: CatergoryListVC<Genre> {
         isLoading = true
         
         service.getCategories { [weak self] (games, genres, error) in
-            self?.isLoading = false
-            guard error == nil, let self = self else {
-                return
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                guard error == nil, let self = self else {
+                    return
+                }
+                self.items = genres
+                self.collectionView.reloadData()
+                self.setNeedsFocusUpdate()
             }
-            self.items = genres
-            self.collectionView.reloadData()
-            self.setNeedsFocusUpdate()
         }
     }
 

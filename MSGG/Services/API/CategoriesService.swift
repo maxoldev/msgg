@@ -17,9 +17,7 @@ class CategoriesService: BaseAPIService {
         session.dataTask(with: request) { (data, response, error) in
             let foundError = self.getError(data: data, urlResponse: response, error: error)
             guard foundError == nil else {
-                DispatchQueue.main.async {
-                    completion([], [], foundError)
-                }
+                completion([], [], foundError)
                 return
             }
             
@@ -28,14 +26,10 @@ class CategoriesService: BaseAPIService {
                 let ggCategories = try jsonDecoder.decode(GoodGame.Categories.self, from: data!)
                 let games = ggCategories.games.map({Game(goodgameGame: $0)})
                 let genres = ggCategories.genres.map({Genre(goodgameGenre: $0)})
-                DispatchQueue.main.async {
-                    completion(games, genres, nil)
-                }
+                completion(games, genres, nil)
             } catch {
                 print(error)
-                DispatchQueue.main.async {
-                    completion([], [], error)
-                }
+                completion([], [], error)
             }
         }.resume()
     }
@@ -47,9 +41,7 @@ class CategoriesService: BaseAPIService {
         session.dataTask(with: request) { (data, response, error) in
             let foundError = self.getError(data: data, urlResponse: response, error: error)
             guard foundError == nil else {
-                DispatchQueue.main.async {
-                    completion(nil, foundError)
-                }
+                completion(nil, foundError)
                 return
             }
             
@@ -57,14 +49,10 @@ class CategoriesService: BaseAPIService {
                 let jsonDecoder = JSONDecoder()
                 let ggGame = try jsonDecoder.decode(GoodGame.Game.self, from: data!)
                 let game = Game(goodgameGame: ggGame)
-                DispatchQueue.main.async {
-                    completion(game, nil)
-                }
+                completion(game, nil)
             } catch {
                 print(error)
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
+                completion(nil, error)
             }
         }.resume()
     }

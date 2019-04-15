@@ -21,9 +21,7 @@ class StreamsService: BaseAPIService {
         session.dataTask(with: request) { (data, response, error) in
             let foundError = self.getError(data: data, urlResponse: response, error: error)
             guard foundError == nil else {
-                DispatchQueue.main.async {
-                    completion([], foundError)
-                }
+                completion([], foundError)
                 return
             }
             
@@ -47,14 +45,10 @@ class StreamsService: BaseAPIService {
                 } else {
                     streams = ggStreamsArray.map({Stream(goodgameStream: $0)})
                 }
-                DispatchQueue.main.async {
-                    completion(streams, nil)
-                }
+                completion(streams, nil)
             } catch {
                 print(error)
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                completion([], error)
             }
         }.resume()
     }
@@ -66,23 +60,17 @@ class StreamsService: BaseAPIService {
         session.dataTask(with: request) { (data, response, error) in
             let foundError = self.getError(data: data, urlResponse: response, error: error)
             guard foundError == nil else {
-                DispatchQueue.main.async {
-                    completion(0, foundError)
-                }
+                completion(0, foundError)
                 return
             }
             
             do {
                 let jsonDecoder = JSONDecoder()
                 let ggStream = try jsonDecoder.decode(GoodGame.StreamOld.self, from: data!)
-                DispatchQueue.main.async {
-                    completion(Int(ggStream.viewers) ?? 0, nil)
-                }
+                completion(Int(ggStream.viewers) ?? 0, nil)
             } catch {
                 print(error)
-                DispatchQueue.main.async {
-                    completion(0, error)
-                }
+                completion(0, error)
             }
         }.resume()
     }
@@ -94,9 +82,7 @@ class StreamsService: BaseAPIService {
         session.dataTask(with: request) { (data, response, error) in
             let foundError = self.getError(data: data, urlResponse: response, error: error)
             guard foundError == nil else {
-                DispatchQueue.main.async {
-                    completion(nil, foundError)
-                }
+                completion(nil, foundError)
                 return
             }
             
@@ -104,14 +90,10 @@ class StreamsService: BaseAPIService {
                 let jsonDecoder = JSONDecoder()
                 let ggPlayerInfo = try jsonDecoder.decode(GoodGame.PlayerInfo.self, from: data!)
                 let playerInfo = PlayerInfo(streamerAvatarURL: ggPlayerInfo.streamer_avatar)
-                DispatchQueue.main.async {
-                    completion(playerInfo, nil)
-                }
+                completion(playerInfo, nil)
             } catch {
                 print(error)
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
+                completion(nil, error)
             }
         }.resume()
     }

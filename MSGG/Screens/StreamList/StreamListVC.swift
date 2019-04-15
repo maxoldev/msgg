@@ -33,17 +33,19 @@ class StreamListVC: ItemListVC<Stream> {
         }
         
         service.getStreams(gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
-            self?.isLoading = false
-            
-            guard error == nil, let self = self else {
-                return
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                
+                guard error == nil, let self = self else {
+                    return
+                }
+                self.items = streams
+                self.collectionView.reloadData()
+                self.setNeedsFocusUpdate()
             }
-            self.items = streams
-            self.collectionView.reloadData()
-            self.setNeedsFocusUpdate()
         }
     }
-    
+
     override func registerCellAndViews() {
         super.registerCellAndViews()
         collectionView.register(UINib(nibName: String(describing: StreamCVCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: StreamCVCell.self))

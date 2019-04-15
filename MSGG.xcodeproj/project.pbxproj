@@ -47,8 +47,46 @@
 		94EB768C225DF04C00297DCD /* VCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768B225DF04C00297DCD /* VCFactory.swift */; };
 		94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768D225DF1EB00297DCD /* SharedComponents.swift */; };
 		94EB7690225E1BCC00297DCD /* PlayerControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768F225E1BCC00297DCD /* PlayerControlButton.swift */; };
+		94F07D7322651B0600601036 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F07D7222651B0600601036 /* TVServices.framework */; };
+		94F07D7622651B0600601036 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F07D7522651B0600601036 /* ServiceProvider.swift */; };
+		94F07D7A22651B0600601036 /* TopShelf.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94F07D7122651B0600601036 /* TopShelf.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94F07D7F2265373A00601036 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D83C28225F46DB0014C5A3 /* FavoritesService.swift */; };
+		94F07D802265375200601036 /* StreamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94418EF5224D0951007614DD /* StreamsService.swift */; };
+		94F07D812265377C00601036 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC3225D0BF60099A4DA /* APIConstants.swift */; };
+		94F07D822265377C00601036 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */; };
+		94F07D832265377C00601036 /* BaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */; };
+		94F07D842265378C00601036 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F91225D2F0A00E6182E /* Stream.swift */; };
+		94F07D852265378C00601036 /* GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94418EEE224D0210007614DD /* GoodGame.swift */; };
+		94F07D862265378C00601036 /* Stream+GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F93225D311900E6182E /* Stream+GoodGame.swift */; };
+		94F07D872265378C00601036 /* StreamQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D83C26225E94620014C5A3 /* StreamQuality.swift */; };
+		94F07D882265379900601036 /* FailableDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D1822624123008EE0B1 /* FailableDecodable.swift */; };
+		94F07D89226537B500601036 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaults.swift */; };
 		A4895CD43B8A98EBE93CF4D3 /* Pods_MSGG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5932B0EA0D85ED4B3980DD7 /* Pods_MSGG.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94F07D7822651B0600601036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 949330DF2182707100B29B0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94F07D7022651B0600601036;
+			remoteInfo = TopShelf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94F07D7E22651B0600601036 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				94F07D7A22651B0600601036 /* TopShelf.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9415A26E22639445007D2F82 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
@@ -93,6 +131,12 @@
 		94EB768B225DF04C00297DCD /* VCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCFactory.swift; sourceTree = "<group>"; };
 		94EB768D225DF1EB00297DCD /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
 		94EB768F225E1BCC00297DCD /* PlayerControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlButton.swift; sourceTree = "<group>"; };
+		94F07D7122651B0600601036 /* TopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		94F07D7222651B0600601036 /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
+		94F07D7522651B0600601036 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		94F07D7722651B0600601036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94F07D8A22653ADC00601036 /* MSGG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MSGG.entitlements; sourceTree = "<group>"; };
+		94F07D8B22654FA100601036 /* TopShelf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopShelf.entitlements; sourceTree = "<group>"; };
 		C4166786C982B32460A4A2B4 /* Pods-MSGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGG.debug.xcconfig"; path = "Target Support Files/Pods-MSGG/Pods-MSGG.debug.xcconfig"; sourceTree = "<group>"; };
 		E15BD812B24168C6EAA03E06 /* Pods-MSGG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGG.release.xcconfig"; path = "Target Support Files/Pods-MSGG/Pods-MSGG.release.xcconfig"; sourceTree = "<group>"; };
 		E5932B0EA0D85ED4B3980DD7 /* Pods_MSGG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSGG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +151,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94F07D6E22651B0600601036 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F07D7322651B0600601036 /* TVServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				E5932B0EA0D85ED4B3980DD7 /* Pods_MSGG.framework */,
+				94F07D7222651B0600601036 /* TVServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -237,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				949330E92182707100B29B0D /* MSGG */,
+				94F07D7422651B0600601036 /* TopShelf */,
 				949330E82182707100B29B0D /* Products */,
 				811EA64F672E2D8648D066E2 /* Pods */,
 				0E4C44A4D037EDC8F8074746 /* Frameworks */,
@@ -247,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				949330E72182707100B29B0D /* MSGG.app */,
+				94F07D7122651B0600601036 /* TopShelf.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,6 +309,7 @@
 		949330E92182707100B29B0D /* MSGG */ = {
 			isa = PBXGroup;
 			children = (
+				94F07D8A22653ADC00601036 /* MSGG.entitlements */,
 				94560D1722624103008EE0B1 /* Common */,
 				94418EED224D01FB007614DD /* Model */,
 				94418EF4224D091C007614DD /* Services */,
@@ -305,6 +361,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		94F07D7422651B0600601036 /* TopShelf */ = {
+			isa = PBXGroup;
+			children = (
+				94F07D8B22654FA100601036 /* TopShelf.entitlements */,
+				94F07D7522651B0600601036 /* ServiceProvider.swift */,
+				94F07D7722651B0600601036 /* Info.plist */,
+			);
+			path = TopShelf;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,15 +383,34 @@
 				949330E42182707100B29B0D /* Frameworks */,
 				949330E52182707100B29B0D /* Resources */,
 				DA56E4F478950FDFDD3BFDE4 /* [CP] Embed Pods Frameworks */,
+				94F07D7E22651B0600601036 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				94F07D7922651B0600601036 /* PBXTargetDependency */,
 			);
 			name = MSGG;
 			productName = MSGG;
 			productReference = 949330E72182707100B29B0D /* MSGG.app */;
 			productType = "com.apple.product-type.application";
+		};
+		94F07D7022651B0600601036 /* TopShelf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94F07D7D22651B0600601036 /* Build configuration list for PBXNativeTarget "TopShelf" */;
+			buildPhases = (
+				94F07D6D22651B0600601036 /* Sources */,
+				94F07D6E22651B0600601036 /* Frameworks */,
+				94F07D6F22651B0600601036 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TopShelf;
+			productName = TopShelf;
+			productReference = 94F07D7122651B0600601036 /* TopShelf.appex */;
+			productType = "com.apple.product-type.tv-app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -333,12 +418,25 @@
 		949330DF2182707100B29B0D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = MaximSolovyov;
 				TargetAttributes = {
 					949330E62182707100B29B0D = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					94F07D7022651B0600601036 = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -356,6 +454,7 @@
 			projectRoot = "";
 			targets = (
 				949330E62182707100B29B0D /* MSGG */,
+				94F07D7022651B0600601036 /* TopShelf */,
 			);
 		};
 /* End PBXProject section */
@@ -373,6 +472,13 @@
 				94D7E7492263D06200A7784A /* TitleHeaderReusableView.xib in Resources */,
 				94560D0422621BAE008EE0B1 /* StreamCVCell.xib in Resources */,
 				94D7E7452263C8FF00A7784A /* StreamerCVCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94F07D6F22651B0600601036 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +573,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94F07D6D22651B0600601036 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F07D812265377C00601036 /* APIConstants.swift in Sources */,
+				94F07D822265377C00601036 /* APIServiceError.swift in Sources */,
+				94F07D7622651B0600601036 /* ServiceProvider.swift in Sources */,
+				94F07D862265378C00601036 /* Stream+GoodGame.swift in Sources */,
+				94F07D802265375200601036 /* StreamsService.swift in Sources */,
+				94F07D882265379900601036 /* FailableDecodable.swift in Sources */,
+				94F07D852265378C00601036 /* GoodGame.swift in Sources */,
+				94F07D7F2265373A00601036 /* FavoritesService.swift in Sources */,
+				94F07D89226537B500601036 /* UserDefaults.swift in Sources */,
+				94F07D872265378C00601036 /* StreamQuality.swift in Sources */,
+				94F07D832265377C00601036 /* BaseAPIService.swift in Sources */,
+				94F07D842265378C00601036 /* Stream.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94F07D7922651B0600601036 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94F07D7022651B0600601036 /* TopShelf */;
+			targetProxy = 94F07D7822651B0600601036 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		949330EE2182707100B29B0D /* Main.storyboard */ = {
@@ -599,8 +732,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C4166786C982B32460A4A2B4 /* Pods-MSGG.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MSGG/MSGG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHB2EZ956C;
 				INFOPLIST_FILE = MSGG/Info.plist;
@@ -619,8 +754,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E15BD812B24168C6EAA03E06 /* Pods-MSGG.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MSGG/MSGG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHB2EZ956C;
 				INFOPLIST_FILE = MSGG/Info.plist;
@@ -632,6 +769,48 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		94F07D7B22651B0600601036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHB2EZ956C;
+				INFOPLIST_FILE = TopShelf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ms.MSGG2.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		94F07D7C22651B0600601036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHB2EZ956C;
+				INFOPLIST_FILE = TopShelf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ms.MSGG2.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
 			};
 			name = Release;
 		};
@@ -652,6 +831,15 @@
 			buildConfigurations = (
 				949330F72182707200B29B0D /* Debug */,
 				949330F82182707200B29B0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94F07D7D22651B0600601036 /* Build configuration list for PBXNativeTarget "TopShelf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94F07D7B22651B0600601036 /* Debug */,
+				94F07D7C22651B0600601036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
