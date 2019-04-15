@@ -17,10 +17,24 @@ class FavoriteListVC: BaseCollectionVC {
     }
     
     var sections = [Section.reload]
+    fileprivate var needToReload = false
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(favoritesUpdatedNotified), name: FavoritesService.listUpdatedNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if needToReload {
+            needToReload = false
+            loadData()
+        }
     }
     
     override func loadData() {
@@ -46,6 +60,12 @@ class FavoriteListVC: BaseCollectionVC {
         super.registerCellAndViews()
         collectionView.register(UINib(nibName: String(describing: StreamCVCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: StreamCVCell.self))
         collectionView.register(UINib(nibName: String(describing: StreamerCVCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: StreamerCVCell.self))
+    }
+
+    //MARK: - Notification
+    
+    @objc func favoritesUpdatedNotified() {
+        needToReload = true
     }
 
     //MARK: - UICollectionViewDataSource

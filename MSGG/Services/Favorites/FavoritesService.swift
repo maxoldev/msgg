@@ -16,8 +16,12 @@ struct FavoriteStreamInfo: Codable {
 
 class FavoritesService {
     
+    static let listUpdatedNotification = Notification.Name("FavoritesService.listUpdatedNotification")
+    
     fileprivate(set) var favoriteStreamInfoList: [FavoriteStreamInfo]
     fileprivate let streamsService: StreamsService
+    fileprivate var onlineStreams = [Stream]()
+    fileprivate var offlineStreamInfos = [FavoriteStreamInfo]()
     
     init(streamsService: StreamsService) {
         self.streamsService = streamsService
@@ -39,17 +43,46 @@ class FavoritesService {
             let onlineStreamIDSet = Set(onlineFavoriteStreams.map({ $0.channelID }))
             let offlineStreamIDSet = favoriteStreamIDSet.subtracting(onlineStreamIDSet)
             let offlineFavoriteStreamInfoList = self.favoriteStreamInfoList.filter({ offlineStreamIDSet.contains($0.channelID) })
+            self.onlineStreams = onlineFavoriteStreams
+            self.offlineStreamInfos = offlineFavoriteStreamInfoList.sorted(by: { $0.streamer > $1.streamer })
             completion(onlineFavoriteStreams, offlineFavoriteStreamInfoList, nil)
         }
     }
     
     func addToFavorites(stream: Stream) {
+        guard !favoriteStreamInfoList.contains(where: { $0.channelID == stream.channelID }) else {
+            //TODO: warning
+            return
+        }
+        defer {
+            notifyChanges()
+        }
+        let indexToInsert = onlineStreams.firstIndex(where: { $0.viewers <= stream.viewers }) ?? onlineStreams.endIndex
+        onlineStreams.insert(stream, at: indexToInsert)
         let favStreamInfo = FavoriteStreamInfo(channelID: stream.channelID, streamer: stream.streamer, avatarURL: stream.avatarURL)
         favoriteStreamInfoList.append(favStreamInfo)
         saveListOnDisk()
     }
 
+    func addToFavorites(offlineStreamInfo: FavoriteStreamInfo) {
+        guard !favoriteStreamInfoList.contains(where: { $0.channelID == offlineStreamInfo.channelID }) else {
+            //TODO: warning
+            return
+        }
+        defer {
+            notifyChanges()
+        }
+        offlineStreamInfos.insert(offlineStreamInfo, at: 0)
+        favoriteStreamInfoList.append(offlineStreamInfo)
+        saveListOnDisk()
+    }
+
     func removeFromFavorites(channelID: IDType) {
+        defer {
+            notifyChanges()
+        }
+        onlineStreams.removeAll(where: { $0.channelID == channelID })
+        offlineStreamInfos.removeAll(where: { $0.channelID == channelID })
         favoriteStreamInfoList.removeAll(where: { $0.channelID == channelID })
         saveListOnDisk()
     }
@@ -59,7 +92,12 @@ class FavoritesService {
     }
     
     fileprivate func saveListOnDisk() {
+//        favoriteStreamInfoList.append(FavoriteStreamInfo(channelID: 999, streamer: "Test", avatarURL: ""))
         let data = try! JSONEncoder().encode(favoriteStreamInfoList)
         UserDefaults.standard.set(data, forKey: UserDefaultsKeys.favorites.rawValue)
+    }
+    
+    fileprivate func notifyChanges() {
+        NotificationCenter.default.post(name: FavoritesService.listUpdatedNotification, object: nil)
     }
 }
