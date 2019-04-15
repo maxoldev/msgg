@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupRootViewController()
@@ -34,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let genreListVC = SharedComponents.vcFactory.create(.categoryList) as GenreListVC
         genreListVC.title = NSLocalizedString("Genres", comment: "")
 
-        let controllers = [streamListVC, gameListVC, genreListVC, favoriteStreamListVC].map({UINavigationController(rootViewController: $0)})
+        let controllers = [streamListVC, favoriteStreamListVC, gameListVC, genreListVC].map({UINavigationController(rootViewController: $0)})
         controllers.forEach({$0.isNavigationBarHidden = true})
         let tabBarController = window!.rootViewController as! UITabBarController
         tabBarController.setViewControllers(controllers, animated: false)
