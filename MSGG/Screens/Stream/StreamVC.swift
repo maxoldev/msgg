@@ -33,8 +33,9 @@ class StreamVC: UIViewController {
     let streamService = StreamsService()
     let gameService = CategoriesService()
     
-    var updatingViewerCountTimer: Timer?
-    var hidingControlsTimer: Timer?
+    fileprivate var updatingViewerCountTimer: Timer?
+    fileprivate var hidingControlsTimer: Timer?
+    fileprivate var isMenuButtonDisabled = false
     
     fileprivate var player: AVPlayer {
         return playerView.player
@@ -102,6 +103,7 @@ class StreamVC: UIViewController {
         hidingControlsTimer?.invalidate()
         hidingControlsTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (timer) in
             timer.invalidate()
+            self.temporaryDisableMenuButton()
             self.showControls(false)
         }
     }
@@ -161,7 +163,7 @@ class StreamVC: UIViewController {
         selectGS.allowedPressTypes = [NSNumber(value: UIPress.PressType.select.rawValue)]
         view.addGestureRecognizer(selectGS)
 
-        let upDownGS = UITapGestureRecognizer(target: self, action: #selector(upDownRemoteButtonsPressed))
+        let upDownGS = UITapGestureRecognizer(target: self, action: #selector(directionRemoteButtonPressed))
         upDownGS.allowedPressTypes = [NSNumber(value: UIPress.PressType.upArrow.rawValue),
                                       NSNumber(value: UIPress.PressType.downArrow.rawValue),
                                       NSNumber(value: UIPress.PressType.leftArrow.rawValue),
@@ -232,6 +234,14 @@ class StreamVC: UIViewController {
     fileprivate func selectStreamSource(_ source: StreamSource) {
         selectedSource = source
         restartVideo(url: source.url)
+    }
+    
+    fileprivate func temporaryDisableMenuButton() {
+        isMenuButtonDisabled = true
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (time) in
+            time.invalidate()
+            self.isMenuButtonDisabled = false
+        }
     }
     
     override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
@@ -307,7 +317,7 @@ class StreamVC: UIViewController {
     @objc func menuRemoteButtonPressed(_ sender: UITapGestureRecognizer) {
         if areControlsShown {
             showControls(false)
-        } else {
+        } else if !isMenuButtonDisabled {
             navigationController?.popViewController(animated: true)
         }
     }
@@ -320,7 +330,7 @@ class StreamVC: UIViewController {
         showControls(true)
     }
     
-    @objc func upDownRemoteButtonsPressed(_ sender: UITapGestureRecognizer) {
+    @objc func directionRemoteButtonPressed(_ sender: UITapGestureRecognizer) {
         showControls(true)
     }
     
