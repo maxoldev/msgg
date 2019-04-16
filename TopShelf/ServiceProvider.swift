@@ -11,8 +11,6 @@ import TVServices
 
 class ServiceProvider: NSObject, TVTopShelfProvider {
 
-    fileprivate let favoritesService = FavoritesService(streamsService: StreamsService())
-
     override init() {
         super.init()
     }
@@ -28,12 +26,15 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         // Create an array of TVContentItems.
         let onlineFavoriteStreamsSectionIdentifier = TVContentIdentifier(identifier: "onlineFavoriteStreams", container: nil)
         let onlineFavoriteStreamsSection = TVContentItem(contentIdentifier: onlineFavoriteStreamsSectionIdentifier)
+        
+//        onlineFavoriteStreamsSection.title = "\(Date())"
+        
         let onlineStreams = getOnlineFavoriteStreamsSynchronously()
         var favoriteStreamItems = onlineStreams.map { (stream) -> TVContentItem in
             let item = TVContentItem(contentIdentifier: TVContentIdentifier(identifier: "\(stream.channelID)", container: onlineFavoriteStreamsSectionIdentifier))
             item.setImageURL(URL(string: stream.previewURL), forTraits: [])
             item.imageShape = .HDTV
-            item.title = stream.title
+            item.title = "\(stream.streamer) - \(stream.title)"
             return item
         }
         let addTestItem = false
@@ -49,6 +50,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         var streams = [Stream]()
         let semaphore = DispatchSemaphore(value: 0)
         
+        let favoritesService = FavoritesService(streamsService: StreamsService())
         favoritesService.getStreams { (onlineStreams, _, error) in
             defer {
                 semaphore.signal()
