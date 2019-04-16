@@ -28,27 +28,8 @@ extension Stream {
     init(goodgameStream: GoodGame.Stream) {
         let gg = goodgameStream
         let sources = gg.sources.compactMap({ (key: String, value: String) -> StreamSource? in
-            if key == "source" {
-                if value.hasSuffix(APIConstants.smilExt) {
-                    return nil
-                } else {
-                    return StreamSource(quality: .source, url: value)
-                }
-            } else if let resolution = Int(key) {
-                return StreamSource(quality: .scaled(resolution: resolution), url: value)
-            } else {
-                return nil
-            }
-        }).sorted(by: { (q1, q2) -> Bool in
-            switch (q1.quality, q2.quality) {
-            case (.source, _):
-                return true
-            case (_, .source):
-                return false
-            case let (.scaled(resolution1), .scaled(resolution2)):
-                return resolution1 > resolution2
-            }
-        })
+            return StreamSource(id: key, url: value)
+        }).sorted(by: >)
         self.init(channelID: gg.id, title: gg.title, streamer: gg.streamer ?? "", avatarURL: gg.avatar.normalizedGGURL, viewers: gg.viewers, playerSrc: gg.streamkey, previewURL: gg.preview.normalizedGGURL, channelPosterURL: gg.poster, gameID: gg.game, isOnline: gg.status, sources: sources)
     }
 }

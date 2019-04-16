@@ -10,7 +10,7 @@
 		9408B4F92265FDEE00172B0E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408B4F82265FDEE00172B0E /* Logger.swift */; };
 		9408B4FA2265FDF600172B0E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408B4F82265FDEE00172B0E /* Logger.swift */; };
 		9415A26F22639445007D2F82 /* FavoriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9415A26E22639445007D2F82 /* FavoriteListVC.swift */; };
-		942D426E2261262B006AF281 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaults.swift */; };
+		942D426E2261262B006AF281 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaultsKeys.swift */; };
 		942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D4271226149B2006AF281 /* CategoryCVCell.swift */; };
 		942D427422614A31006AF281 /* GameListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D427322614A31006AF281 /* GameListVC.swift */; };
 		942D427622614B17006AF281 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D427522614B17006AF281 /* CategoriesService.swift */; };
@@ -27,6 +27,9 @@
 		94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D0B22621D38008EE0B1 /* GenreListVC.swift */; };
 		94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */; };
 		94560D1922624123008EE0B1 /* FailableDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D1822624123008EE0B1 /* FailableDecodable.swift */; };
+		946ECECE2266749C001E44ED /* StreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946ECECD2266749C001E44ED /* StreamSource.swift */; };
+		946ECECF226674A0001E44ED /* StreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946ECECD2266749C001E44ED /* StreamSource.swift */; };
+		946ECED1226675B6001E44ED /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946ECED0226675B6001E44ED /* SettingsService.swift */; };
 		949330EB2182707100B29B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EA2182707100B29B0D /* AppDelegate.swift */; };
 		949330ED2182707100B29B0D /* StreamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EC2182707100B29B0D /* StreamListVC.swift */; };
 		949330F02182707100B29B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949330EE2182707100B29B0D /* Main.storyboard */; };
@@ -62,7 +65,7 @@
 		94F07D862265378C00601036 /* Stream+GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F93225D311900E6182E /* Stream+GoodGame.swift */; };
 		94F07D872265378C00601036 /* StreamQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D83C26225E94620014C5A3 /* StreamQuality.swift */; };
 		94F07D882265379900601036 /* FailableDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D1822624123008EE0B1 /* FailableDecodable.swift */; };
-		94F07D89226537B500601036 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaults.swift */; };
+		94F07D89226537B500601036 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaultsKeys.swift */; };
 		A4895CD43B8A98EBE93CF4D3 /* Pods_MSGG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5932B0EA0D85ED4B3980DD7 /* Pods_MSGG.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +96,7 @@
 /* Begin PBXFileReference section */
 		9408B4F82265FDEE00172B0E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9415A26E22639445007D2F82 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
-		942D426D2261262B006AF281 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		942D426D2261262B006AF281 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		942D4271226149B2006AF281 /* CategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCVCell.swift; sourceTree = "<group>"; };
 		942D427322614A31006AF281 /* GameListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListVC.swift; sourceTree = "<group>"; };
 		942D427522614B17006AF281 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 		94560D0B22621D38008EE0B1 /* GenreListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListVC.swift; sourceTree = "<group>"; };
 		94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryListVC.swift; sourceTree = "<group>"; };
 		94560D1822624123008EE0B1 /* FailableDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableDecodable.swift; sourceTree = "<group>"; };
+		946ECECD2266749C001E44ED /* StreamSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSource.swift; sourceTree = "<group>"; };
+		946ECED0226675B6001E44ED /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		949330E72182707100B29B0D /* MSGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949330EA2182707100B29B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949330EC2182707100B29B0D /* StreamListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListVC.swift; sourceTree = "<group>"; };
@@ -245,6 +250,7 @@
 				94418EEE224D0210007614DD /* GoodGame.swift */,
 				949E9F93225D311900E6182E /* Stream+GoodGame.swift */,
 				94D83C26225E94620014C5A3 /* StreamQuality.swift */,
+				946ECECD2266749C001E44ED /* StreamSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,7 +260,8 @@
 			children = (
 				94D83C2A225F47720014C5A3 /* API */,
 				94D83C2B225F47850014C5A3 /* Favorites */,
-				942D426D2261262B006AF281 /* UserDefaults.swift */,
+				942D426D2261262B006AF281 /* UserDefaultsKeys.swift */,
+				946ECED0226675B6001E44ED /* SettingsService.swift */,
 				9408B4F82265FDEE00172B0E /* Logger.swift */,
 			);
 			path = Services;
@@ -546,6 +553,8 @@
 				9408B4F92265FDEE00172B0E /* Logger.swift in Sources */,
 				94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */,
 				949330ED2182707100B29B0D /* StreamListVC.swift in Sources */,
+				946ECECE2266749C001E44ED /* StreamSource.swift in Sources */,
+				946ECED1226675B6001E44ED /* SettingsService.swift in Sources */,
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
 				9415A26F22639445007D2F82 /* FavoriteListVC.swift in Sources */,
 				94336FEF21866392000E8491 /* ClassicStreamCVCell.swift in Sources */,
@@ -568,7 +577,7 @@
 				949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */,
 				942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */,
 				94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */,
-				942D426E2261262B006AF281 /* UserDefaults.swift in Sources */,
+				942D426E2261262B006AF281 /* UserDefaultsKeys.swift in Sources */,
 				94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */,
 				94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */,
 				94D7E7462263C8FF00A7784A /* StreamerCVCell.swift in Sources */,
@@ -590,7 +599,8 @@
 				94F07D882265379900601036 /* FailableDecodable.swift in Sources */,
 				94F07D852265378C00601036 /* GoodGame.swift in Sources */,
 				94F07D7F2265373A00601036 /* FavoritesService.swift in Sources */,
-				94F07D89226537B500601036 /* UserDefaults.swift in Sources */,
+				946ECECF226674A0001E44ED /* StreamSource.swift in Sources */,
+				94F07D89226537B500601036 /* UserDefaultsKeys.swift in Sources */,
 				9408B4FA2265FDF600172B0E /* Logger.swift in Sources */,
 				94F07D872265378C00601036 /* StreamQuality.swift in Sources */,
 				94F07D832265377C00601036 /* BaseAPIService.swift in Sources */,

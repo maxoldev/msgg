@@ -57,8 +57,9 @@ class StreamVC: UIViewController {
             tryToLoadGameInfo()
             setupUpdatingViewerCountTimer()
             
-            if let selectedSource = stream.sources.first {
-                Logger.info("Stream is playing\n\(stream)")
+            let lastSelectedStreamQuality = SharedComponents.settingsService.lastSelectedStreamQuality
+            if let selectedSource = selectStreamSource(stream.sources, accordingToLastSelectedQuality: lastSelectedStreamQuality) {
+                Logger.info("Stream is about to start\n\(stream)")
                 noSupportedVideoFoundView.isHidden = true
                 playPauseButton.isHidden = false
                 qualityButton.isHidden = false
@@ -76,6 +77,22 @@ class StreamVC: UIViewController {
             noSupportedVideoFoundView.isHidden = false
             messageLabel.text = NSLocalizedString("No stream data passed", comment: "")
         }
+    }
+    
+    fileprivate func selectStreamSource(_ sourcesSortedByQualityDescending: [StreamSource], accordingToLastSelectedQuality lastSelectedQuality: StreamQuality) -> StreamSource? {
+        guard !sourcesSortedByQualityDescending.isEmpty else {
+            return nil
+        }
+        
+        for source in sourcesSortedByQualityDescending {
+            if source.quality == lastSelectedQuality {
+                return source
+            }
+        }
+        
+        // the same quiality wasn't found, so find closer to the value
+        let sourcesWithBetterQuality = sourcesSortedByQualityDescending.filter({ $0.quality >= lastSelectedQuality })
+        return sourcesWithBetterQuality.last ?? sourcesSortedByQualityDescending.first!
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -234,6 +251,7 @@ class StreamVC: UIViewController {
     fileprivate func selectStreamSource(_ source: StreamSource) {
         selectedSource = source
         restartVideo(url: source.url)
+        SharedComponents.settingsService.lastSelectedStreamQuality = source.quality
     }
     
     fileprivate func temporaryDisableMenuButton() {

@@ -1,5 +1,5 @@
 //
-//  UserDefaults.swift
+//  UserDefaultsKeys.swift
 //  MSGG
 //
 //  Created by Maxim Solovyov on 12/04/2019.
@@ -11,4 +11,5 @@ import Foundation
 enum UserDefaultsKeys: String {
     
     case favorites
+    case lastSelectedStreamQuality
 }
