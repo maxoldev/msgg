@@ -8,25 +8,31 @@
 
 import UIKit
 
-class PlayerControlButton: UIButton {
+@IBDesignable class PlayerControlButton: UIButton {
 
-    let unfocusedAlpha: CGFloat = 0.7
-    let unfocusedScale: CGFloat = 0.8
-    
-    override func didMoveToSuperview() {
-        guard superview != nil else {
-            return
+    @IBInspectable var isRoundButton: Bool = true
+    @IBInspectable var customCornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = customCornerRadius
         }
-        self.alpha = unfocusedAlpha
-        self.transform = CGAffineTransform(scaleX: unfocusedScale, y: unfocusedScale)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if isRoundButton {
+            layer.cornerRadius = bounds.height / 2
+        }
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        let alpha: CGFloat = context.nextFocusedView == self ? 1 : unfocusedAlpha
-        let scale: CGFloat = context.nextFocusedView == self ? 1 : unfocusedScale
+        let bgColor = context.nextFocusedView == self ? UIColor(named: "color-button-bg") : UIColor.clear
         coordinator.addCoordinatedAnimations({
-            self.alpha = alpha
-            self.transform = CGAffineTransform(scaleX: scale, y: scale)
+            self.backgroundColor = bgColor
         }, completion: nil)
     }
 }

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -116,14 +117,21 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77N-1g-BeY" customClass="PlayerControlButton" customModule="MSGG" customModuleProvider="target">
-                                        <rect key="frame" x="664" y="860" width="116" height="120"/>
+                                        <rect key="frame" x="664" y="880" width="116" height="80"/>
+                                        <color key="backgroundColor" name="color-button-bg"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="roD-r5-UMH"/>
+                                            <constraint firstAttribute="height" constant="80" id="roD-r5-UMH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="baseline_videogame_asset_white"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="customCornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundButton" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="gameButtonTriggered:" destination="JI7-gJ-ciY" eventType="primaryActionTriggered" id="e3v-iC-BWB"/>
                                         </connections>
@@ -138,6 +146,9 @@
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="round_pause_white"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundButton" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="playPauseButtonTriggered:" destination="JI7-gJ-ciY" eventType="primaryActionTriggered" id="98I-RF-UBd"/>
                                                 </connections>
@@ -148,6 +159,9 @@
                                                     <constraint firstAttribute="width" secondItem="z49-32-HNb" secondAttribute="height" multiplier="1:1" id="DDL-xO-LUh"/>
                                                 </constraints>
                                                 <state key="normal" image="baseline_favorite_white"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundButton" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="favoriteButtonTriggered:" destination="JI7-gJ-ciY" eventType="primaryActionTriggered" id="Vbz-7N-oOE"/>
                                                 </connections>
@@ -160,6 +174,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 <state key="normal" image="round_settings_white"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundButton" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="qualityButtonTriggered:" destination="JI7-gJ-ciY" eventType="primaryActionTriggered" id="kcn-gb-Q2a"/>
                                                 </connections>
@@ -229,5 +246,8 @@
         <image name="round_cancel_white_big" width="72" height="72"/>
         <image name="round_pause_white" width="96" height="96"/>
         <image name="round_settings_white" width="72" height="72"/>
+        <namedColor name="color-button-bg">
+            <color red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="0.85000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

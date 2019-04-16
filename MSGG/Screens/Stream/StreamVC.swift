@@ -234,6 +234,13 @@ class StreamVC: UIViewController {
         restartVideo(url: source.url)
     }
     
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        if context.focusHeading == .up {
+            return false
+        }
+        return true
+    }
+    
     //MARK: - Actions
     
     @IBAction func gameButtonTriggered(_ sender: UIButton) {
