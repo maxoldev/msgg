@@ -18,9 +18,11 @@ class StreamsService: BaseAPIService {
         let request = makeURLRequest4(endpoint: .stream, queryItems: queryItems)
         let session = URLSession(configuration: .default)
         
-        session.dataTask(with: request) { (data, response, error) in
-            let foundError = self.getError(data: data, urlResponse: response, error: error)
-            guard foundError == nil else {
+        session.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let self = self else { return }
+            
+            if let foundError = self.getError(data: data, urlResponse: response, error: error) {
+                Logger.error(foundError)
                 completion([], foundError)
                 return
             }
@@ -28,7 +30,7 @@ class StreamsService: BaseAPIService {
             do {
                 let jsonDecoder = JSONDecoder()
                 let ggStreams = try jsonDecoder.decode(GoodGame.Streams.self, from: data!)
-                let ggStreamsArray = ggStreams.streams.compactMap({ $0.base })  // skip objects with incomplete data model
+                let ggStreamsArray = ggStreams.streams.compactMap({ $0.base })  // skip objects with incomplete/fail data model
                 let streams: [Stream]
                 if skipStreamsWithoutSupportedVideo {
                     streams = ggStreamsArray.compactMap({ (ggStream) -> Stream? in
@@ -47,7 +49,7 @@ class StreamsService: BaseAPIService {
                 }
                 completion(streams, nil)
             } catch {
-                print(error)
+                Logger.error(error)
                 completion([], error)
             }
         }.resume()
@@ -57,9 +59,11 @@ class StreamsService: BaseAPIService {
         let request = makeURLRequest(endpoint: .streams, ID: "\(streamID)")
         let session = URLSession(configuration: .default)
         
-        session.dataTask(with: request) { (data, response, error) in
-            let foundError = self.getError(data: data, urlResponse: response, error: error)
-            guard foundError == nil else {
+        session.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let self = self else { return }
+            
+            if let foundError = self.getError(data: data, urlResponse: response, error: error) {
+                Logger.error(foundError)
                 completion(0, foundError)
                 return
             }
@@ -69,7 +73,7 @@ class StreamsService: BaseAPIService {
                 let ggStream = try jsonDecoder.decode(GoodGame.StreamOld.self, from: data!)
                 completion(Int(ggStream.viewers) ?? 0, nil)
             } catch {
-                print(error)
+                Logger.error(error)
                 completion(0, error)
             }
         }.resume()
@@ -79,9 +83,11 @@ class StreamsService: BaseAPIService {
         let request = makeURLRequest(endpoint: .player, ID: playerSrc)
         let session = URLSession(configuration: .default)
         
-        session.dataTask(with: request) { (data, response, error) in
-            let foundError = self.getError(data: data, urlResponse: response, error: error)
-            guard foundError == nil else {
+        session.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let self = self else { return }
+            
+            if let foundError = self.getError(data: data, urlResponse: response, error: error) {
+                Logger.error(foundError)
                 completion(nil, foundError)
                 return
             }
@@ -92,7 +98,7 @@ class StreamsService: BaseAPIService {
                 let playerInfo = PlayerInfo(streamerAvatarURL: ggPlayerInfo.streamer_avatar)
                 completion(playerInfo, nil)
             } catch {
-                print(error)
+                Logger.error(error)
                 completion(nil, error)
             }
         }.resume()

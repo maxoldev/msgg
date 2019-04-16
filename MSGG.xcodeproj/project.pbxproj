@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9408B4F92265FDEE00172B0E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408B4F82265FDEE00172B0E /* Logger.swift */; };
+		9408B4FA2265FDF600172B0E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408B4F82265FDEE00172B0E /* Logger.swift */; };
 		9415A26F22639445007D2F82 /* FavoriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9415A26E22639445007D2F82 /* FavoriteListVC.swift */; };
 		942D426E2261262B006AF281 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaults.swift */; };
 		942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D4271226149B2006AF281 /* CategoryCVCell.swift */; };
@@ -89,6 +91,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9408B4F82265FDEE00172B0E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9415A26E22639445007D2F82 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
 		942D426D2261262B006AF281 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		942D4271226149B2006AF281 /* CategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCVCell.swift; sourceTree = "<group>"; };
@@ -252,6 +255,7 @@
 				94D83C2A225F47720014C5A3 /* API */,
 				94D83C2B225F47850014C5A3 /* Favorites */,
 				942D426D2261262B006AF281 /* UserDefaults.swift */,
+				9408B4F82265FDEE00172B0E /* Logger.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -539,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */,
+				9408B4F92265FDEE00172B0E /* Logger.swift in Sources */,
 				94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */,
 				949330ED2182707100B29B0D /* StreamListVC.swift in Sources */,
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
@@ -586,6 +591,7 @@
 				94F07D852265378C00601036 /* GoodGame.swift in Sources */,
 				94F07D7F2265373A00601036 /* FavoritesService.swift in Sources */,
 				94F07D89226537B500601036 /* UserDefaults.swift in Sources */,
+				9408B4FA2265FDF600172B0E /* Logger.swift in Sources */,
 				94F07D872265378C00601036 /* StreamQuality.swift in Sources */,
 				94F07D832265377C00601036 /* BaseAPIService.swift in Sources */,
 				94F07D842265378C00601036 /* Stream.swift in Sources */,

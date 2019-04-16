@@ -57,18 +57,21 @@ class StreamVC: UIViewController {
             setupUpdatingViewerCountTimer()
             
             if let selectedSource = stream.sources.first {
+                Logger.info("Stream is playing\n\(stream)")
                 noSupportedVideoFoundView.isHidden = true
                 playPauseButton.isHidden = false
                 qualityButton.isHidden = false
                 self.selectedSource = selectedSource
                 restartVideo(url: selectedSource.url)
             } else {
+                Logger.warning("No supported video streams found\n\(stream)")
                 noSupportedVideoFoundView.isHidden = false
                 messageLabel.text = stream.isOnline ? NSLocalizedString("No supported video streams found", comment: "") : NSLocalizedString("Stream offline", comment: "")
                 playPauseButton.isHidden = true
                 qualityButton.isHidden = true
             }
         } else {
+            Logger.warning("No stream data passed")
             noSupportedVideoFoundView.isHidden = false
             messageLabel.text = NSLocalizedString("No stream data passed", comment: "")
         }

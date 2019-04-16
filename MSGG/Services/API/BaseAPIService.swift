@@ -34,17 +34,15 @@ class BaseAPIService {
         }
         
         guard let httpResponse = urlResponse as? HTTPURLResponse else {
-            return APIServiceError.notHttpResponse
+            return APIServiceError(code: .notHttpResponse)
         }
         
-        guard let responseData = data else {
-            return APIServiceError.nilHttpBody
+        guard data != nil else {
+            return APIServiceError(code: .nilHttpBody)
         }
         
-        guard httpResponse.statusCode == 200 else {
-//            let error = self.handleErrorResponseData(responseData)
-//            return error
-            return APIServiceError.error("\(httpResponse.statusCode)")
+        guard 200...299 ~= httpResponse.statusCode else {
+            return APIServiceError(code: .statusCode, description: "Error http status code: \(httpResponse.statusCode)")
         }
         
         return nil

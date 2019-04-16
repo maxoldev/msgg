@@ -57,7 +57,7 @@ class FavoritesService {
     
     func addToFavorites(stream: Stream) {
         guard !favoriteStreamInfoList.contains(where: { $0.channelID == stream.channelID }) else {
-            //TODO: warning
+            Logger.warning("Stream with ID \(stream.channelID) has been already contained in favorites list")
             return
         }
         defer {
@@ -72,7 +72,7 @@ class FavoritesService {
 
     func addToFavorites(offlineStreamInfo: FavoriteStreamInfo) {
         guard !favoriteStreamInfoList.contains(where: { $0.channelID == offlineStreamInfo.channelID }) else {
-            //TODO: warning
+            Logger.warning("Stream with ID \(offlineStreamInfo.channelID) has been already contained in favorites list")
             return
         }
         defer {
@@ -84,6 +84,10 @@ class FavoritesService {
     }
 
     func removeFromFavorites(channelID: IDType) {
+        guard favoriteStreamInfoList.contains(where: { $0.channelID == channelID }) else {
+            Logger.warning("Stream with ID \(channelID) hasn't been contained in favorites list")
+            return
+        }
         defer {
             notifyChanges()
         }

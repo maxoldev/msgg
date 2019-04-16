@@ -14,9 +14,11 @@ class CategoriesService: BaseAPIService {
         let request = makeURLRequest4(endpoint: .games)
         let session = URLSession(configuration: .default)
         
-        session.dataTask(with: request) { (data, response, error) in
-            let foundError = self.getError(data: data, urlResponse: response, error: error)
-            guard foundError == nil else {
+        session.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let self = self else { return }
+            
+            if let foundError = self.getError(data: data, urlResponse: response, error: error) {
+                Logger.error(foundError)
                 completion([], [], foundError)
                 return
             }
@@ -28,7 +30,7 @@ class CategoriesService: BaseAPIService {
                 let genres = ggCategories.genres.map({Genre(goodgameGenre: $0)})
                 completion(games, genres, nil)
             } catch {
-                print(error)
+                Logger.error(error)
                 completion([], [], error)
             }
         }.resume()
@@ -38,9 +40,11 @@ class CategoriesService: BaseAPIService {
         let request = makeURLRequest4(endpoint: .games, ID: gameID)
         let session = URLSession(configuration: .default)
         
-        session.dataTask(with: request) { (data, response, error) in
-            let foundError = self.getError(data: data, urlResponse: response, error: error)
-            guard foundError == nil else {
+        session.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let self = self else { return }
+            
+            if let foundError = self.getError(data: data, urlResponse: response, error: error) {
+                Logger.error(foundError)
                 completion(nil, foundError)
                 return
             }
@@ -51,7 +55,7 @@ class CategoriesService: BaseAPIService {
                 let game = Game(goodgameGame: ggGame)
                 completion(game, nil)
             } catch {
-                print(error)
+                Logger.error(error)
                 completion(nil, error)
             }
         }.resume()
