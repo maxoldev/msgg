@@ -116,10 +116,10 @@ class FavoriteListVC: BaseCollectionVC {
             return sectionHeaderWithReloadButton(at: indexPath)
             
         case .online:
-            return sectionHeaderWithTitle(NSLocalizedString("Online", comment: ""), at: indexPath)
+            return sectionHeaderWithTitle(NSLocalizedString("online", comment: ""), at: indexPath)
             
         case .offline:
-            return sectionHeaderWithTitle(NSLocalizedString("Offline", comment: ""), at: indexPath)
+            return sectionHeaderWithTitle(NSLocalizedString("offline", comment: ""), at: indexPath)
         }
     }
 

@@ -32,7 +32,7 @@ extension StreamSource {
     var title: String {
         switch quality {
         case .source:
-            return NSLocalizedString("Source", comment: "")
+            return NSLocalizedString("source", comment: "")
         case let (.scaled(resolution)):
             return String(resolution)
         }

@@ -22,16 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     fileprivate func setupRootViewController() {
         let streamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
-        streamListVC.title = NSLocalizedString("Streams", comment: "")
+        streamListVC.title = NSLocalizedString("streams", comment: "")
         
         let favoriteStreamListVC = SharedComponents.vcFactory.create(.streamList) as FavoriteListVC
-        favoriteStreamListVC.title = NSLocalizedString("Favorites", comment: "")
+        favoriteStreamListVC.title = NSLocalizedString("favorites", comment: "")
 
         let gameListVC = SharedComponents.vcFactory.create(.categoryList) as GameListVC
-        gameListVC.title = NSLocalizedString("Games", comment: "")
+        gameListVC.title = NSLocalizedString("games", comment: "")
 
         let genreListVC = SharedComponents.vcFactory.create(.categoryList) as GenreListVC
-        genreListVC.title = NSLocalizedString("Genres", comment: "")
+        genreListVC.title = NSLocalizedString("genres", comment: "")
 
         let controllers = [streamListVC, favoriteStreamListVC, gameListVC, genreListVC].map({UINavigationController(rootViewController: $0)})
         controllers.forEach({$0.isNavigationBarHidden = true})

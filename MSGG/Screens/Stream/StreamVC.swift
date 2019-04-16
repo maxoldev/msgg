@@ -68,14 +68,14 @@ class StreamVC: UIViewController {
             } else {
                 Logger.warning("No supported video streams found\n\(stream)")
                 noSupportedVideoFoundView.isHidden = false
-                messageLabel.text = stream.isOnline ? NSLocalizedString("No supported video streams found", comment: "") : NSLocalizedString("Stream offline", comment: "")
+                messageLabel.text = stream.isOnline ? NSLocalizedString("no-supported-video-streams-found", comment: "") : NSLocalizedString("stream-offline", comment: "")
                 playPauseButton.isHidden = true
                 qualityButton.isHidden = true
             }
         } else {
             Logger.warning("No stream data passed")
             noSupportedVideoFoundView.isHidden = false
-            messageLabel.text = NSLocalizedString("No stream data passed", comment: "")
+            messageLabel.text = NSLocalizedString("no-stream-data-passed", comment: "")
         }
     }
     
@@ -286,7 +286,7 @@ class StreamVC: UIViewController {
         guard let sources = stream?.sources else {
             return
         }
-        let alert = UIAlertController(title: NSLocalizedString("Select stream quality", comment: ""), message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("select-stream-quality", comment: ""), message: nil, preferredStyle: .alert)
         sources.forEach { (source) in
             let title = source.title
             let action = UIAlertAction(title: title, style: .default, handler: { _ in
@@ -299,7 +299,7 @@ class StreamVC: UIViewController {
                 alert.preferredAction = action
             }
         }
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: { _ in
 //            self.dismiss(animated: true, completion: nil)
         }))
         
@@ -317,15 +317,15 @@ class StreamVC: UIViewController {
             SharedComponents.favoritesService.addToFavorites(stream: stream!)
             updateFavoriteButton(isFavorite: newFavoriteState)
         } else {
-            let alert = UIAlertController(title: NSLocalizedString("Do you want to remove channel from the favorite?", comment: ""), message: nil, preferredStyle: .alert)
-            let action = UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive, handler: { (_) in
+            let alert = UIAlertController(title: NSLocalizedString("remove-channel-from-favorites", comment: ""), message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: NSLocalizedString("remove", comment: ""), style: .destructive, handler: { (_) in
                 SharedComponents.favoritesService.removeFromFavorites(channelID: channelID)
                 self.updateFavoriteButton(isFavorite: false)
 //                self.dismiss(animated: true, completion: nil)
             })
             alert.addAction(action)
             alert.preferredAction = action
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
     }

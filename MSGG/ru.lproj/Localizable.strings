@@ -6,18 +6,24 @@
   Copyright © 2019 MaximSolovyov. All rights reserved.
 */
 
-"No supported video streams found" = "Не найдены поддерживаемые видеопотоки";
-"No stream data passed" = "Стрим не передан";
-"Source" = "Исходное";
-"Online" = "Онлайн";
-"Offline" = "Завершили трансляцию";
-"Stream offline" = "Трансляция оффлайн";
-"Select stream quality" = "Выберите качество трансляции";
-"Do you want to remove channel from the favorite?" = "Удалить канал из избранного?";
-"Remove" = "Удалить";
-"Streams" = "Трансляции";
-"Favorites" = "Избранное";
-"Games" = "Игры";
-"Genres" = "Жанры";
-"Cancel" = "Отмена";
-"Live Followed Streams" = "Избранные трансляции онлайн";
+"streams" = "Трансляции";
+"favorites" = "Избранное";
+"games" = "Игры";
+"genres" = "Жанры";
+
+"online" = "Онлайн";
+"offline" = "Завершили трансляцию";
+
+"cancel" = "Отмена";
+
+"remove" = "Удалить";
+
+"source" = "Исходное";
+
+"no-supported-video-streams-found" = "Не найдены поддерживаемые видеопотоки";
+"no-stream-data-passed" = "Стрим не передан";
+"stream-offline" = "Трансляция оффлайн";
+"select-stream-quality" = "Выберите качество трансляции";
+"remove-channel-from-favorites" = "Удалить канал из избранного?";
+
+"live-followed-streams" = "Избранные трансляции онлайн";

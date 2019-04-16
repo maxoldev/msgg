@@ -6,3 +6,24 @@
   Copyright © 2019 MaximSolovyov. All rights reserved.
 */
 
+"streams" = "Streams";
+"favorites" = "Favorites";
+"games" = "Games";
+"genres" = "Genres";
+
+"online" = "Online";
+"offline" = "Offline";
+
+"cancel" = "Cancel";
+
+"remove" = "Remove";
+
+"source" = "Source";
+
+"no-supported-video-streams-found" = "No supported video streams found";
+"no-stream-data-passed" = "No stream data passed";
+"stream-offline" = "Stream offline";
+"select-stream-quality" = "Select stream quality";
+"remove-channel-from-favorites" = "Do you want to remove channel from Favorites?";
+
+"live-followed-streams" = "Live Followed Streams";
