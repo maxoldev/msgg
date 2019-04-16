@@ -27,7 +27,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         let onlineFavoriteStreamsSectionIdentifier = TVContentIdentifier(identifier: "onlineFavoriteStreams", container: nil)
         let onlineFavoriteStreamsSection = TVContentItem(contentIdentifier: onlineFavoriteStreamsSectionIdentifier)
         
-//        onlineFavoriteStreamsSection.title = "\(Date())"
+        onlineFavoriteStreamsSection.title = NSLocalizedString("Live Followed Streams", comment: "")
         
         let onlineStreams = getOnlineFavoriteStreamsSynchronously()
         var favoriteStreamItems = onlineStreams.map { (stream) -> TVContentItem in

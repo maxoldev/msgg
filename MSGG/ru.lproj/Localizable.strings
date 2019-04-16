@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  MSGG
+
+  Created by Maxim Solovyov on 17/04/2019.
+  Copyright © 2019 MaximSolovyov. All rights reserved.
+*/
+
+"No supported video streams found" = "Не найдены поддерживаемые видеопотоки";
+"No stream data passed" = "Стрим не передан";
+"Source" = "Исходное";
+"Online" = "Онлайн";
+"Offline" = "Завершили трансляцию";
+"Stream offline" = "Трансляция оффлайн";
+"Select stream quality" = "Выберите качество трансляции";
+"Do you want to remove channel from the favorite?" = "Удалить канал из избранного?";
+"Remove" = "Удалить";
+"Streams" = "Трансляции";
+"Favorites" = "Избранное";
+"Games" = "Игры";
+"Genres" = "Жанры";
+"Cancel" = "Отмена";
+"Live Followed Streams" = "Избранные трансляции онлайн";

@@ -299,7 +299,7 @@ class StreamVC: UIViewController {
                 alert.preferredAction = action
             }
         }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { _ in
 //            self.dismiss(animated: true, completion: nil)
         }))
         
@@ -325,7 +325,7 @@ class StreamVC: UIViewController {
             })
             alert.addAction(action)
             alert.preferredAction = action
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
     }

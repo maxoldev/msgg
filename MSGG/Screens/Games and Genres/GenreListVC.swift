@@ -33,7 +33,8 @@ class GenreListVC: CatergoryListVC<Genre> {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CategoryCVCell.self), for: indexPath) as! CategoryCVCell
         let category = items[indexPath.row]
-        cell.setup(title: category.enTitle, streams: 0, thumbURL: category.coverURL)
+        let title = Locale.current.languageCode == "ru" ? category.ruTitle : category.enTitle
+        cell.setup(title: title, streams: 0, thumbURL: category.coverURL)
         return cell
     }
 
