@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -118,7 +117,7 @@
                                     </view>
                                     <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77N-1g-BeY" customClass="PlayerControlButton" customModule="MSGG" customModuleProvider="target">
                                         <rect key="frame" x="664" y="880" width="116" height="80"/>
-                                        <color key="backgroundColor" name="color-button-bg"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="roD-r5-UMH"/>
                                         </constraints>
@@ -246,8 +245,5 @@
         <image name="round_cancel_white_big" width="72" height="72"/>
         <image name="round_pause_white" width="96" height="96"/>
         <image name="round_settings_white" width="72" height="72"/>
-        <namedColor name="color-button-bg">
-            <color red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="0.85000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
