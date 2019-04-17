@@ -11,7 +11,7 @@ import UIKit
 class ItemListVC<T>: BaseCollectionVC {
 
     var items = [T]()
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()

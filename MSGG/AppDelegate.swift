@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         genreListVC.title = NSLocalizedString("genres", comment: "")
 
         let controllers = [streamListVC, favoriteStreamListVC, gameListVC, genreListVC].map({UINavigationController(rootViewController: $0)})
-        controllers.forEach({$0.isNavigationBarHidden = true})
+        controllers.forEach({ $0.isNavigationBarHidden = true })
         let tabBarController = window!.rootViewController as! UITabBarController
         tabBarController.setViewControllers(controllers, animated: false)
     }

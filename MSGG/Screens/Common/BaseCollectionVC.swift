@@ -12,6 +12,7 @@ class BaseCollectionVC: UIViewController,
     UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewTopOffsetCs: NSLayoutConstraint!
     @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -33,8 +34,18 @@ class BaseCollectionVC: UIViewController,
         layout.itemSize = itemSize
         layout.minimumInteritemSpacing = horizontalSpacing
         layout.minimumLineSpacing = verticalSpacing
-    }
+    }    
     
+    var showNavigationBar: Bool = false {
+        didSet {
+            collectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+            navigationController!.isNavigationBarHidden = !showNavigationBar
+            collectionViewTopOffsetCs.constant = showNavigationBar ? navigationController!.navigationBar.bounds.height : 0
+            view.setNeedsLayout()
+            view.layoutIfNeeded()
+        }
+    }
+
     var itemSize: CGSize {
         return CGSize(width: 548, height: 340)
     }

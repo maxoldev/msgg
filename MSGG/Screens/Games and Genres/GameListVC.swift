@@ -42,7 +42,7 @@ class GameListVC: CatergoryListVC<Game> {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let game = items[indexPath.row]
         let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
-        vc.context = .game(gameID: game.gameID, gameURL: game.url)
+        vc.context = .game(game)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

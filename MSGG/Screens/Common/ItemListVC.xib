@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="i2L-Uq-V09" id="5ff-UF-ZLd"/>
                 <outlet property="collectionView" destination="7pn-OV-XYQ" id="FgG-2o-hQh"/>
+                <outlet property="collectionViewTopOffsetCs" destination="aj6-C7-x7w" id="SsT-Ki-UcL"/>
                 <outlet property="fadeView" destination="pPc-Tz-8qf" id="ZVJ-Ya-Kfv"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Eym-vH-oyN"/>
             </connections>

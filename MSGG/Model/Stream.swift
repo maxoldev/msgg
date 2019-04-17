@@ -47,3 +47,11 @@ extension Stream {
         return Stream(channelID: channelID, title: "", streamer: streamer, avatarURL: avatarURL, viewers: 0, playerSrc: "", previewURL: "", channelPosterURL: "", gameID: nil, isOnline: false, sources: [])
     }
 }
+
+extension Genre {
+    
+    var localizedTitle: String {
+        let title = Locale.current.languageCode == "ru" ? ruTitle : enTitle
+        return title
+    }
+}

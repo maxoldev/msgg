@@ -14,20 +14,25 @@ class StreamListVC: ItemListVC<Stream> {
     
     enum Context {
         case allStreams
-        case game(gameID: Int, gameURL: String)
-        case genre(genreID: String)
+        case game(Game)
+        case genre(Genre)
     }
     
     let service = StreamsService()
     var context = Context.allStreams
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateNavigationBarIfNeeded()
+    }
     
     override func loadData() {
         isLoading = true
         
         var gameURL: String?
         switch context {
-        case let .game(_, url):
-            gameURL = url
+        case let .game(game):
+            gameURL = game.url
         default:
             break
         }
@@ -46,6 +51,33 @@ class StreamListVC: ItemListVC<Stream> {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        hideNavigationBarIfNeeded()
+    }
+    
+    fileprivate func updateNavigationBarIfNeeded() {
+        switch context {
+        case let .game(game):
+            title = game.title
+            showNavigationBar = true
+        case let .genre(genre):
+            title = genre.localizedTitle
+            showNavigationBar = true
+        default:
+            showNavigationBar = false
+        }
+    }
+    
+    fileprivate func hideNavigationBarIfNeeded() {
+        switch context {
+        case .game, .genre:
+            navigationController?.isNavigationBarHidden = true
+        default:
+            break
+        }
+    }
+    
     override func registerCellAndViews() {
         super.registerCellAndViews()
         collectionView.register(UINib(nibName: String(describing: StreamCVCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: StreamCVCell.self))

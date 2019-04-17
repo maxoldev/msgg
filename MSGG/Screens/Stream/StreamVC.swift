@@ -276,7 +276,7 @@ class StreamVC: UIViewController {
             return
         }
         let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
-        vc.context = .game(gameID: currentGame.gameID, gameURL: currentGame.url)
+        vc.context = .game(currentGame)
         var viewControllersArray = navigationController!.viewControllers
         viewControllersArray = [viewControllersArray.first!, vc]
         navigationController?.setViewControllers(viewControllersArray, animated: true)
