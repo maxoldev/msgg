@@ -15,12 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        setupRootViewController()
+        setupTabBarController()
         
         return true
     }
 
-    fileprivate func setupRootViewController() {
+    fileprivate func setupTabBarController() {
         let streamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
         streamListVC.title = NSLocalizedString("streams", comment: "")
         

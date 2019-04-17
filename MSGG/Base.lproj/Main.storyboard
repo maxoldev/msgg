@@ -14,7 +14,7 @@
         <scene sceneID="hNl-VI-Ghn">
             <objects>
                 <tabBarController id="WZ6-RQ-hmE" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yzO-P4-kLN">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yzO-P4-kLN" customClass="CustomTabBar" customModule="MSGG" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

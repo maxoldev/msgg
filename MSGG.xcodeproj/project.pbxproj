@@ -37,6 +37,7 @@
 		949330F02182707100B29B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949330EE2182707100B29B0D /* Main.storyboard */; };
 		949330F22182707200B29B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949330F12182707200B29B0D /* Assets.xcassets */; };
 		949C9A5C2267CD0E00720FBD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */; };
+		949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A612267E05000720FBD /* CustomTabBar.swift */; };
 		949E9F92225D2F0A00E6182E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F91225D2F0A00E6182E /* Stream.swift */; };
 		949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F93225D311900E6182E /* Stream+GoodGame.swift */; };
 		94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60B9E225CB7F20099A4DA /* StreamVC.swift */; };
@@ -130,6 +131,7 @@
 		949330F32182707200B29B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		949C9A5F2267CD1600720FBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		949C9A602267CD2700720FBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		949C9A612267E05000720FBD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		949E9F91225D2F0A00E6182E /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		949E9F93225D311900E6182E /* Stream+GoodGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+GoodGame.swift"; sourceTree = "<group>"; };
 		94B60B9E225CB7F20099A4DA /* StreamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamVC.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				94B60B9D225CB76C0099A4DA /* Stream */,
 				94EB768B225DF04C00297DCD /* VCFactory.swift */,
 				94D4CA672263EA45004BE0E7 /* AppAppearance.swift */,
+				949C9A612267E05000720FBD /* CustomTabBar.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				942D427422614A31006AF281 /* GameListVC.swift in Sources */,
 				949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */,
 				942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */,
+				949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */,
 				94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */,
 				942D426E2261262B006AF281 /* UserDefaultsKeys.swift in Sources */,
 				94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */,
