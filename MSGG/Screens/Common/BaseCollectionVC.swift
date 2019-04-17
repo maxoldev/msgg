@@ -12,7 +12,6 @@ class BaseCollectionVC: UIViewController,
     UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionViewTopOffsetCs: NSLayoutConstraint!
     @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -40,9 +39,14 @@ class BaseCollectionVC: UIViewController,
         didSet {
             collectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
             navigationController!.isNavigationBarHidden = !showNavigationBar
-            collectionViewTopOffsetCs.constant = showNavigationBar ? navigationController!.navigationBar.bounds.height : 0
-            view.setNeedsLayout()
-            view.layoutIfNeeded()
+            if showNavigationBar {
+                let maskY = navigationController!.navigationBar.bounds.height
+                let maskView = UIView(frame: CGRect(x: 0, y: maskY, width: view.bounds.width, height: view.bounds.height))
+                maskView.backgroundColor = UIColor.white
+                view.mask = maskView
+            } else {
+                view.mask = nil
+            }
         }
     }
 

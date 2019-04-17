@@ -39,7 +39,7 @@ enum VCEnum: String {
     fileprivate var nibName: String {
         switch self {
         case .streamList, .favoriteList, .categoryList:
-            return "ItemListVC"
+            return "BaseCollectionVC"
         default:
             return ""
         }

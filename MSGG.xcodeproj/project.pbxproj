@@ -21,7 +21,7 @@
 		94560CF922620774008EE0B1 /* StreamListHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560CF722620774008EE0B1 /* StreamListHeaderReusableView.swift */; };
 		94560CFA22620774008EE0B1 /* StreamListHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */; };
 		94560CFE22621299008EE0B1 /* ItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560CFC22621299008EE0B1 /* ItemListVC.swift */; };
-		94560CFF22621299008EE0B1 /* ItemListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560CFD22621299008EE0B1 /* ItemListVC.xib */; };
+		94560CFF22621299008EE0B1 /* BaseCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560CFD22621299008EE0B1 /* BaseCollectionVC.xib */; };
 		94560D0422621BAE008EE0B1 /* StreamCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560D0222621BAE008EE0B1 /* StreamCVCell.xib */; };
 		94560D0A22621C77008EE0B1 /* CategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560D0822621C77008EE0B1 /* CategoryCVCell.xib */; };
 		94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D0B22621D38008EE0B1 /* GenreListVC.swift */; };
@@ -112,7 +112,7 @@
 		94560CF722620774008EE0B1 /* StreamListHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListHeaderReusableView.swift; sourceTree = "<group>"; };
 		94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamListHeaderReusableView.xib; sourceTree = "<group>"; };
 		94560CFC22621299008EE0B1 /* ItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListVC.swift; sourceTree = "<group>"; };
-		94560CFD22621299008EE0B1 /* ItemListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListVC.xib; sourceTree = "<group>"; };
+		94560CFD22621299008EE0B1 /* BaseCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseCollectionVC.xib; sourceTree = "<group>"; };
 		94560D0222621BAE008EE0B1 /* StreamCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamCVCell.xib; sourceTree = "<group>"; };
 		94560D0822621C77008EE0B1 /* CategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCVCell.xib; sourceTree = "<group>"; };
 		94560D0B22621D38008EE0B1 /* GenreListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListVC.swift; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 			children = (
 				94560D0022621B7C008EE0B1 /* Views */,
 				94D7E7412263BE5C00A7784A /* BaseCollectionVC.swift */,
+				94560CFD22621299008EE0B1 /* BaseCollectionVC.xib */,
 				94560CFC22621299008EE0B1 /* ItemListVC.swift */,
-				94560CFD22621299008EE0B1 /* ItemListVC.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -505,7 +505,7 @@
 				94560D0A22621C77008EE0B1 /* CategoryCVCell.xib in Resources */,
 				949C9A5C2267CD0E00720FBD /* Localizable.stringsdict in Resources */,
 				949330F02182707100B29B0D /* Main.storyboard in Resources */,
-				94560CFF22621299008EE0B1 /* ItemListVC.xib in Resources */,
+				94560CFF22621299008EE0B1 /* BaseCollectionVC.xib in Resources */,
 				94D7E7492263D06200A7784A /* TitleHeaderReusableView.xib in Resources */,
 				94560D0422621BAE008EE0B1 /* StreamCVCell.xib in Resources */,
 				94D7E7452263C8FF00A7784A /* StreamerCVCell.xib in Resources */,
