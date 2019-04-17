@@ -26,8 +26,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDt-dJ-jv5" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="0.0" y="248" width="375" height="27"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                        <rect key="frame" x="0.0" y="248" width="375" height="29"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -44,8 +44,8 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Streamer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-xU-9De">
-                        <rect key="frame" x="0.0" y="279" width="77" height="22"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <rect key="frame" x="0.0" y="281" width="85" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <variation key="userInterfaceStyle=dark">
@@ -56,10 +56,10 @@
                         </variation>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_person_white" translatesAutoresizingMaskIntoConstraints="NO" id="Uxq-d6-DlS">
-                        <rect key="frame" x="85" y="279" width="22" height="22"/>
+                        <rect key="frame" x="93" y="281" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Uxq-d6-DlS" secondAttribute="height" id="9Gb-aY-gBs"/>
-                            <constraint firstAttribute="height" constant="22" id="bSS-1G-kML"/>
+                            <constraint firstAttribute="height" constant="24" id="bSS-1G-kML"/>
                         </constraints>
                         <variation key="userInterfaceStyle=dark">
                             <color key="tintColor" name="color-for-dark"/>
@@ -69,8 +69,8 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="53" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-D9-Q89">
-                        <rect key="frame" x="111" y="279" width="23" height="22"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <rect key="frame" x="121" y="281" width="25" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <variation key="userInterfaceStyle=dark">
