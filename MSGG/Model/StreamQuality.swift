@@ -39,17 +39,6 @@ extension StreamQuality {
 
 extension StreamQuality: Equatable, Comparable {
 
-    static func == (lhs: StreamQuality, rhs: StreamQuality) -> Bool {
-        switch (lhs, rhs) {
-        case (.source, .source):
-            return true
-        case let (.scaled(r1), .scaled(r2)):
-            return r1 == r2
-        default:
-            return false
-        }
-    }
-
     static func < (lhs: StreamQuality, rhs: StreamQuality) -> Bool {
         switch (lhs, rhs) {
         case (.source, _):
