@@ -12,4 +12,5 @@ enum UserDefaultsKeys: String {
     
     case favorites
     case lastSelectedStreamQuality
+    case wasControlsHintShown
 }

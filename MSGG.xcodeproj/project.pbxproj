@@ -42,6 +42,8 @@
 		94B60BC2225D09FC0099A4DA /* BaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */; };
 		94B60BC4225D0BF60099A4DA /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC3225D0BF60099A4DA /* APIConstants.swift */; };
 		94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */; };
+		94D1273C22673600006E04EC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1273B22673600006E04EC /* HintView.swift */; };
+		94D127412267375D006E04EC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D127402267375D006E04EC /* UIView+Constraints.swift */; };
 		94D4CA682263EA45004BE0E7 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4CA672263EA45004BE0E7 /* AppAppearance.swift */; };
 		94D7E7422263BE5C00A7784A /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E7412263BE5C00A7784A /* BaseCollectionVC.swift */; };
 		94D7E7452263C8FF00A7784A /* StreamerCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D7E7432263C8FF00A7784A /* StreamerCVCell.xib */; };
@@ -131,6 +133,8 @@
 		94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIService.swift; sourceTree = "<group>"; };
 		94B60BC3225D0BF60099A4DA /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
+		94D1273B22673600006E04EC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		94D127402267375D006E04EC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		94D4CA672263EA45004BE0E7 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		94D7E7412263BE5C00A7784A /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
 		94D7E7432263C8FF00A7784A /* StreamerCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamerCVCell.xib; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 				94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */,
 				94D7E7482263D06200A7784A /* TitleHeaderReusableView.swift */,
 				94D7E7472263D06200A7784A /* TitleHeaderReusableView.xib */,
+				94D1273B22673600006E04EC /* HintView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 		94560D1722624103008EE0B1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				94D1273D22673730006E04EC /* UI */,
 				94560D1822624123008EE0B1 /* FailableDecodable.swift */,
 			);
 			path = Common;
@@ -346,6 +352,14 @@
 				94B60B9E225CB7F20099A4DA /* StreamVC.swift */,
 			);
 			path = Stream;
+			sourceTree = "<group>";
+		};
+		94D1273D22673730006E04EC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				94D127402267375D006E04EC /* UIView+Constraints.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		94D83C2A225F47720014C5A3 /* API */ = {
@@ -576,7 +590,9 @@
 				94D7E74A2263D06200A7784A /* TitleHeaderReusableView.swift in Sources */,
 				949E9F92225D2F0A00E6182E /* Stream.swift in Sources */,
 				94D83C27225E94620014C5A3 /* StreamQuality.swift in Sources */,
+				94D1273C22673600006E04EC /* HintView.swift in Sources */,
 				94D83C29225F46DB0014C5A3 /* FavoritesService.swift in Sources */,
+				94D127412267375D006E04EC /* UIView+Constraints.swift in Sources */,
 				94560CF922620774008EE0B1 /* StreamListHeaderReusableView.swift in Sources */,
 				94418EEF224D0210007614DD /* GoodGame.swift in Sources */,
 				94D7E7422263BE5C00A7784A /* BaseCollectionVC.swift in Sources */,

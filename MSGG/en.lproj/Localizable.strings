@@ -20,6 +20,7 @@
 
 "source" = "Source";
 
+"controls-hint" = "Use touch panel to show controls";
 "no-supported-video-streams-found" = "No supported video streams found";
 "no-stream-data-passed" = "No stream data passed";
 "stream-offline" = "Stream offline";

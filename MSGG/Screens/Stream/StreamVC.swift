@@ -40,6 +40,7 @@ class StreamVC: UIViewController {
     fileprivate var player: AVPlayer {
         return playerView.player
     }
+    fileprivate var hintView: HintView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,38 @@ class StreamVC: UIViewController {
         tryToLoadStream()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showControlsHintIfNeeded()
+    }
+    
+    fileprivate func showControlsHintIfNeeded() {
+        guard !SharedComponents.settingsService.werePlayerControlsShown else {
+            return
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            guard let self = self else { return }
+            let hintView = HintView()
+            hintView.label.text = NSLocalizedString("controls-hint", comment: "")
+            self.view.addSubview(hintView)
+            self.view.layer.zPosition = 1000
+            hintView.ms_pinEdgesToSuperview(constraintParams: [(.top, .greaterThanOrEqual, 60),
+                                                               (.bottom, .equal, -60),
+                                                               (.left, .equal, 90),
+                                                               (.right, .equal, -90)])
+            self.hintView = hintView
+            hintView.show(animated: true, autoHideTime: 5)
+            hintView.onHideCompletion = { [weak self] in
+                self?.hintView?.removeFromSuperview()
+            }
+        }
+    }
+    
+    fileprivate func hideControlsHintViewIfNeeded() {
+        hintView?.hide(animated: false)
+    }
+    
     fileprivate func tryToLoadStream() {
         if let stream = stream {
             currentViewerCount = stream.viewers
@@ -197,7 +230,10 @@ class StreamVC: UIViewController {
     }
     
     fileprivate func showControls(_ show: Bool) {
+        hideControlsHintViewIfNeeded()
+        
         if show {
+            SharedComponents.settingsService.werePlayerControlsShown = true
             restartHidingControlsTimer()
         }
         
