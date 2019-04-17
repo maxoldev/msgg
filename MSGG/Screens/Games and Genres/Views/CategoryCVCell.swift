@@ -24,7 +24,8 @@ class CategoryCVCell: UICollectionViewCell {
     
     func setup(title: String, streams: Int, thumbURL: String) {
         titleLabel.text = title
-        streamsLabel.text = "\(streams) " + NSLocalizedString("streams", comment: "")
+        let locFormatString = NSLocalizedString("stringdict-stream-count", comment: "")
+        streamsLabel.text = String.localizedStringWithFormat(locFormatString, streams)
         coverImageView.sd_setImage(with: URL(string: thumbURL),
                                    placeholderImage: nil,
                                    options: [SDWebImageOptions.retryFailed],

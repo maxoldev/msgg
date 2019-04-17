@@ -36,6 +36,7 @@
 		949330ED2182707100B29B0D /* StreamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EC2182707100B29B0D /* StreamListVC.swift */; };
 		949330F02182707100B29B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949330EE2182707100B29B0D /* Main.storyboard */; };
 		949330F22182707200B29B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949330F12182707200B29B0D /* Assets.xcassets */; };
+		949C9A5C2267CD0E00720FBD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */; };
 		949E9F92225D2F0A00E6182E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F91225D2F0A00E6182E /* Stream.swift */; };
 		949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F93225D311900E6182E /* Stream+GoodGame.swift */; };
 		94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60B9E225CB7F20099A4DA /* StreamVC.swift */; };
@@ -127,6 +128,8 @@
 		949330EF2182707100B29B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		949330F12182707200B29B0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		949330F32182707200B29B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		949C9A5F2267CD1600720FBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		949C9A602267CD2700720FBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		949E9F91225D2F0A00E6182E /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		949E9F93225D311900E6182E /* Stream+GoodGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+GoodGame.swift"; sourceTree = "<group>"; };
 		94B60B9E225CB7F20099A4DA /* StreamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamVC.swift; sourceTree = "<group>"; };
@@ -341,6 +344,7 @@
 				949330F12182707200B29B0D /* Assets.xcassets */,
 				949330F32182707200B29B0D /* Info.plist */,
 				946ECED9226683E9001E44ED /* Localizable.strings */,
+				949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */,
 			);
 			path = MSGG;
 			sourceTree = "<group>";
@@ -499,6 +503,7 @@
 				94560CFA22620774008EE0B1 /* StreamListHeaderReusableView.xib in Resources */,
 				949330F22182707200B29B0D /* Assets.xcassets in Resources */,
 				94560D0A22621C77008EE0B1 /* CategoryCVCell.xib in Resources */,
+				949C9A5C2267CD0E00720FBD /* Localizable.stringsdict in Resources */,
 				949330F02182707100B29B0D /* Main.storyboard in Resources */,
 				94560CFF22621299008EE0B1 /* ItemListVC.xib in Resources */,
 				94D7E7492263D06200A7784A /* TitleHeaderReusableView.xib in Resources */,
@@ -659,6 +664,15 @@
 				949330EF2182707100B29B0D /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				949C9A5F2267CD1600720FBD /* en */,
+				949C9A602267CD2700720FBD /* ru */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
