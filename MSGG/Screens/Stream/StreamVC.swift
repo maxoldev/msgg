@@ -313,9 +313,7 @@ class StreamVC: UIViewController {
         }
         let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
         vc.context = .game(currentGame)
-        var viewControllersArray = navigationController!.viewControllers
-        viewControllersArray = [viewControllersArray.first!, vc]
-        navigationController?.setViewControllers(viewControllersArray, animated: true)
+        SharedComponents.router.openViewController(vc, insteadOfViewController: self)
     }
      
     @IBAction func qualityButtonTriggered(_ sender: UIButton) {
@@ -372,7 +370,7 @@ class StreamVC: UIViewController {
         if areControlsShown {
             showControls(false)
         } else if !isMenuButtonDisabled {
-            navigationController?.popViewController(animated: true)
+            SharedComponents.router.backToPreviousViewController(from: self)
         }
     }
     

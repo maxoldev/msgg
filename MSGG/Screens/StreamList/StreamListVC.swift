@@ -111,6 +111,6 @@ class StreamListVC: ItemListVC<Stream> {
         let stream = items[indexPath.row]
         let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
         vc.stream = stream
-        navigationController?.pushViewController(vc, animated: true)
+        SharedComponents.router.openViewControllerModally(vc)
     }
 }

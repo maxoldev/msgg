@@ -349,12 +349,12 @@
 				94336FEB21866350000E8491 /* Screens */,
 				949330EA2182707100B29B0D /* AppDelegate.swift */,
 				94EB768D225DF1EB00297DCD /* SharedComponents.swift */,
+				949C9A632267EEC100720FBD /* Appex.swift */,
 				949330EE2182707100B29B0D /* Main.storyboard */,
 				949330F12182707200B29B0D /* Assets.xcassets */,
 				949330F32182707200B29B0D /* Info.plist */,
 				946ECED9226683E9001E44ED /* Localizable.strings */,
 				949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */,
-				949C9A632267EEC100720FBD /* Appex.swift */,
 			);
 			path = MSGG;
 			sourceTree = "<group>";

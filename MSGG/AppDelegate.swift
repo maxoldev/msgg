@@ -42,8 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if let stream = getStream(from: url) {
-            print(stream)
-            Router(tabBarController: tabBarController).openFavoriteStream(stream)
+            Logger.info(stream)
+            SharedComponents.router.openFavoriteStream(stream)
         }
         return true
     }

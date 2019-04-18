@@ -10,10 +10,8 @@ import UIKit
 
 class Router {
     
-    unowned let tabBarController: UITabBarController
-    
-    init(tabBarController: UITabBarController) {
-        self.tabBarController = tabBarController
+    fileprivate var tabBarController: UITabBarController {
+        return UIApplication.shared.keyWindow!.rootViewController as! UITabBarController
     }
     
     func openFavoriteStream(_ stream: Stream) {
@@ -23,6 +21,32 @@ class Router {
         }
         let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
         vc.stream = stream
-        nc.setViewControllers([nc.viewControllers.first!, vc], animated: true)
+        if tabBarController.presentedViewController != nil {
+            tabBarController.dismiss(animated: false, completion: nil)
+        }
+        nc.setViewControllers([nc.viewControllers.first!], animated: true)
+        tabBarController.present(vc, animated: false, completion: nil)
+    }
+    
+    func openViewControllerModally(_ vc: UIViewController) {
+        tabBarController.present(vc, animated: true, completion: nil)
+    }
+
+    func pushViewController(_ vc: UIViewController, previous: UIViewController) {
+        previous.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func openViewController(_ vc: UIViewController, insteadOfViewController currentVC: UIViewController) {
+        currentVC.dismiss(animated: false) {
+            let nc = self.tabBarController.selectedViewController! as! UINavigationController
+            var viewControllersArray = nc.viewControllers
+            viewControllersArray = [viewControllersArray.first!, vc]
+            nc.setViewControllers(viewControllersArray, animated: true)
+        }
+    }
+    
+    func backToPreviousViewController(from vc: UIViewController) {
+//        vc.navigationController?.popViewController(animated: true)
+        vc.dismiss(animated: true, completion: nil)
     }
 }
