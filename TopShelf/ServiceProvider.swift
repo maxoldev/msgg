@@ -35,6 +35,9 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
             item.setImageURL(URL(string: stream.previewURL), forTraits: [])
             item.imageShape = .HDTV
             item.title = "\(stream.streamer) - \(stream.title)"
+            let url = makeURL(for: stream)
+            item.playURL = url
+            item.displayURL = url
             return item
         }
         let addTestItem = false
@@ -63,6 +66,17 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         semaphore.wait()
         
         return streams
+    }
+    
+    fileprivate func makeURL(for stream: Stream) -> URL? {
+        var components = URLComponents()
+        components.scheme = "msgg"
+        let ggStream = GoodGame.Stream(stream: stream)
+        guard let encoded = try? JSONEncoder().encode(ggStream) else {
+            return nil
+        }
+        components.queryItems = [URLQueryItem(name: Appex.streamQueryItemName, value: String(data: encoded, encoding: .utf8))]
+        return components.url
     }
     
     fileprivate func makeTestItem(withTitle title: String, container: TVContentIdentifier?) -> TVContentItem {

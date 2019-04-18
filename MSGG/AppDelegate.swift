@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var tabBarController: UITabBarController!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupTabBarController()
@@ -35,8 +36,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let controllers = [streamListVC, favoriteStreamListVC, gameListVC, genreListVC].map({UINavigationController(rootViewController: $0)})
         controllers.forEach({ $0.isNavigationBarHidden = true })
-        let tabBarController = window!.rootViewController as! UITabBarController
+        tabBarController = window!.rootViewController as? UITabBarController
         tabBarController.setViewControllers(controllers, animated: false)
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let stream = getStream(from: url) {
+            print(stream)
+            Router(tabBarController: tabBarController).openFavoriteStream(stream)
+        }
+        return true
+    }
+    
+    fileprivate func getStream(from url: URL) -> Stream? {
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+            let encodedStr = components.queryItems?.first(where: { $0.name == Appex.streamQueryItemName })?.value,
+            let data = encodedStr.data(using: .utf8) else {
+            return nil
+        }
+        guard let ggStream = try? JSONDecoder().decode(GoodGame.Stream.self, from: data) else {
+            return nil
+        }
+        let stream = Stream(goodgameStream: ggStream)
+        return stream
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

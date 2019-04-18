@@ -16,7 +16,7 @@ extension String {
         }
         urlComponents.scheme = "https"
         if urlComponents.host == nil {
-            urlComponents.host = "goodgame.ru"
+            urlComponents.host = APIConstants.host
         }
         let url = urlComponents.url?.absoluteString ?? ""
         return url
@@ -30,7 +30,16 @@ extension Stream {
         let sources = gg.sources.compactMap({ (key: String, value: String) -> StreamSource? in
             return StreamSource(id: key, url: value)
         }).sorted(by: >)
+        
         self.init(channelID: gg.id, title: gg.title, streamer: gg.streamer ?? "", avatarURL: gg.avatar.normalizedGGURL, viewers: gg.viewers, playerSrc: gg.streamkey, previewURL: gg.preview.normalizedGGURL, channelPosterURL: gg.poster, gameID: gg.game, isOnline: gg.status, sources: sources)
+    }
+}
+
+extension GoodGame.Stream {
+    
+    init(stream: Stream) {
+        let sources = Dictionary(uniqueKeysWithValues: stream.sources.map({ ($0.title.lowercased(), $0.url) }))
+        self.init(id: stream.channelID, title: stream.title, streamer: stream.streamer, avatar: stream.avatarURL, game: stream.gameID, viewers: stream.viewers, preview: stream.previewURL, poster: stream.channelPosterURL, streamkey: stream.playerSrc, status: stream.isOnline, sources: sources)
     }
 }
 

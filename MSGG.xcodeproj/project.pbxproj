@@ -38,6 +38,9 @@
 		949330F22182707200B29B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949330F12182707200B29B0D /* Assets.xcassets */; };
 		949C9A5C2267CD0E00720FBD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */; };
 		949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A612267E05000720FBD /* CustomTabBar.swift */; };
+		949C9A642267EEC100720FBD /* Appex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* Appex.swift */; };
+		949C9A652267EEC100720FBD /* Appex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* Appex.swift */; };
+		949C9A672267F1A700720FBD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A662267F1A700720FBD /* Router.swift */; };
 		949E9F92225D2F0A00E6182E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F91225D2F0A00E6182E /* Stream.swift */; };
 		949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F93225D311900E6182E /* Stream+GoodGame.swift */; };
 		94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60B9E225CB7F20099A4DA /* StreamVC.swift */; };
@@ -132,6 +135,8 @@
 		949C9A5F2267CD1600720FBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		949C9A602267CD2700720FBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		949C9A612267E05000720FBD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		949C9A632267EEC100720FBD /* Appex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appex.swift; sourceTree = "<group>"; };
+		949C9A662267F1A700720FBD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		949E9F91225D2F0A00E6182E /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		949E9F93225D311900E6182E /* Stream+GoodGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+GoodGame.swift"; sourceTree = "<group>"; };
 		94B60B9E225CB7F20099A4DA /* StreamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamVC.swift; sourceTree = "<group>"; };
@@ -231,6 +236,7 @@
 				94EB768B225DF04C00297DCD /* VCFactory.swift */,
 				94D4CA672263EA45004BE0E7 /* AppAppearance.swift */,
 				949C9A612267E05000720FBD /* CustomTabBar.swift */,
+				949C9A662267F1A700720FBD /* Router.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				949330F32182707200B29B0D /* Info.plist */,
 				946ECED9226683E9001E44ED /* Localizable.strings */,
 				949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */,
+				949C9A632267EEC100720FBD /* Appex.swift */,
 			);
 			path = MSGG;
 			sourceTree = "<group>";
@@ -586,6 +593,7 @@
 				949330ED2182707100B29B0D /* StreamListVC.swift in Sources */,
 				946ECECE2266749C001E44ED /* StreamSource.swift in Sources */,
 				946ECED1226675B6001E44ED /* SettingsService.swift in Sources */,
+				949C9A642267EEC100720FBD /* Appex.swift in Sources */,
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
 				9415A26F22639445007D2F82 /* FavoriteListVC.swift in Sources */,
 				94336FEF21866392000E8491 /* ClassicStreamCVCell.swift in Sources */,
@@ -611,6 +619,7 @@
 				942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */,
 				949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */,
 				94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */,
+				949C9A672267F1A700720FBD /* Router.swift in Sources */,
 				942D426E2261262B006AF281 /* UserDefaultsKeys.swift in Sources */,
 				94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */,
 				94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */,
@@ -628,6 +637,7 @@
 				94F07D812265377C00601036 /* APIConstants.swift in Sources */,
 				94F07D822265377C00601036 /* APIServiceError.swift in Sources */,
 				94F07D7622651B0600601036 /* ServiceProvider.swift in Sources */,
+				949C9A652267EEC100720FBD /* Appex.swift in Sources */,
 				94F07D862265378C00601036 /* Stream+GoodGame.swift in Sources */,
 				94F07D802265375200601036 /* StreamsService.swift in Sources */,
 				94F07D882265379900601036 /* FailableDecodable.swift in Sources */,

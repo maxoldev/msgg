@@ -14,7 +14,7 @@ struct GoodGame {
         let streams: [FailableDecodable<GoodGame.Stream>]
     }
     
-    struct Stream: Decodable {
+    struct Stream: Codable {
         let id: Int
         let title: String
         let streamer: String?
@@ -24,7 +24,7 @@ struct GoodGame {
         let preview: String
         let poster: String
         let streamkey: String
-        let channelkey: String
+//        let channelkey: String
         let status: Bool
         let sources: Dictionary<String, String>
     }
