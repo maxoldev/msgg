@@ -98,7 +98,7 @@ class BaseCollectionVC: UIViewController,
             self.prevFocusedView = nil
             return [prevFocusedView]
         }
-        return [collectionView]
+        return collectionView != nil ? [collectionView] : []
     }
 
     //MARK: - Actions
