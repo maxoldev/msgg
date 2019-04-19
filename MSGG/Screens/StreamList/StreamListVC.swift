@@ -88,18 +88,10 @@ class StreamListVC: ItemListVC<Stream> {
         collectionView.register(UINib(nibName: String(describing: StreamCVCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: StreamCVCell.self))
     }
     
-    override var itemSize: CGSize {
-        return CGSize(width: 375, height: 301)
+    override var itemListLayout: ItemListLayout {
+        return AppAppearance.streamsItemListLayout
     }
     
-    override var horizontalSpacing: CGFloat {
-        return 80
-    }
-    
-    override var verticalSpacing: CGFloat {
-        return 50
-    }
-
     //MARK: - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

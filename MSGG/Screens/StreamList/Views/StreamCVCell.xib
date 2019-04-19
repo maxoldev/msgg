@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StreamCVCell" id="5gN-br-lB5" customClass="StreamCVCell" customModule="MSGG" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="301"/>
+            <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="301"/>
+                <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gks-mf-TpI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+                        <rect key="frame" x="0.0" y="0.0" width="548" height="297"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Gks-mf-TpI" secondAttribute="height" multiplier="480:260" id="zhQ-wO-T7i"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDt-dJ-jv5" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="0.0" y="248" width="375" height="29"/>
+                        <rect key="frame" x="0.0" y="342" width="548" height="29"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +43,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Streamer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-xU-9De">
-                        <rect key="frame" x="0.0" y="281" width="85" height="24"/>
+                        <rect key="frame" x="0.0" y="375" width="85" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -56,7 +55,7 @@
                         </variation>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_person_white" translatesAutoresizingMaskIntoConstraints="NO" id="Uxq-d6-DlS">
-                        <rect key="frame" x="93" y="281" width="24" height="24"/>
+                        <rect key="frame" x="93" y="375" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Uxq-d6-DlS" secondAttribute="height" id="9Gb-aY-gBs"/>
                             <constraint firstAttribute="height" constant="24" id="bSS-1G-kML"/>
@@ -69,7 +68,7 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="53" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-D9-Q89">
-                        <rect key="frame" x="121" y="281" width="25" height="24"/>
+                        <rect key="frame" x="121" y="375" width="25" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -81,7 +80,7 @@
                         </variation>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="round_cancel_white" translatesAutoresizingMaskIntoConstraints="NO" id="kox-iT-Rne">
-                        <rect key="frame" x="170" y="84" width="36" height="36"/>
+                        <rect key="frame" x="256" y="130" width="36" height="36"/>
                     </imageView>
                 </subviews>
             </view>
@@ -103,8 +102,7 @@
                 <constraint firstItem="Uxq-d6-DlS" firstAttribute="bottom" secondItem="Nnh-xU-9De" secondAttribute="bottom" id="rPn-wR-kxL"/>
                 <constraint firstItem="UDt-dJ-jv5" firstAttribute="leading" secondItem="Gks-mf-TpI" secondAttribute="leading" id="siw-0B-GZ1"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="SXD-7U-Mhl"/>
-            <size key="customSize" width="573" height="301"/>
+            <size key="customSize" width="626" height="399"/>
             <connections>
                 <outlet property="streamerLabel" destination="Nnh-xU-9De" id="NMZ-Ma-2k2"/>
                 <outlet property="thumbImageView" destination="Gks-mf-TpI" id="Jy6-sX-PHW"/>
@@ -113,7 +111,7 @@
                 <outlet property="viewersLabel" destination="0kf-D9-Q89" id="h0c-ds-UhH"/>
                 <outlet property="warningImageView" destination="kox-iT-Rne" id="wnA-AV-5La"/>
             </connections>
-            <point key="canvasLocation" x="50.5" y="81.5"/>
+            <point key="canvasLocation" x="77" y="130.5"/>
         </collectionViewCell>
     </objects>
     <resources>

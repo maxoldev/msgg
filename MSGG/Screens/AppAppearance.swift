@@ -10,5 +10,8 @@ import UIKit
 
 struct AppAppearance {
     
-    static let unfocusedAlpha: CGFloat = 0.6
+    static let unfocusedAlpha: CGFloat = 0.8
+    static let streamsItemListLayout = ItemListLayout.wide3Row
+    static let categoriesItemListLayout = ItemListLayout.poster7Row
+    static let offlineFavoritesItemListLayout = ItemListLayout(itemSize: CGSize(width: 204, height: 271), horizontalSpacing: 52, verticalSpacing: 50)
 }

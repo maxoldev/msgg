@@ -47,6 +47,7 @@
 		94B60BC2225D09FC0099A4DA /* BaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */; };
 		94B60BC4225D0BF60099A4DA /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC3225D0BF60099A4DA /* APIConstants.swift */; };
 		94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */; };
+		94CC02AA226A0D3100A99449 /* ItemListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02A9226A0D3100A99449 /* ItemListLayout.swift */; };
 		94D1273C22673600006E04EC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1273B22673600006E04EC /* HintView.swift */; };
 		94D127412267375D006E04EC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D127402267375D006E04EC /* UIView+Constraints.swift */; };
 		94D4CA682263EA45004BE0E7 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4CA672263EA45004BE0E7 /* AppAppearance.swift */; };
@@ -155,6 +156,7 @@
 		94B60BC1225D09FC0099A4DA /* BaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIService.swift; sourceTree = "<group>"; };
 		94B60BC3225D0BF60099A4DA /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
+		94CC02A9226A0D3100A99449 /* ItemListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListLayout.swift; sourceTree = "<group>"; };
 		94D1273B22673600006E04EC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		94D127402267375D006E04EC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		94D4CA672263EA45004BE0E7 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				94560D0022621B7C008EE0B1 /* Views */,
+				94CC02A9226A0D3100A99449 /* ItemListLayout.swift */,
 				94D7E7412263BE5C00A7784A /* BaseCollectionVC.swift */,
 				94560CFD22621299008EE0B1 /* BaseCollectionVC.xib */,
 				94560CFC22621299008EE0B1 /* ItemListVC.swift */,
@@ -678,6 +681,7 @@
 				942D426E2261262B006AF281 /* UserDefaultsKeys.swift in Sources */,
 				94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */,
 				94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */,
+				94CC02AA226A0D3100A99449 /* ItemListLayout.swift in Sources */,
 				94D7E7462263C8FF00A7784A /* StreamerCVCell.swift in Sources */,
 				94EB768C225DF04C00297DCD /* VCFactory.swift in Sources */,
 				94E01D0E22694F1E00A5F17A /* CategoriesService.swift in Sources */,

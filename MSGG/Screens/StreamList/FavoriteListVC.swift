@@ -154,11 +154,10 @@ class FavoriteListVC: BaseCollectionVC {
             fatalError("Reload button section must not contain cells")
         
         case .online:
-            return CGSize(width: 375, height: 301)
+            return AppAppearance.streamsItemListLayout.itemSize
 
         case .offline:
-            return CGSize(width: 204, height: 271
-            )
+            return AppAppearance.offlineFavoritesItemListLayout.itemSize
         }
     }
     
@@ -169,10 +168,10 @@ class FavoriteListVC: BaseCollectionVC {
             return 0
         
         case .online:
-            return 80
+            return AppAppearance.streamsItemListLayout.horizontalSpacing
 
         case .offline:
-            return 52
+            return AppAppearance.offlineFavoritesItemListLayout.horizontalSpacing
         }
     }
     
@@ -183,10 +182,10 @@ class FavoriteListVC: BaseCollectionVC {
             return 0
             
         case .online:
-            return 50
+            return AppAppearance.streamsItemListLayout.verticalSpacing
             
         case .offline:
-            return 50
+            return AppAppearance.offlineFavoritesItemListLayout.verticalSpacing
         }
     }
     

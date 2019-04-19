@@ -186,7 +186,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.74938463184931503" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="w4G-eK-agk" firstAttribute="leading" secondItem="9f8-hb-gxs" secondAttribute="centerX" constant="-60" id="LoA-76-1H2"/>

@@ -30,9 +30,9 @@ class BaseCollectionVC: UIViewController,
         collectionView.remembersLastFocusedIndexPath = true
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 80)
-        layout.itemSize = itemSize
-        layout.minimumInteritemSpacing = horizontalSpacing
-        layout.minimumLineSpacing = verticalSpacing
+        layout.itemSize = itemListLayout.itemSize
+        layout.minimumInteritemSpacing = itemListLayout.horizontalSpacing
+        layout.minimumLineSpacing = itemListLayout.verticalSpacing
     }    
     
     var showNavigationBar: Bool = false {
@@ -50,16 +50,8 @@ class BaseCollectionVC: UIViewController,
         }
     }
 
-    var itemSize: CGSize {
-        return CGSize(width: 548, height: 340)
-    }
-    
-    var horizontalSpacing: CGFloat {
-        return 48
-    }
-    
-    var verticalSpacing: CGFloat {
-        return 100
+    var itemListLayout: ItemListLayout {
+        return ItemListLayout.wide3Row
     }
     
     func registerCellAndViews() {
