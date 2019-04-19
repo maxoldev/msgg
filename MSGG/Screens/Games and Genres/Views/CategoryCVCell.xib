@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -69,7 +68,6 @@
                 <constraint firstItem="eJj-15-FYT" firstAttribute="trailing" secondItem="taz-ab-1Zn" secondAttribute="trailing" id="reb-8S-V5G"/>
                 <constraint firstItem="BYB-gb-sVG" firstAttribute="top" secondItem="h6h-f4-hy3" secondAttribute="top" id="uGM-bV-ii3"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="FCM-mh-gpI"/>
             <size key="customSize" width="205" height="384"/>
             <connections>
                 <outlet property="coverImageView" destination="BYB-gb-sVG" id="6Zv-5S-Sx7"/>
