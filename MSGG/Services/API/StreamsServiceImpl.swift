@@ -22,7 +22,7 @@ class StreamsServiceImpl: BaseAPIService, StreamsService {
             guard let self = self else { return }
             
             if let foundError = self.getError(data: data, urlResponse: response, error: error) {
-                Logger.error(foundError)
+                Logger.error("🌐", foundError)
                 completion([], foundError)
                 return
             }
@@ -49,7 +49,7 @@ class StreamsServiceImpl: BaseAPIService, StreamsService {
                 }
                 completion(streams, nil)
             } catch {
-                Logger.error(error)
+                Logger.error("🛄", error)
                 completion([], error)
             }
         }.resume()
@@ -63,7 +63,7 @@ class StreamsServiceImpl: BaseAPIService, StreamsService {
             guard let self = self else { return }
             
             if let foundError = self.getError(data: data, urlResponse: response, error: error) {
-                Logger.error(foundError)
+                Logger.error("🌐", foundError)
                 completion(0, foundError)
                 return
             }
@@ -73,7 +73,7 @@ class StreamsServiceImpl: BaseAPIService, StreamsService {
                 let ggStream = try jsonDecoder.decode(GoodGame.StreamOld.self, from: data!)
                 completion(Int(ggStream.viewers) ?? 0, nil)
             } catch {
-                Logger.error(error)
+                Logger.error("🛄", error)
                 completion(0, error)
             }
         }.resume()
@@ -87,7 +87,7 @@ class StreamsServiceImpl: BaseAPIService, StreamsService {
             guard let self = self else { return }
             
             if let foundError = self.getError(data: data, urlResponse: response, error: error) {
-                Logger.error(foundError)
+                Logger.error("🌐", foundError)
                 completion(nil, foundError)
                 return
             }
@@ -98,7 +98,7 @@ class StreamsServiceImpl: BaseAPIService, StreamsService {
                 let playerInfo = PlayerInfo(streamerAvatarURL: ggPlayerInfo.streamer_avatar)
                 completion(playerInfo, nil)
             } catch {
-                Logger.error(error)
+                Logger.error("🛄", error)
                 completion(nil, error)
             }
         }.resume()

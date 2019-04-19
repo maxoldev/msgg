@@ -17,7 +17,7 @@ struct FailableDecodable<Base: Decodable> : Decodable {
         do {
             base = try container.decode(Base.self)
         } catch {
-            Logger.warning(error)
+            Logger.warning("🛄", error)
             base = nil
         }
     }

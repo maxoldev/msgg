@@ -18,7 +18,7 @@ class CategoriesServiceImpl: BaseAPIService, CategoriesService {
             guard let self = self else { return }
             
             if let foundError = self.getError(data: data, urlResponse: response, error: error) {
-                Logger.error(foundError)
+                Logger.error("🌐", foundError)
                 completion([], [], foundError)
                 return
             }
@@ -30,7 +30,7 @@ class CategoriesServiceImpl: BaseAPIService, CategoriesService {
                 let genres = ggCategories.genres.map({Genre(goodgameGenre: $0)})
                 completion(games, genres, nil)
             } catch {
-                Logger.error(error)
+                Logger.error("🛄", error)
                 completion([], [], error)
             }
         }.resume()
@@ -44,7 +44,7 @@ class CategoriesServiceImpl: BaseAPIService, CategoriesService {
             guard let self = self else { return }
             
             if let foundError = self.getError(data: data, urlResponse: response, error: error) {
-                Logger.error(foundError)
+                Logger.error("🌐", foundError)
                 completion(nil, foundError)
                 return
             }
@@ -55,7 +55,7 @@ class CategoriesServiceImpl: BaseAPIService, CategoriesService {
                 let game = Game(goodgameGame: ggGame)
                 completion(game, nil)
             } catch {
-                Logger.error(error)
+                Logger.error("🛄", error)
                 completion(nil, error)
             }
         }.resume()

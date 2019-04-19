@@ -36,10 +36,6 @@ class Router {
         UIViewController.ms_topmostViewController?.present(vc, animated: true, completion: nil)
     }
 
-    func pushViewController(_ vc: UIViewController, previous: UIViewController) {
-        previous.navigationController?.pushViewController(vc, animated: true)
-    }
-
     func openViewController(_ vc: UIViewController, insteadOfViewController currentVC: UIViewController) {
         currentVC.dismiss(animated: false) {
             UIViewController.ms_topmostViewController?.present(vc, animated: false, completion: nil)
