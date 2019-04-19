@@ -15,13 +15,21 @@ class Router {
     }
     
     func openFavoriteStream(_ stream: Stream) {
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: {
+        let openStream = {
             self.tabBarController.selectedIndex = 1  // select Favorites
-
+            
             let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
             vc.stream = stream
             UIViewController.ms_topmostViewController?.present(vc, animated: false, completion: nil)
-        })
+        }
+        let rootvc = UIApplication.shared.keyWindow?.rootViewController
+        if rootvc?.presentedViewController != nil {
+            rootvc?.dismiss(animated: false, completion: {
+                openStream()
+            })
+        } else {
+            openStream()
+        }
     }
     
     func openViewControllerModally(_ vc: UIViewController) {
