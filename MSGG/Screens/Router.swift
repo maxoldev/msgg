@@ -15,21 +15,17 @@ class Router {
     }
     
     func openFavoriteStream(_ stream: Stream) {
-        tabBarController.selectedIndex = 1
-        guard let nc = tabBarController.selectedViewController as? UINavigationController else {
-            return
-        }
-        let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
-        vc.stream = stream
-        if tabBarController.presentedViewController != nil {
-            tabBarController.dismiss(animated: false, completion: nil)
-        }
-        nc.setViewControllers([nc.viewControllers.first!], animated: true)
-        tabBarController.present(vc, animated: false, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: {
+            self.tabBarController.selectedIndex = 1  // select Favorites
+
+            let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
+            vc.stream = stream
+            UIViewController.ms_topmostViewController?.present(vc, animated: false, completion: nil)
+        })
     }
     
     func openViewControllerModally(_ vc: UIViewController) {
-        tabBarController.present(vc, animated: true, completion: nil)
+        UIViewController.ms_topmostViewController?.present(vc, animated: true, completion: nil)
     }
 
     func pushViewController(_ vc: UIViewController, previous: UIViewController) {
@@ -38,15 +34,11 @@ class Router {
 
     func openViewController(_ vc: UIViewController, insteadOfViewController currentVC: UIViewController) {
         currentVC.dismiss(animated: false) {
-            let nc = self.tabBarController.selectedViewController! as! UINavigationController
-            var viewControllersArray = nc.viewControllers
-            viewControllersArray = [viewControllersArray.first!, vc]
-            nc.setViewControllers(viewControllersArray, animated: true)
+            UIViewController.ms_topmostViewController?.present(vc, animated: false, completion: nil)
         }
     }
     
     func backToPreviousViewController(from vc: UIViewController) {
-//        vc.navigationController?.popViewController(animated: true)
         vc.dismiss(animated: true, completion: nil)
     }
 }

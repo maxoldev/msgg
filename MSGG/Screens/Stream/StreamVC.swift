@@ -313,7 +313,7 @@ class StreamVC: UIViewController {
         }
         let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
         vc.context = .game(currentGame)
-        SharedComponents.router.openViewController(vc, insteadOfViewController: self)
+        SharedComponents.router.openViewController(UINavigationController(rootViewController: vc), insteadOfViewController: self)
     }
      
     @IBAction func qualityButtonTriggered(_ sender: UIButton) {

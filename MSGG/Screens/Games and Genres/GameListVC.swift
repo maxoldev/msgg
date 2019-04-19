@@ -43,6 +43,7 @@ class GameListVC: CatergoryListVC<Game> {
         let game = items[indexPath.row]
         let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
         vc.context = .game(game)
-        SharedComponents.router.pushViewController(vc, previous: self)
+//        SharedComponents.router.pushViewController(vc, previous: self)
+        SharedComponents.router.openViewControllerModally(UINavigationController(rootViewController: vc))
     }
 }

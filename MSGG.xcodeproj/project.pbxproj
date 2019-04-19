@@ -57,6 +57,7 @@
 		94D7E74A2263D06200A7784A /* TitleHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E7482263D06200A7784A /* TitleHeaderReusableView.swift */; };
 		94D83C27225E94620014C5A3 /* StreamQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D83C26225E94620014C5A3 /* StreamQuality.swift */; };
 		94D83C29225F46DB0014C5A3 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D83C28225F46DB0014C5A3 /* FavoritesService.swift */; };
+		94E01D062269371B00A5F17A /* UIViewController+Topmost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E01D052269371B00A5F17A /* UIViewController+Topmost.swift */; };
 		94EB7686225DEECB00297DCD /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB7685225DEECB00297DCD /* PlayerView.swift */; };
 		94EB768C225DF04C00297DCD /* VCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768B225DF04C00297DCD /* VCFactory.swift */; };
 		94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768D225DF1EB00297DCD /* SharedComponents.swift */; };
@@ -153,6 +154,7 @@
 		94D7E7482263D06200A7784A /* TitleHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleHeaderReusableView.swift; sourceTree = "<group>"; };
 		94D83C26225E94620014C5A3 /* StreamQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamQuality.swift; sourceTree = "<group>"; };
 		94D83C28225F46DB0014C5A3 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		94E01D052269371B00A5F17A /* UIViewController+Topmost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Topmost.swift"; sourceTree = "<group>"; };
 		94EB7685225DEECB00297DCD /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		94EB768B225DF04C00297DCD /* VCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCFactory.swift; sourceTree = "<group>"; };
 		94EB768D225DF1EB00297DCD /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				94D127402267375D006E04EC /* UIView+Constraints.swift */,
+				94E01D052269371B00A5F17A /* UIViewController+Topmost.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
 				9415A26F22639445007D2F82 /* FavoriteListVC.swift in Sources */,
 				94336FEF21866392000E8491 /* ClassicStreamCVCell.swift in Sources */,
+				94E01D062269371B00A5F17A /* UIViewController+Topmost.swift in Sources */,
 				94EB7686225DEECB00297DCD /* PlayerView.swift in Sources */,
 				942D427622614B17006AF281 /* CategoriesService.swift in Sources */,
 				94418EF6224D0951007614DD /* StreamsService.swift in Sources */,
