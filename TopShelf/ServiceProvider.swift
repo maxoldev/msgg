@@ -8,11 +8,19 @@
 
 import Foundation
 import TVServices
+import Swinject
 
 class ServiceProvider: NSObject, TVTopShelfProvider {
 
     override init() {
         super.init()
+        registerDependencies()
+    }
+
+    fileprivate func registerDependencies() {
+        let container = DepedencyContainer.global
+        container.register(StreamsService.self, factory: { _ in StreamsServiceImpl() })
+        container.register(FavoritesService.self, factory: { r in FavoritesServiceImpl(streamsService: r.resolve(StreamsService.self)!) })
     }
 
     // MARK: - TVTopShelfProvider protocol
@@ -53,7 +61,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         var streams = [Stream]()
         let semaphore = DispatchSemaphore(value: 0)
         
-        let favoritesService = FavoritesService(streamsService: StreamsService())
+        let favoritesService = DepedencyContainer.global.resolve(FavoritesService.self)!
         favoritesService.getStreams { (onlineStreams, _, error) in
             defer {
                 semaphore.signal()

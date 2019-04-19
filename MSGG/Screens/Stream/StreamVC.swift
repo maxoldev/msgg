@@ -30,9 +30,10 @@ class StreamVC: UIViewController {
     @IBOutlet weak var noSupportedVideoFoundView: UIStackView!
     @IBOutlet weak var messageLabel: UILabel!
     
-    let streamService = StreamsService()
-    let gameService = CategoriesService()
-    
+    fileprivate let streamService = DepedencyContainer.global.resolve(StreamsService.self)!
+    fileprivate let gameService = DepedencyContainer.global.resolve(CategoriesService.self)!
+    fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesService.self)!
+
     fileprivate var updatingViewerCountTimer: Timer?
     fileprivate var hidingControlsTimer: Timer?
     fileprivate var isMenuButtonDisabled = false
@@ -139,7 +140,7 @@ class StreamVC: UIViewController {
         titleLabel.text = stream!.title
         streamerLabel.text = stream!.streamer
         viewersLabel.text = "\(stream!.viewers)"
-        updateFavoriteButton(isFavorite: SharedComponents.favoritesService.isFavorite(channelID: stream!.channelID))
+        updateFavoriteButton(isFavorite: favoritesService.isFavorite(channelID: stream!.channelID))
         updateStreamerAvatar(url: stream!.avatarURL)
     }
     
@@ -346,14 +347,14 @@ class StreamVC: UIViewController {
     
     @IBAction func favoriteButtonTriggered(_ sender: UIButton) {
         let channelID = stream!.channelID
-        let newFavoriteState = !SharedComponents.favoritesService.isFavorite(channelID: channelID)
+        let newFavoriteState = !favoritesService.isFavorite(channelID: channelID)
         if newFavoriteState {
-            SharedComponents.favoritesService.addToFavorites(stream: stream!)
+            favoritesService.addToFavorites(stream: stream!)
             updateFavoriteButton(isFavorite: newFavoriteState)
         } else {
             let alert = UIAlertController(title: NSLocalizedString("remove-channel-from-favorites", comment: ""), message: nil, preferredStyle: .alert)
             let action = UIAlertAction(title: NSLocalizedString("remove", comment: ""), style: .destructive, handler: { (_) in
-                SharedComponents.favoritesService.removeFromFavorites(channelID: channelID)
+                self.favoritesService.removeFromFavorites(channelID: channelID)
                 self.updateFavoriteButton(isFavorite: false)
 //                self.dismiss(animated: true, completion: nil)
             })

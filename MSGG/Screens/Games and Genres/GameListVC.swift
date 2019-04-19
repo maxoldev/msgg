@@ -10,7 +10,7 @@ import UIKit
 
 class GameListVC: CatergoryListVC<Game> {
 
-    let service = CategoriesService()
+    fileprivate let service = DepedencyContainer.global.resolve(CategoriesService.self)!
     
     override func loadData() {
         isLoading = true

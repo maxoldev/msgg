@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        registerDependencies()
+        
         setupTabBarController()
         
         return true
     }
 
+    fileprivate func registerDependencies() {
+        let container = DepedencyContainer.global
+        
+        container.register(StreamsService.self, factory: { _ in StreamsServiceImpl() })
+        
+        container.register(FavoritesService.self, factory: { r in
+            FavoritesServiceImpl(streamsService: r.resolve(StreamsService.self)!)
+        }).inObjectScope(.container)
+        
+        container.register(CategoriesService.self, factory: { _ in CategoriesServiceImpl() })
+    }
+    
     fileprivate func setupTabBarController() {
         let streamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
         streamListVC.title = NSLocalizedString("streams", comment: "")

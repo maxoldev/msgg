@@ -3,20 +3,24 @@ PODS:
   - SDWebImage (5.0.0):
     - SDWebImage/Core (= 5.0.0)
   - SDWebImage/Core (5.0.0)
+  - Swinject (2.6.0)
 
 DEPENDENCIES:
   - MarqueeLabel (~> 4.0)
   - SDWebImage (~> 5.0)
+  - Swinject (~> 2.6.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - MarqueeLabel
     - SDWebImage
+    - Swinject
 
 SPEC CHECKSUMS:
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: d25443d9fb255780370737bfd9c0f78f5854e9be
+PODFILE CHECKSUM: 16fa9497b47ebe35744003a9613658132891cf19
 
 COCOAPODS: 1.6.1

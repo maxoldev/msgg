@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Swinject
 
 class StreamListVC: ItemListVC<Stream> {
     
@@ -18,8 +19,12 @@ class StreamListVC: ItemListVC<Stream> {
         case genre(Genre)
     }
     
-    let service = StreamsService()
+    fileprivate let service = DepedencyContainer.global.resolve(StreamsService.self)!
     var context = Context.allStreams
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,7 +42,7 @@ class StreamListVC: ItemListVC<Stream> {
             break
         }
         
-        service.getStreams(gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
+        service.getStreams(limit: APIConstants.itemLimit, gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 

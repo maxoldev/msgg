@@ -15,6 +15,8 @@ struct APIConstants {
     static let baseVideoURL = "https://hls.goodgame.ru/hls/%@.m3u8"
     static let baseAPIUrl4 = "https://goodgame.ru/api/4/"
     static let smilExt = "smil"
+    
+    static let itemLimit = 2000
 }
 
 enum APIEndpoint: String {

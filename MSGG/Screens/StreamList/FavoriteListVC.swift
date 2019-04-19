@@ -18,6 +18,7 @@ class FavoriteListVC: BaseCollectionVC {
     
     var sections = [Section.reload]
     fileprivate var needToReload = false
+    fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesService.self)!
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -26,7 +27,7 @@ class FavoriteListVC: BaseCollectionVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        NotificationCenter.default.addObserver(self, selector: #selector(favoritesUpdatedNotified), name: FavoritesService.listUpdatedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(favoritesUpdatedNotified), name: FavoritesServiceImpl.listUpdatedNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +40,7 @@ class FavoriteListVC: BaseCollectionVC {
     
     override func loadData() {
         isLoading = true
-        SharedComponents.favoritesService.getStreams { [weak self] (onlineStreams, offlineStreamInfos, error) in
+        favoritesService.getStreams { [weak self] (onlineStreams, offlineStreamInfos, error) in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 guard error == nil, let self = self else {
