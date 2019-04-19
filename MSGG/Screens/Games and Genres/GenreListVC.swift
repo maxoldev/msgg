@@ -40,8 +40,5 @@ class GenreListVC: CatergoryListVC<Genre> {
     //MARK: - UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let genre = items[indexPath.row]
-//        let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
-//        SharedComponents.router.pushViewController(vc, previous: self)
     }
 }
