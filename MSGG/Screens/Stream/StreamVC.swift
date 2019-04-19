@@ -323,7 +323,7 @@ class StreamVC: UIViewController {
         }
         let alert = UIAlertController(title: NSLocalizedString("select-stream-quality", comment: ""), message: nil, preferredStyle: .alert)
         sources.forEach { (source) in
-            let title = source.title
+            let title = source.quality.localizedTitle
             let action = UIAlertAction(title: title, style: .default, handler: { _ in
                 self.selectStreamSource(source)
 //                self.dismiss(animated: true, completion: nil)

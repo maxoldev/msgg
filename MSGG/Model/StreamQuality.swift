@@ -27,11 +27,20 @@ extension StreamQuality {
         }
     }
     
-    var string: String {
+    var key: String {
         switch self {
         case .source:
             return StreamQuality.sourceID
         case let .scaled(resolution):
+            return String(resolution)
+        }
+    }
+
+    var localizedTitle: String {
+        switch self {
+        case .source:
+            return NSLocalizedString("source", comment: "")
+        case let (.scaled(resolution)):
             return String(resolution)
         }
     }

@@ -28,15 +28,6 @@ extension StreamSource {
             return nil
         }
     }
-    
-    var title: String {
-        switch quality {
-        case .source:
-            return NSLocalizedString("source", comment: "")
-        case let (.scaled(resolution)):
-            return String(resolution)
-        }
-    }
 }
 
 extension StreamSource: Comparable {

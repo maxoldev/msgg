@@ -12,7 +12,7 @@ class SettingsService {
     
     var lastSelectedStreamQuality: StreamQuality {
         didSet {
-            UserDefaults.standard.set(lastSelectedStreamQuality.string, forKey: UserDefaultsKeys.lastSelectedStreamQuality.rawValue)
+            UserDefaults.standard.set(lastSelectedStreamQuality.key, forKey: UserDefaultsKeys.lastSelectedStreamQuality.rawValue)
         }
     }
     

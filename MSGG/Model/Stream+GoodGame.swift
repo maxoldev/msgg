@@ -38,7 +38,7 @@ extension Stream {
 extension GoodGame.Stream {
     
     init(stream: Stream) {
-        let sources = Dictionary(uniqueKeysWithValues: stream.sources.map({ ($0.title.lowercased(), $0.url) }))
+        let sources = Dictionary(uniqueKeysWithValues: stream.sources.map({ ($0.quality.key, $0.url) }))
         self.init(id: stream.channelID, title: stream.title, streamer: stream.streamer, avatar: stream.avatarURL, game: stream.gameID, viewers: stream.viewers, preview: stream.previewURL, poster: stream.channelPosterURL, streamkey: stream.playerSrc, status: stream.isOnline, sources: sources)
     }
 }
