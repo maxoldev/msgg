@@ -29,7 +29,7 @@
 		94560D1922624123008EE0B1 /* FailableDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560D1822624123008EE0B1 /* FailableDecodable.swift */; };
 		946ECECE2266749C001E44ED /* StreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946ECECD2266749C001E44ED /* StreamSource.swift */; };
 		946ECECF226674A0001E44ED /* StreamSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946ECECD2266749C001E44ED /* StreamSource.swift */; };
-		946ECED1226675B6001E44ED /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946ECED0226675B6001E44ED /* SettingsService.swift */; };
+		946ECED1226675B6001E44ED /* SettingsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946ECED0226675B6001E44ED /* SettingsServiceImpl.swift */; };
 		946ECED7226683E9001E44ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 946ECED9226683E9001E44ED /* Localizable.strings */; };
 		946ECEDB22668609001E44ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 946ECED9226683E9001E44ED /* Localizable.strings */; };
 		949330EB2182707100B29B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949330EA2182707100B29B0D /* AppDelegate.swift */; };
@@ -48,6 +48,7 @@
 		94B60BC4225D0BF60099A4DA /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC3225D0BF60099A4DA /* APIConstants.swift */; };
 		94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */; };
 		94CC02AA226A0D3100A99449 /* ItemListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02A9226A0D3100A99449 /* ItemListLayout.swift */; };
+		94CC02AC226A71F000A99449 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AB226A71F000A99449 /* SettingsService.swift */; };
 		94D1273C22673600006E04EC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1273B22673600006E04EC /* HintView.swift */; };
 		94D127412267375D006E04EC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D127402267375D006E04EC /* UIView+Constraints.swift */; };
 		94D4CA682263EA45004BE0E7 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4CA672263EA45004BE0E7 /* AppAppearance.swift */; };
@@ -136,7 +137,7 @@
 		94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryListVC.swift; sourceTree = "<group>"; };
 		94560D1822624123008EE0B1 /* FailableDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableDecodable.swift; sourceTree = "<group>"; };
 		946ECECD2266749C001E44ED /* StreamSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSource.swift; sourceTree = "<group>"; };
-		946ECED0226675B6001E44ED /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		946ECED0226675B6001E44ED /* SettingsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceImpl.swift; sourceTree = "<group>"; };
 		946ECED8226683E9001E44ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		946ECEDA22668406001E44ED /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		949330E72182707100B29B0D /* MSGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +158,7 @@
 		94B60BC3225D0BF60099A4DA /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		94CC02A9226A0D3100A99449 /* ItemListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListLayout.swift; sourceTree = "<group>"; };
+		94CC02AB226A71F000A99449 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		94D1273B22673600006E04EC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		94D127402267375D006E04EC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		94D4CA672263EA45004BE0E7 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
@@ -304,7 +306,8 @@
 				94D83C2A225F47720014C5A3 /* API */,
 				94D83C2B225F47850014C5A3 /* Favorites */,
 				942D426D2261262B006AF281 /* UserDefaultsKeys.swift */,
-				946ECED0226675B6001E44ED /* SettingsService.swift */,
+				94CC02AB226A71F000A99449 /* SettingsService.swift */,
+				946ECED0226675B6001E44ED /* SettingsServiceImpl.swift */,
 				9408B4F82265FDEE00172B0E /* Logger.swift */,
 			);
 			path = Services;
@@ -647,7 +650,7 @@
 				94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */,
 				949330ED2182707100B29B0D /* StreamListVC.swift in Sources */,
 				946ECECE2266749C001E44ED /* StreamSource.swift in Sources */,
-				946ECED1226675B6001E44ED /* SettingsService.swift in Sources */,
+				946ECED1226675B6001E44ED /* SettingsServiceImpl.swift in Sources */,
 				949C9A642267EEC100720FBD /* Appex.swift in Sources */,
 				94E01D08226949CB00A5F17A /* StreamsService.swift in Sources */,
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
@@ -673,6 +676,7 @@
 				94B60BC2225D09FC0099A4DA /* BaseAPIService.swift in Sources */,
 				942D427422614A31006AF281 /* GameListVC.swift in Sources */,
 				949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */,
+				94CC02AC226A71F000A99449 /* SettingsService.swift in Sources */,
 				94E01D0B22694B7B00A5F17A /* DepedencyContainer.swift in Sources */,
 				942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */,
 				949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */,

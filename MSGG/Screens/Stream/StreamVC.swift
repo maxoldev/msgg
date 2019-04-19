@@ -33,7 +33,8 @@ class StreamVC: UIViewController {
     fileprivate let streamService = DepedencyContainer.global.resolve(StreamsService.self)!
     fileprivate let gameService = DepedencyContainer.global.resolve(CategoriesService.self)!
     fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesService.self)!
-
+    fileprivate let settingsService = DepedencyContainer.global.resolve(SettingsService.self)!
+    
     fileprivate var updatingViewerCountTimer: Timer?
     fileprivate var hidingControlsTimer: Timer?
     fileprivate var isMenuButtonDisabled = false
@@ -58,7 +59,7 @@ class StreamVC: UIViewController {
     }
     
     fileprivate func showControlsHintIfNeeded() {
-        guard !SharedComponents.settingsService.werePlayerControlsShown else {
+        guard !settingsService.werePlayerControlsShown else {
             return
         }
         
@@ -91,7 +92,7 @@ class StreamVC: UIViewController {
             tryToLoadGameInfo()
             setupUpdatingViewerCountTimer()
             
-            let lastSelectedStreamQuality = SharedComponents.settingsService.lastSelectedStreamQuality
+            let lastSelectedStreamQuality = settingsService.lastSelectedStreamQuality
             if let selectedSource = selectStreamSource(stream.sources, accordingToLastSelectedQuality: lastSelectedStreamQuality) {
                 Logger.info("Stream is about to start\n\(stream)")
                 noSupportedVideoFoundView.isHidden = true
@@ -234,7 +235,7 @@ class StreamVC: UIViewController {
         hideControlsHintViewIfNeeded()
         
         if show {
-            SharedComponents.settingsService.werePlayerControlsShown = true
+            settingsService.werePlayerControlsShown = true
             restartHidingControlsTimer()
         }
         
@@ -288,7 +289,7 @@ class StreamVC: UIViewController {
     fileprivate func selectStreamSource(_ source: StreamSource) {
         selectedSource = source
         restartVideo(url: source.url)
-        SharedComponents.settingsService.lastSelectedStreamQuality = source.quality
+        settingsService.lastSelectedStreamQuality = source.quality
     }
     
     fileprivate func temporaryDisableMenuButton() {

@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }).inObjectScope(.container)
         
         container.register(CategoriesService.self, factory: { _ in CategoriesServiceImpl() })
+
+        container.register(SettingsService.self, factory: { _ in SettingsServiceImpl() })
     }
     
     fileprivate func setupTabBarController() {

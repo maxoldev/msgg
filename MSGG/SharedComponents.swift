@@ -12,7 +12,6 @@ import Swinject
 struct SharedComponents {
     
     static fileprivate(set) var vcFactory: VCFactory = VCFactoryImpl()
-    static fileprivate(set) var settingsService: SettingsService = SettingsService()
     static fileprivate(set) var router: Router = Router()
 
     static func set(vcFactory: VCFactory) {
