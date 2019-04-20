@@ -140,9 +140,7 @@ class FavoriteListVC: BaseCollectionVC {
             let si = streamInfos[indexPath.row]
             stream = Stream.makeOffline(channelID: si.channelID, streamer: si.streamer, avatarURL: si.avatarURL)
         }
-        let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
-        vc.stream = stream
-        SharedComponents.router.openViewControllerModally(vc)
+        DepedencyContainer.global.resolve(StreamListRouterProtocol.self)!.didSelectStream(stream)
     }
 
     //MARK: - UICollectionViewDelegateFlowLayout

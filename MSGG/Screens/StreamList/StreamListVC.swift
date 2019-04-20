@@ -106,8 +106,6 @@ class StreamListVC: ItemListVC<Stream> {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stream = items[indexPath.row]
-        let vc = SharedComponents.vcFactory.create(.stream) as StreamVC
-        vc.stream = stream
-        SharedComponents.router.openViewControllerModally(vc)
+        DepedencyContainer.global.resolve(StreamListRouterProtocol.self)!.didSelectStream(stream)
     }
 }

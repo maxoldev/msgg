@@ -27,31 +27,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func registerDependencies() {
         let container = DepedencyContainer.global
         
-        container.register(StreamsService.self, factory: { _ in StreamsServiceImpl() })
-        
-        container.register(FavoritesService.self, factory: { r in
+        container.register(StreamsService.self) { _ in StreamsServiceImpl() }
+        container.register(FavoritesService.self) { r in
             FavoritesServiceImpl(streamsService: r.resolve(StreamsService.self)!)
-        }).inObjectScope(.container)
+        }.inObjectScope(.container)
         
-        container.register(CategoriesService.self, factory: { _ in CategoriesServiceImpl() })
+        container.register(CategoriesService.self) { _ in CategoriesServiceImpl() }
 
-        container.register(SettingsService.self, factory: { _ in SettingsServiceImpl() })
+        container.register(SettingsService.self) { _ in SettingsServiceImpl() }
+        
+        container.register(VCFactory.self) { _ in VCFactoryImpl() }.inObjectScope(.container)
+        container.register(StreamListRouterProtocol.self) { _ in StreamListRouter() }
+        container.register(GameListRouterProtocol.self) { _ in GameListRouter() }
+        container.register(StreamRouterProtocol.self) { _ in StreamRouter() }
+        container.register(TopShelfRouterProtocol.self) { _ in TopShelfRouter() }
     }
     
     fileprivate func setupTabBarController() {
-        let streamListVC = SharedComponents.vcFactory.create(.streamList) as StreamListVC
+        let vcFactory = DepedencyContainer.global.resolve(VCFactory.self)!
+        
+        let streamListVC = vcFactory.create(.streamList) as StreamListVC
         streamListVC.title = NSLocalizedString("streams", comment: "")
         
-        let favoriteStreamListVC = SharedComponents.vcFactory.create(.streamList) as FavoriteListVC
+        let favoriteStreamListVC = vcFactory.create(.streamList) as FavoriteListVC
         favoriteStreamListVC.title = NSLocalizedString("favorites", comment: "")
 
-        let gameListVC = SharedComponents.vcFactory.create(.categoryList) as GameListVC
+        let gameListVC = vcFactory.create(.categoryList) as GameListVC
         gameListVC.title = NSLocalizedString("games", comment: "")
 
-        let genreListVC = SharedComponents.vcFactory.create(.categoryList) as GenreListVC
+        let genreListVC = vcFactory.create(.categoryList) as GenreListVC
         genreListVC.title = NSLocalizedString("genres", comment: "")
 
-        let controllers = [streamListVC, favoriteStreamListVC, gameListVC, genreListVC].map({UINavigationController(rootViewController: $0)})
+        let controllers = [streamListVC, favoriteStreamListVC, gameListVC, genreListVC].map({ UINavigationController(rootViewController: $0) })
         controllers.forEach({ $0.isNavigationBarHidden = true })
         tabBarController = window!.rootViewController as? UITabBarController
         tabBarController.setViewControllers(controllers, animated: false)
@@ -60,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if let stream = getStream(from: url) {
             Logger.info(stream)
-            SharedComponents.router.openFavoriteStream(stream)
+            DepedencyContainer.global.resolve(TopShelfRouterProtocol.self)!.didSelectInTopShelf(stream: stream)
         }
         return true
     }

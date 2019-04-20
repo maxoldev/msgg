@@ -40,7 +40,6 @@
 		949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A612267E05000720FBD /* CustomTabBar.swift */; };
 		949C9A642267EEC100720FBD /* Appex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* Appex.swift */; };
 		949C9A652267EEC100720FBD /* Appex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* Appex.swift */; };
-		949C9A672267F1A700720FBD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A662267F1A700720FBD /* Router.swift */; };
 		949E9F92225D2F0A00E6182E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F91225D2F0A00E6182E /* Stream.swift */; };
 		949E9F94225D311900E6182E /* Stream+GoodGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E9F93225D311900E6182E /* Stream+GoodGame.swift */; };
 		94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60B9E225CB7F20099A4DA /* StreamVC.swift */; };
@@ -49,6 +48,11 @@
 		94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */; };
 		94CC02AA226A0D3100A99449 /* ItemListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02A9226A0D3100A99449 /* ItemListLayout.swift */; };
 		94CC02AC226A71F000A99449 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AB226A71F000A99449 /* SettingsService.swift */; };
+		94CC02AE226A8DBC00A99449 /* StreamListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AD226A8DBC00A99449 /* StreamListRouter.swift */; };
+		94CC02B0226A8DF600A99449 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AF226A8DF600A99449 /* BaseRouter.swift */; };
+		94CC02B2226A920500A99449 /* GameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02B1226A920500A99449 /* GameListRouter.swift */; };
+		94CC02B4226A926200A99449 /* StreamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02B3226A926200A99449 /* StreamRouter.swift */; };
+		94CC02B6226A95C200A99449 /* TopShelfRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02B5226A95C200A99449 /* TopShelfRouter.swift */; };
 		94D1273C22673600006E04EC /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1273B22673600006E04EC /* HintView.swift */; };
 		94D127412267375D006E04EC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D127402267375D006E04EC /* UIView+Constraints.swift */; };
 		94D4CA682263EA45004BE0E7 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4CA672263EA45004BE0E7 /* AppAppearance.swift */; };
@@ -69,7 +73,6 @@
 		94E01D132269528F00A5F17A /* DepedencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */; };
 		94EB7686225DEECB00297DCD /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB7685225DEECB00297DCD /* PlayerView.swift */; };
 		94EB768C225DF04C00297DCD /* VCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768B225DF04C00297DCD /* VCFactory.swift */; };
-		94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768D225DF1EB00297DCD /* SharedComponents.swift */; };
 		94EB7690225E1BCC00297DCD /* PlayerControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768F225E1BCC00297DCD /* PlayerControlButton.swift */; };
 		94F07D7322651B0600601036 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F07D7222651B0600601036 /* TVServices.framework */; };
 		94F07D7622651B0600601036 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F07D7522651B0600601036 /* ServiceProvider.swift */; };
@@ -150,7 +153,6 @@
 		949C9A602267CD2700720FBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		949C9A612267E05000720FBD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		949C9A632267EEC100720FBD /* Appex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appex.swift; sourceTree = "<group>"; };
-		949C9A662267F1A700720FBD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		949E9F91225D2F0A00E6182E /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		949E9F93225D311900E6182E /* Stream+GoodGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+GoodGame.swift"; sourceTree = "<group>"; };
 		94B60B9E225CB7F20099A4DA /* StreamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamVC.swift; sourceTree = "<group>"; };
@@ -159,6 +161,11 @@
 		94B60BC5225D0E0C0099A4DA /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		94CC02A9226A0D3100A99449 /* ItemListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListLayout.swift; sourceTree = "<group>"; };
 		94CC02AB226A71F000A99449 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		94CC02AD226A8DBC00A99449 /* StreamListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListRouter.swift; sourceTree = "<group>"; };
+		94CC02AF226A8DF600A99449 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		94CC02B1226A920500A99449 /* GameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameListRouter.swift; path = MSGG/Screens/GameListRouter.swift; sourceTree = SOURCE_ROOT; };
+		94CC02B3226A926200A99449 /* StreamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRouter.swift; sourceTree = "<group>"; };
+		94CC02B5226A95C200A99449 /* TopShelfRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopShelfRouter.swift; sourceTree = "<group>"; };
 		94D1273B22673600006E04EC /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		94D127402267375D006E04EC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		94D4CA672263EA45004BE0E7 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
@@ -176,7 +183,6 @@
 		94E01D10226950CC00A5F17A /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		94EB7685225DEECB00297DCD /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		94EB768B225DF04C00297DCD /* VCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCFactory.swift; sourceTree = "<group>"; };
-		94EB768D225DF1EB00297DCD /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
 		94EB768F225E1BCC00297DCD /* PlayerControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlButton.swift; sourceTree = "<group>"; };
 		94F07D7122651B0600601036 /* TopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F07D7222651B0600601036 /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
@@ -237,6 +243,7 @@
 				942D427022614962006AF281 /* Views */,
 				94560D0D2262229A008EE0B1 /* CatergoryListVC.swift */,
 				942D427322614A31006AF281 /* GameListVC.swift */,
+				94CC02B1226A920500A99449 /* GameListRouter.swift */,
 				94560D0B22621D38008EE0B1 /* GenreListVC.swift */,
 			);
 			path = "Games and Genres";
@@ -261,7 +268,7 @@
 				94EB768B225DF04C00297DCD /* VCFactory.swift */,
 				94D4CA672263EA45004BE0E7 /* AppAppearance.swift */,
 				949C9A612267E05000720FBD /* CustomTabBar.swift */,
-				949C9A662267F1A700720FBD /* Router.swift */,
+				94CC02B5226A95C200A99449 /* TopShelfRouter.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 			children = (
 				94336FED21866368000E8491 /* Views */,
 				949330EC2182707100B29B0D /* StreamListVC.swift */,
+				94CC02AD226A8DBC00A99449 /* StreamListRouter.swift */,
 				9415A26E22639445007D2F82 /* FavoriteListVC.swift */,
 			);
 			path = StreamList;
@@ -321,6 +329,7 @@
 				94D7E7412263BE5C00A7784A /* BaseCollectionVC.swift */,
 				94560CFD22621299008EE0B1 /* BaseCollectionVC.xib */,
 				94560CFC22621299008EE0B1 /* ItemListVC.swift */,
+				94CC02AF226A8DF600A99449 /* BaseRouter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -375,7 +384,6 @@
 				94418EF4224D091C007614DD /* Services */,
 				94336FEB21866350000E8491 /* Screens */,
 				949330EA2182707100B29B0D /* AppDelegate.swift */,
-				94EB768D225DF1EB00297DCD /* SharedComponents.swift */,
 				949C9A632267EEC100720FBD /* Appex.swift */,
 				94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */,
 				949330EE2182707100B29B0D /* Main.storyboard */,
@@ -392,6 +400,7 @@
 			children = (
 				94EB7684225DEEB700297DCD /* Views */,
 				94B60B9E225CB7F20099A4DA /* StreamVC.swift */,
+				94CC02B3226A926200A99449 /* StreamRouter.swift */,
 			);
 			path = Stream;
 			sourceTree = "<group>";
@@ -646,6 +655,8 @@
 			files = (
 				94E01D11226950CC00A5F17A /* FavoritesService.swift in Sources */,
 				94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */,
+				94CC02B4226A926200A99449 /* StreamRouter.swift in Sources */,
+				94CC02B0226A8DF600A99449 /* BaseRouter.swift in Sources */,
 				9408B4F92265FDEE00172B0E /* Logger.swift in Sources */,
 				94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */,
 				949330ED2182707100B29B0D /* StreamListVC.swift in Sources */,
@@ -654,13 +665,16 @@
 				949C9A642267EEC100720FBD /* Appex.swift in Sources */,
 				94E01D08226949CB00A5F17A /* StreamsService.swift in Sources */,
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
+				94CC02AE226A8DBC00A99449 /* StreamListRouter.swift in Sources */,
 				9415A26F22639445007D2F82 /* FavoriteListVC.swift in Sources */,
 				94336FEF21866392000E8491 /* ClassicStreamCVCell.swift in Sources */,
 				94E01D062269371B00A5F17A /* UIViewController+Topmost.swift in Sources */,
 				94EB7686225DEECB00297DCD /* PlayerView.swift in Sources */,
 				942D427622614B17006AF281 /* CategoriesServiceImpl.swift in Sources */,
 				94418EF6224D0951007614DD /* StreamsServiceImpl.swift in Sources */,
+				94CC02B2226A920500A99449 /* GameListRouter.swift in Sources */,
 				94B60BC4225D0BF60099A4DA /* APIConstants.swift in Sources */,
+				94CC02B6226A95C200A99449 /* TopShelfRouter.swift in Sources */,
 				94560CFE22621299008EE0B1 /* ItemListVC.swift in Sources */,
 				9439C396225FEF02001E55EB /* StreamCVCell.swift in Sources */,
 				94EB7690225E1BCC00297DCD /* PlayerControlButton.swift in Sources */,
@@ -680,8 +694,6 @@
 				94E01D0B22694B7B00A5F17A /* DepedencyContainer.swift in Sources */,
 				942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */,
 				949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */,
-				94EB768E225DF1EB00297DCD /* SharedComponents.swift in Sources */,
-				949C9A672267F1A700720FBD /* Router.swift in Sources */,
 				942D426E2261262B006AF281 /* UserDefaultsKeys.swift in Sources */,
 				94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */,
 				94B60BC6225D0E0C0099A4DA /* APIServiceError.swift in Sources */,

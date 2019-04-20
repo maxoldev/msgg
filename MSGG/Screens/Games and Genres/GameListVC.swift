@@ -41,8 +41,6 @@ class GameListVC: CatergoryListVC<Game> {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let game = items[indexPath.row]
-        let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
-        vc.context = .game(game)
-        SharedComponents.router.openViewControllerModally(UINavigationController(rootViewController: vc))
+        DepedencyContainer.global.resolve(GameListRouterProtocol.self)!.didSelectGame(game)
     }
 }

@@ -10,7 +10,11 @@ import UIKit
 import AVFoundation
 import SDWebImage
 
-class StreamVC: UIViewController {
+protocol StreamViewProtocol {
+    
+}
+
+class StreamVC: UIViewController, StreamViewProtocol {
 
     var stream: Stream?
     var currentGame: Game?
@@ -306,9 +310,7 @@ class StreamVC: UIViewController {
         guard let currentGame = currentGame else {
             return
         }
-        let vc = SharedComponents.vcFactory.create(.streamList) as StreamListVC
-        vc.context = .game(currentGame)
-        SharedComponents.router.openViewController(UINavigationController(rootViewController: vc), insteadOfViewController: self)
+        DepedencyContainer.global.resolve(StreamRouterProtocol.self)!.didSelectGame(currentGame, currentVC: self)
     }
      
     @IBAction func qualityButtonTriggered(_ sender: UIButton) {
@@ -365,7 +367,7 @@ class StreamVC: UIViewController {
         if areControlsShown {
             showControls(false)
         } else if !isMenuButtonDisabled {
-            SharedComponents.router.backToPreviousViewController(from: self)
+            DepedencyContainer.global.resolve(StreamRouterProtocol.self)!.didSelectBack(currentVC: self)
         }
     }
     
