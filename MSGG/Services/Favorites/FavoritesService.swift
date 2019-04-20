@@ -39,7 +39,7 @@ class FavoritesService: FavoritesServiceProtocol {
     }
     
     func getStreams(completion: @escaping (_ online: [Stream], _ offline: [FavoriteStreamInfo], Error?) -> ()) {
-        streamsService.getStreams(limit: APIConstants.itemLimit, gameURL: nil, skipStreamsWithoutSupportedVideo: true) { [weak self] (streams, error) in
+        streamsService.getStreams(limit: APIConstants.itemLimit, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
             guard error == nil, let self = self else {
                 completion([], [], nil)
                 return
