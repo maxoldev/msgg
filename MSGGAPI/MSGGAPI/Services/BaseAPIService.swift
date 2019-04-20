@@ -8,8 +8,10 @@
 
 import Foundation
 
-class BaseAPIService {
+public class BaseAPIService {
     
+    public init() {
+    }
     
     func makeURLRequest(endpoint: APIEndpoint, ID: String? = nil) -> URLRequest {
         let fullEndpoint = ID != nil ? "\(endpoint.rawValue)/\(ID!)" : "\(endpoint.rawValue)"

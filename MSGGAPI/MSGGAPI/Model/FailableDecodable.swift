@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MSGGCore
 
 struct FailableDecodable<Base: Decodable> : Decodable {
     

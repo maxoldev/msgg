@@ -9,14 +9,12 @@
 import UIKit
 import AVFoundation
 import SDWebImage
+import MSGGCore
+import MSGGAPI
 
-protocol StreamViewProtocol {
-    
-}
+class StreamVC: UIViewController {
 
-class StreamVC: UIViewController, StreamViewProtocol {
-
-    var stream: Stream?
+    var stream: MSGGCore.Stream?
     var currentGame: Game?
     var currentViewerCount = 0
     var selectedSource: StreamSource?

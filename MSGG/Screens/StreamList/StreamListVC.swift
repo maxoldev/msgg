@@ -10,8 +10,10 @@ import UIKit
 import AVFoundation
 import AVKit
 import Swinject
+import MSGGCore
+import MSGGAPI
 
-class StreamListVC: ItemListVC<Stream> {
+class StreamListVC: ItemListVC<MSGGCore.Stream> {
     
     enum Context {
         case allStreams
@@ -42,7 +44,7 @@ class StreamListVC: ItemListVC<Stream> {
             break
         }
         
-        service.getStreams(limit: APIConstants.itemLimit, gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
+        service.getStreams(limit: 2000, gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 

@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import MSGGCore
 
-protocol StreamsServiceProtocol {
+public protocol StreamsServiceProtocol {
     
-    func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping ([Stream], Error?) -> ())
+    func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping ([MSGGCore.Stream], Error?) -> ())
     func getViewers(streamID: Int, completion: @escaping (Int, Error?) -> ())
 }

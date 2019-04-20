@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MSGGCore
 
 protocol StreamRouterProtocol {
     

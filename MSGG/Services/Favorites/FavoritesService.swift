@@ -8,9 +8,11 @@
 
 import Foundation
 import TVServices
+import MSGGCore
+import MSGGAPI
 
 struct FavoriteStreamInfo: Codable {
-    let channelID: IDType
+    let channelID: MSGGCore.IDType
     let streamer: String
     let avatarURL: String
 }
@@ -21,7 +23,7 @@ class FavoritesService: FavoritesServiceProtocol {
     
     fileprivate(set) var favoriteStreamInfoList: [FavoriteStreamInfo]
     fileprivate let streamsService: StreamsServiceProtocol
-    fileprivate var onlineStreams = [Stream]()
+    fileprivate var onlineStreams = [MSGGCore.Stream]()
     fileprivate var offlineStreamInfos = [FavoriteStreamInfo]()
     
     init(streamsService: StreamsServiceProtocol) {
@@ -35,11 +37,11 @@ class FavoritesService: FavoritesServiceProtocol {
     }
     
     fileprivate static var userDefaults: UserDefaults {
-        return UserDefaults.init(suiteName: "group.com.ms.MSGG2")!
+        return UserDefaults.init(suiteName: Appex.sharedSuiteName)!
     }
     
-    func getStreams(completion: @escaping (_ online: [Stream], _ offline: [FavoriteStreamInfo], Error?) -> ()) {
-        streamsService.getStreams(limit: APIConstants.itemLimit, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
+    func getStreams(completion: @escaping (_ online: [MSGGCore.Stream], _ offline: [FavoriteStreamInfo], Error?) -> ()) {
+        streamsService.getStreams(limit: 2000, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
             guard error == nil, let self = self else {
                 completion([], [], nil)
                 return
@@ -55,7 +57,7 @@ class FavoritesService: FavoritesServiceProtocol {
         }
     }
     
-    func addToFavorites(stream: Stream) {
+    func addToFavorites(stream: MSGGCore.Stream) {
         guard !favoriteStreamInfoList.contains(where: { $0.channelID == stream.channelID }) else {
             Logger.warning("Stream with ID \(stream.channelID) has been already contained in favorites list")
             return

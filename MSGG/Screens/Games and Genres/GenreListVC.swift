@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MSGGCore
+import MSGGAPI
 
 class GenreListVC: CatergoryListVC<Genre> {
     

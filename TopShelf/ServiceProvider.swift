@@ -9,6 +9,8 @@
 import Foundation
 import TVServices
 import Swinject
+import MSGGCore
+import MSGGAPI
 
 class ServiceProvider: NSObject, TVTopShelfProvider {
 
@@ -20,7 +22,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
     fileprivate func registerDependencies() {
         let container = DepedencyContainer.global
         container.register(StreamsServiceProtocol.self, factory: { _ in StreamsService() })
-        container.register(FavoritesServiceProtocol.self, factory: { r in FavoritesService(streamsService: r.resolve(StreamsService.self)!) })
+        container.register(FavoritesServiceProtocol.self, factory: { r in FavoritesService(streamsService: r.resolve(StreamsServiceProtocol.self)!) })
     }
 
     // MARK: - TVTopShelfProvider protocol
@@ -57,11 +59,11 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         return [onlineFavoriteStreamsSection]
     }
     
-    fileprivate func getOnlineFavoriteStreamsSynchronously() -> [Stream] {
-        var streams = [Stream]()
+    fileprivate func getOnlineFavoriteStreamsSynchronously() -> [MSGGCore.Stream] {
+        var streams = [MSGGCore.Stream]()
         let semaphore = DispatchSemaphore(value: 0)
         
-        let favoritesService = DepedencyContainer.global.resolve(FavoritesService.self)!
+        let favoritesService = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
         favoritesService.getStreams { (onlineStreams, _, error) in
             defer {
                 semaphore.signal()
@@ -76,7 +78,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         return streams
     }
     
-    fileprivate func makeURL(for stream: Stream) -> URL? {
+    fileprivate func makeURL(for stream: MSGGCore.Stream) -> URL? {
         var components = URLComponents()
         components.scheme = "msgg"
         let ggStream = GoodGame.Stream(stream: stream)

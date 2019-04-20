@@ -12,4 +12,5 @@ struct Appex {
     
     static let scheme = "msgg"
     static let streamQueryItemName = "ggStream"
+    static let sharedSuiteName = "group.com.ms.MSGG2"
 }

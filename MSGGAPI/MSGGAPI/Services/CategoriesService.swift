@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import MSGGCore
 
-class CategoriesService: BaseAPIService, CategoriesServiceProtocol {
+public class CategoriesService: BaseAPIService, CategoriesServiceProtocol {
     
-    func getCategories(completion: @escaping ([Game], [Genre], Error?) -> ()) {
+    public func getCategories(completion: @escaping ([Game], [Genre], Error?) -> ()) {
         let request = makeURLRequest4(endpoint: .games)
         let session = URLSession(configuration: .default)
         
@@ -36,7 +37,7 @@ class CategoriesService: BaseAPIService, CategoriesServiceProtocol {
         }.resume()
     }
     
-    func getGameInfo(gameID: String, completion: @escaping (Game?, Error?) -> ()) {
+    public func getGameInfo(gameID: String, completion: @escaping (Game?, Error?) -> ()) {
         let request = makeURLRequest4(endpoint: .games, ID: gameID)
         let session = URLSession(configuration: .default)
         

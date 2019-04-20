@@ -8,6 +8,8 @@
 
 import UIKit
 import Swinject
+import MSGGCore
+import MSGGAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -72,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    fileprivate func getStream(from url: URL) -> Stream? {
+    fileprivate func getStream(from url: URL) -> MSGGCore.Stream? {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
             let encodedStr = components.queryItems?.first(where: { $0.name == Appex.streamQueryItemName })?.value,
             let data = encodedStr.data(using: .utf8) else {
@@ -81,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let ggStream = try? JSONDecoder().decode(GoodGame.Stream.self, from: data) else {
             return nil
         }
-        let stream = Stream(goodgameStream: ggStream)
+        let stream = MSGGCore.Stream(goodgameStream: ggStream)
         return stream
     }
     

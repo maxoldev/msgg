@@ -1,6 +1,6 @@
 //
 //  GoodGame.swift
-//  MSGG
+//  MSGGAPI
 //
 //  Created by Maxim Solovyov on 28/03/2019.
 //  Copyright © 2019 MaximSolovyov. All rights reserved.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct GoodGame {
+public struct GoodGame {
 
     struct Streams: Decodable {
         let streams: [FailableDecodable<GoodGame.Stream>]
     }
     
-    struct Stream: Codable {
+    public struct Stream: Codable {
         let id: Int
         let title: String
         let streamer: String?

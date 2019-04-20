@@ -1,6 +1,6 @@
 //
 //  StreamQuality.swift
-//  MSGG
+//  MSGGCore
 //
 //  Created by Maxim Solovyov on 11/04/2019.
 //  Copyright © 2019 MaximSolovyov. All rights reserved.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum StreamQuality {
-    static let sourceID = "source"
+public enum StreamQuality {
+    public static let sourceID = "source"
     
     case source
     case scaled(resolution: Int)
@@ -17,7 +17,7 @@ enum StreamQuality {
 
 extension StreamQuality {
     
-    init?(str: String) {
+    public init?(str: String) {
         if str == StreamQuality.sourceID {
             self = .source
         } else if let resolution = Int(str) {
@@ -27,7 +27,7 @@ extension StreamQuality {
         }
     }
     
-    var key: String {
+    public var key: String {
         switch self {
         case .source:
             return StreamQuality.sourceID
@@ -36,7 +36,7 @@ extension StreamQuality {
         }
     }
 
-    var localizedTitle: String {
+    public var localizedTitle: String {
         switch self {
         case .source:
             return NSLocalizedString("source", comment: "")
@@ -48,7 +48,7 @@ extension StreamQuality {
 
 extension StreamQuality: Equatable, Comparable {
 
-    static func < (lhs: StreamQuality, rhs: StreamQuality) -> Bool {
+    public static func < (lhs: StreamQuality, rhs: StreamQuality) -> Bool {
         switch (lhs, rhs) {
         case (.source, _):
             return false

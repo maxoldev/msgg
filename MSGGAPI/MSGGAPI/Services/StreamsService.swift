@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import MSGGCore
 
-class StreamsService: BaseAPIService, StreamsServiceProtocol {
+public class StreamsService: BaseAPIService, StreamsServiceProtocol {
 
-    func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping ([Stream], Error?) -> ()) {
+    public func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping ([MSGGCore.Stream], Error?) -> ()) {
         var queryItems = [URLQueryItem(name: "onpage", value: String(limit))]
         if let gameURL = gameURL {
             queryItems.append(URLQueryItem(name: "game", value: gameURL))
@@ -31,9 +32,9 @@ class StreamsService: BaseAPIService, StreamsServiceProtocol {
                 let jsonDecoder = JSONDecoder()
                 let ggStreams = try jsonDecoder.decode(GoodGame.Streams.self, from: data!)
                 let ggStreamsArray = ggStreams.streams.compactMap({ $0.base })  // skip objects with incomplete/fail data model
-                let streams: [Stream]
+                let streams: [MSGGCore.Stream]
                 if skipStreamsWithoutSupportedVideo {
-                    streams = ggStreamsArray.compactMap({ (ggStream) -> Stream? in
+                    streams = ggStreamsArray.compactMap({ (ggStream) -> MSGGCore.Stream? in
                         if !ggStream.status {  // offline
                             return nil
                         }
@@ -55,7 +56,7 @@ class StreamsService: BaseAPIService, StreamsServiceProtocol {
         }.resume()
     }
     
-    func getViewers(streamID: Int, completion: @escaping (Int, Error?) -> ()) {
+    public func getViewers(streamID: Int, completion: @escaping (Int, Error?) -> ()) {
         let request = makeURLRequest(endpoint: .streams, ID: "\(streamID)")
         let session = URLSession(configuration: .default)
         
@@ -79,7 +80,7 @@ class StreamsService: BaseAPIService, StreamsServiceProtocol {
         }.resume()
     }
 
-    func getPlayerInfo(playerSrc: String, completion: @escaping (PlayerInfo?, Error?) -> ()) {
+    public func getPlayerInfo(playerSrc: String, completion: @escaping (PlayerInfo?, Error?) -> ()) {
         let request = makeURLRequest(endpoint: .player, ID: playerSrc)
         let session = URLSession(configuration: .default)
         

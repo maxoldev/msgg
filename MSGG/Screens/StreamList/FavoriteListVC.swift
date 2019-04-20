@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MSGGCore
 
 class FavoriteListVC: BaseCollectionVC {
 
     enum Section {
         case reload
-        case online(streams: [Stream])
+        case online(streams: [MSGGCore.Stream])
         case offline(streamInfos: [FavoriteStreamInfo])
     }
     
@@ -128,7 +129,7 @@ class FavoriteListVC: BaseCollectionVC {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionType = sections[indexPath.section]
-        let stream: Stream
+        let stream: MSGGCore.Stream
         switch sectionType {
         case .reload:
             fatalError("Reload button section must not contain cells")

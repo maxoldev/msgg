@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MSGGCore
 
-protocol CategoriesServiceProtocol {
+public protocol CategoriesServiceProtocol {
     
     func getCategories(completion: @escaping ([Game], [Genre], Error?) -> ())
     func getGameInfo(gameID: String, completion: @escaping (Game?, Error?) -> ())

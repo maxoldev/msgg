@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MSGGCore
 
 protocol SettingsService: class {
     

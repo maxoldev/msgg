@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/maxim/Dev/msgg/MSGGCore/MSGGCore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MSGGAPI/MSGGAPI.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MSGG.xcodeproj">
    </FileRef>
    <FileRef

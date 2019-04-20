@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import MSGGCore
 
 protocol TopShelfRouterProtocol {
     
-    func didSelectInTopShelf(stream: Stream)
+    func didSelectInTopShelf(stream: MSGGCore.Stream)
 }
 
 class TopShelfRouter: BaseRouter, TopShelfRouterProtocol {
     
-    func didSelectInTopShelf(stream: Stream) {
+    func didSelectInTopShelf(stream: MSGGCore.Stream) {
         let openStream = {
 //            self.tabBarController.selectedIndex = 1  // select Favorites
             let vc = DepedencyContainer.global.resolve(VCFactory.self)!.create(.stream) as StreamVC
