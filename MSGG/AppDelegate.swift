@@ -27,12 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func registerDependencies() {
         let container = DepedencyContainer.global
         
-        container.register(StreamsService.self) { _ in StreamsServiceImpl() }
-        container.register(FavoritesService.self) { r in
-            FavoritesServiceImpl(streamsService: r.resolve(StreamsService.self)!)
+        container.register(StreamsServiceProtocol.self) { _ in StreamsService() }
+        container.register(FavoritesServiceProtocol.self) { r in 
+            FavoritesService(streamsService: r.resolve(StreamsServiceProtocol.self)!)
         }.inObjectScope(.container)
-        
-        container.register(CategoriesService.self) { _ in CategoriesServiceImpl() }
+    
+        container.register(CategoriesServiceProtocol.self) { _ in CategoriesService() }
 
         container.register(SettingsService.self) { _ in SettingsServiceImpl() }
         

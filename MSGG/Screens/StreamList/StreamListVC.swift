@@ -19,7 +19,7 @@ class StreamListVC: ItemListVC<Stream> {
         case genre(Genre)
     }
     
-    fileprivate let service = DepedencyContainer.global.resolve(StreamsService.self)!
+    fileprivate let service = DepedencyContainer.global.resolve(StreamsServiceProtocol.self)!
     var context = Context.allStreams
     
     override func viewDidLoad() {

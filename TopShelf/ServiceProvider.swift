@@ -19,8 +19,8 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 
     fileprivate func registerDependencies() {
         let container = DepedencyContainer.global
-        container.register(StreamsService.self, factory: { _ in StreamsServiceImpl() })
-        container.register(FavoritesService.self, factory: { r in FavoritesServiceImpl(streamsService: r.resolve(StreamsService.self)!) })
+        container.register(StreamsServiceProtocol.self, factory: { _ in StreamsService() })
+        container.register(FavoritesServiceProtocol.self, factory: { r in FavoritesService(streamsService: r.resolve(StreamsService.self)!) })
     }
 
     // MARK: - TVTopShelfProvider protocol

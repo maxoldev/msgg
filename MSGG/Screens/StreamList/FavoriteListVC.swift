@@ -18,7 +18,7 @@ class FavoriteListVC: BaseCollectionVC {
     
     var sections = [Section.reload]
     fileprivate var needToReload = false
-    fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesService.self)!
+    fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -27,7 +27,7 @@ class FavoriteListVC: BaseCollectionVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        NotificationCenter.default.addObserver(self, selector: #selector(favoritesUpdatedNotified), name: FavoritesServiceImpl.listUpdatedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(favoritesUpdatedNotified), name: FavoritesService.listUpdatedNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -34,9 +34,9 @@ class StreamVC: UIViewController, StreamViewProtocol {
     @IBOutlet weak var noSupportedVideoFoundView: UIStackView!
     @IBOutlet weak var messageLabel: UILabel!
     
-    fileprivate let streamService = DepedencyContainer.global.resolve(StreamsService.self)!
-    fileprivate let gameService = DepedencyContainer.global.resolve(CategoriesService.self)!
-    fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesService.self)!
+    fileprivate let streamService = DepedencyContainer.global.resolve(StreamsServiceProtocol.self)!
+    fileprivate let gameService = DepedencyContainer.global.resolve(CategoriesServiceProtocol.self)!
+    fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
     fileprivate let settingsService = DepedencyContainer.global.resolve(SettingsService.self)!
     
     fileprivate var updatingViewerCountTimer: Timer?
