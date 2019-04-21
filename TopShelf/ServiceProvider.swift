@@ -42,7 +42,8 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         let onlineStreams = getOnlineFavoriteStreamsSynchronously()
         var favoriteStreamItems = onlineStreams.map { (stream) -> TVContentItem in
             let item = TVContentItem(contentIdentifier: TVContentIdentifier(identifier: "\(stream.channelID)", container: onlineFavoriteStreamsSectionIdentifier))
-            item.setImageURL(URL(string: stream.previewURL), forTraits: [])
+            let imageURL = downloadImageWithURLAndReturnLocalURL(URL(string: stream.previewURL)!)
+            item.setImageURL(imageURL, forTraits: [])
             item.imageShape = .HDTV
             item.title = "\(stream.streamer) - \(stream.title)"
             let url = makeURL(for: stream)
@@ -50,10 +51,9 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
             item.displayURL = url
             return item
         }
-        let addTestItem = false
-        if addTestItem {
-            favoriteStreamItems.append(makeTestItem(withTitle: "Test", container: onlineFavoriteStreamsSectionIdentifier))
-        }
+        
+//        favoriteStreamItems.append(makeTestItem(withTitle: "test", container: onlineFavoriteStreamsSectionIdentifier))
+        
         onlineFavoriteStreamsSection.topShelfItems = favoriteStreamItems
 
         return [onlineFavoriteStreamsSection]
@@ -80,7 +80,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
     
     fileprivate func makeURL(for stream: MSGGCore.Stream) -> URL? {
         var components = URLComponents()
-        components.scheme = "msgg"
+        components.scheme = Appex.scheme
         let ggStream = GoodGame.Stream(stream: stream)
         guard let encoded = try? JSONEncoder().encode(ggStream) else {
             return nil
@@ -95,5 +95,19 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         testItem.imageShape = .HDTV
         testItem.title = title
         return testItem
+    }
+    
+    fileprivate func downloadImageWithURLAndReturnLocalURL(_ url: URL) -> URL? {
+        do {
+            let data = try Data(contentsOf: url)
+            let filename = url.lastPathComponent
+            let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+            let filepath = NSString(string: paths.first!).appendingPathComponent(filename)
+            let localFileURL = URL(fileURLWithPath: filepath)
+            try data.write(to: localFileURL)
+            return localFileURL
+        } catch {
+            return nil
+        }
     }
 }
