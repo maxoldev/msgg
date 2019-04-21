@@ -11,7 +11,7 @@ import MSGGCore
 
 public class StreamsService: BaseAPIService, StreamsServiceProtocol {
 
-    public func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping ([MSGGCore.Stream], Error?) -> ()) {
+    public func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping (Result<[MSGGCore.Stream], Error>) -> ()) {
         var queryItems = [URLQueryItem(name: "onpage", value: String(limit))]
         if let gameURL = gameURL {
             queryItems.append(URLQueryItem(name: "game", value: gameURL))
@@ -24,7 +24,7 @@ public class StreamsService: BaseAPIService, StreamsServiceProtocol {
             
             if let foundError = self.getError(data: data, urlResponse: response, error: error) {
                 Logger.error("🌐", foundError)
-                completion([], foundError)
+                completion(.failure(foundError))
                 return
             }
             
@@ -48,15 +48,15 @@ public class StreamsService: BaseAPIService, StreamsServiceProtocol {
                 } else {
                     streams = ggStreamsArray.map({Stream(goodgameStream: $0)})
                 }
-                completion(streams, nil)
+                completion(.success(streams))
             } catch {
                 Logger.error("🛄", error)
-                completion([], error)
+                completion(.failure(error))
             }
         }.resume()
     }
     
-    public func getViewers(streamID: Int, completion: @escaping (Int, Error?) -> ()) {
+    public func getViewers(streamID: Int, completion: @escaping (Result<Int, Error>) -> ()) {
         let request = makeURLRequest(endpoint: .streams, ID: "\(streamID)")
         let session = URLSession(configuration: .default)
         
@@ -65,43 +65,43 @@ public class StreamsService: BaseAPIService, StreamsServiceProtocol {
             
             if let foundError = self.getError(data: data, urlResponse: response, error: error) {
                 Logger.error("🌐", foundError)
-                completion(0, foundError)
+                completion(.failure(foundError))
                 return
             }
             
             do {
                 let jsonDecoder = JSONDecoder()
                 let ggStream = try jsonDecoder.decode(GoodGame.StreamOld.self, from: data!)
-                completion(Int(ggStream.viewers) ?? 0, nil)
+                completion(.success(Int(ggStream.viewers) ?? 0))
             } catch {
                 Logger.error("🛄", error)
-                completion(0, error)
+                completion(.failure(error))
             }
         }.resume()
     }
 
-    public func getPlayerInfo(playerSrc: String, completion: @escaping (PlayerInfo?, Error?) -> ()) {
-        let request = makeURLRequest(endpoint: .player, ID: playerSrc)
-        let session = URLSession(configuration: .default)
-        
-        session.dataTask(with: request) { [weak self] (data, response, error) in
-            guard let self = self else { return }
-            
-            if let foundError = self.getError(data: data, urlResponse: response, error: error) {
-                Logger.error("🌐", foundError)
-                completion(nil, foundError)
-                return
-            }
-            
-            do {
-                let jsonDecoder = JSONDecoder()
-                let ggPlayerInfo = try jsonDecoder.decode(GoodGame.PlayerInfo.self, from: data!)
-                let playerInfo = PlayerInfo(streamerAvatarURL: ggPlayerInfo.streamer_avatar)
-                completion(playerInfo, nil)
-            } catch {
-                Logger.error("🛄", error)
-                completion(nil, error)
-            }
-        }.resume()
-    }
+//    public func getPlayerInfo(playerSrc: String, completion: @escaping (Result<PlayerInfo, Error>) -> ()) {
+//        let request = makeURLRequest(endpoint: .player, ID: playerSrc)
+//        let session = URLSession(configuration: .default)
+//        
+//        session.dataTask(with: request) { [weak self] (data, response, error) in
+//            guard let self = self else { return }
+//            
+//            if let foundError = self.getError(data: data, urlResponse: response, error: error) {
+//                Logger.error("🌐", foundError)
+//                completion(.failure(foundError))
+//                return
+//            }
+//            
+//            do {
+//                let jsonDecoder = JSONDecoder()
+//                let ggPlayerInfo = try jsonDecoder.decode(GoodGame.PlayerInfo.self, from: data!)
+//                let playerInfo = PlayerInfo(streamerAvatarURL: ggPlayerInfo.streamer_avatar)
+//                completion(.success(playerInfo))
+//            } catch {
+//                Logger.error("🛄", error)
+//                completion(.failure(error))
+//            }
+//        }.resume()
+//    }
 }

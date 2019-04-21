@@ -41,21 +41,28 @@ class FavoriteListVC: BaseCollectionVC {
     
     override func loadData() {
         isLoading = true
-        favoritesService.getStreams { [weak self] (onlineStreams, offlineStreamInfos, error) in
+        favoritesService.getStreams { [weak self] result in
             DispatchQueue.main.async {
-                self?.isLoading = false
-                guard error == nil, let self = self else {
+                guard let self = self else {
                     return
                 }
-                var sections = [Section.reload]
-                if !onlineStreams.isEmpty {
-                    sections.append(.online(streams: onlineStreams))
+                self.isLoading = false
+
+                switch result {
+                case let .success((onlineStreams, offlineStreamInfos)):
+                    var sections = [Section.reload]
+                    if !onlineStreams.isEmpty {
+                        sections.append(.online(streams: onlineStreams))
+                    }
+                    if !offlineStreamInfos.isEmpty {
+                        sections.append(.offline(streamInfos: offlineStreamInfos))
+                    }
+                    self.sections = sections
+                    self.collectionView.reloadData()
+
+                case .failure:
+                    break
                 }
-                if !offlineStreamInfos.isEmpty {
-                    sections.append(.offline(streamInfos: offlineStreamInfos))
-                }
-                self.sections = sections
-                self.collectionView.reloadData()
             }
         }
     }

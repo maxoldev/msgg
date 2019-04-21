@@ -11,6 +11,6 @@ import MSGGCore
 
 public protocol CategoriesServiceProtocol {
     
-    func getCategories(completion: @escaping ([Game], [Genre], Error?) -> ())
-    func getGameInfo(gameID: String, completion: @escaping (Game?, Error?) -> ())
+    func getCategories(completion: @escaping (Result<(games: [Game], genres: [Genre]), Error>) -> ())
+    func getGameInfo(gameID: String, completion: @escaping (Result<Game, Error>) -> ())
 }

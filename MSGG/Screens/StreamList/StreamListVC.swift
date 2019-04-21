@@ -44,16 +44,22 @@ class StreamListVC: ItemListVC<MSGGCore.Stream> {
             break
         }
         
-        service.getStreams(limit: 2000, gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
+        service.getStreams(limit: 2000, gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] result in
             DispatchQueue.main.async {
-                self?.isLoading = false
-                
-                guard error == nil, let self = self else {
+                guard let self = self else {
                     return
                 }
-                self.items = streams
-                self.collectionView.reloadData()
-                self.setNeedsFocusUpdate()
+                self.isLoading = false
+
+                switch result {
+                case let .success(streams):
+                    self.items = streams
+                    self.collectionView.reloadData()
+                    self.setNeedsFocusUpdate()
+                    
+                case .failure:
+                    break
+                }
             }
         }
     }

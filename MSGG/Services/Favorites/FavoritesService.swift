@@ -40,20 +40,22 @@ class FavoritesService: FavoritesServiceProtocol {
         return UserDefaults.init(suiteName: Appex.sharedSuiteName)!
     }
     
-    func getStreams(completion: @escaping (_ online: [MSGGCore.Stream], _ offline: [FavoriteStreamInfo], Error?) -> ()) {
-        streamsService.getStreams(limit: 2000, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { [weak self] (streams, error) in
-            guard error == nil, let self = self else {
-                completion([], [], nil)
-                return
+    func getStreams(completion: @escaping (Result<(online: [MSGGCore.Stream], offline: [FavoriteStreamInfo]), Error>) -> ()) {
+        streamsService.getStreams(limit: 2000, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { result in
+            switch result {
+            case let .success(streams):
+                let favoriteStreamIDSet = Set(self.favoriteStreamInfoList.map({ $0.channelID }))
+                let onlineFavoriteStreams = streams.filter({ favoriteStreamIDSet.contains($0.channelID) })
+                let onlineStreamIDSet = Set(onlineFavoriteStreams.map({ $0.channelID }))
+                let offlineStreamIDSet = favoriteStreamIDSet.subtracting(onlineStreamIDSet)
+                let offlineFavoriteStreamInfoList = self.favoriteStreamInfoList.filter({ offlineStreamIDSet.contains($0.channelID) })
+                self.onlineStreams = onlineFavoriteStreams
+                self.offlineStreamInfos = offlineFavoriteStreamInfoList.sorted(by: { $0.streamer > $1.streamer })
+                completion(.success((onlineFavoriteStreams, offlineFavoriteStreamInfoList)))
+
+            case let .failure(error):
+                completion(.failure(error))
             }
-            let favoriteStreamIDSet = Set(self.favoriteStreamInfoList.map({ $0.channelID }))
-            let onlineFavoriteStreams = streams.filter({ favoriteStreamIDSet.contains($0.channelID) })
-            let onlineStreamIDSet = Set(onlineFavoriteStreams.map({ $0.channelID }))
-            let offlineStreamIDSet = favoriteStreamIDSet.subtracting(onlineStreamIDSet)
-            let offlineFavoriteStreamInfoList = self.favoriteStreamInfoList.filter({ offlineStreamIDSet.contains($0.channelID) })
-            self.onlineStreams = onlineFavoriteStreams
-            self.offlineStreamInfos = offlineFavoriteStreamInfoList.sorted(by: { $0.streamer > $1.streamer })
-            completion(onlineFavoriteStreams, offlineFavoriteStreamInfoList, nil)
         }
     }
     

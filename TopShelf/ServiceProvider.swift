@@ -64,14 +64,17 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         let semaphore = DispatchSemaphore(value: 0)
         
         let favoritesService = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
-        favoritesService.getStreams { (onlineStreams, _, error) in
+        favoritesService.getStreams { result in
             defer {
                 semaphore.signal()
             }
-            guard error == nil else {
-                return
+            switch result {
+            case let .success((onlineStreams, _)):
+                streams = onlineStreams
+                
+            case .failure:
+                break
             }
-            streams = onlineStreams
         }
         semaphore.wait()
         

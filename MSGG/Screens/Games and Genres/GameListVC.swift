@@ -17,15 +17,22 @@ class GameListVC: CatergoryListVC<Game> {
     override func loadData() {
         isLoading = true
         
-        service.getCategories { [weak self] (games, genres, error) in
-            DispatchQueue.main.async {
-                self?.isLoading = false
-                guard error == nil, let self = self else {
+        service.getCategories { result in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {
                     return
                 }
-                self.items = games
-                self.collectionView.reloadData()
-                self.setNeedsFocusUpdate()
+                self.isLoading = false
+                
+                switch result {
+                case let .success((games, _)):
+                    self.items = games
+                    self.collectionView.reloadData()
+                    self.setNeedsFocusUpdate()
+                    
+                case .failure:
+                    break
+                }
             }
         }
     }

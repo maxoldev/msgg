@@ -11,6 +11,6 @@ import MSGGCore
 
 public protocol StreamsServiceProtocol {
     
-    func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping ([MSGGCore.Stream], Error?) -> ())
-    func getViewers(streamID: Int, completion: @escaping (Int, Error?) -> ())
+    func getStreams(limit: Int, gameURL: String?, skipStreamsWithoutSupportedVideo: Bool, completion: @escaping (Result<[MSGGCore.Stream], Error>) -> ())
+    func getViewers(streamID: Int, completion: @escaping (Result<Int, Error>) -> ())
 }
