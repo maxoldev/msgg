@@ -41,8 +41,8 @@ class FavoriteListVC: BaseCollectionVC {
     
     override func loadData() {
         isLoading = true
-        favoritesService.getStreams { [weak self] result in
-            DispatchQueue.main.async {
+        favoritesService.getStreams { result in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else {
                     return
                 }

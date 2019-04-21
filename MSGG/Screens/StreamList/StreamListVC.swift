@@ -44,8 +44,8 @@ class StreamListVC: ItemListVC<MSGGCore.Stream> {
             break
         }
         
-        service.getStreams(limit: 2000, gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { [weak self] result in
-            DispatchQueue.main.async {
+        service.getStreams(limit: 2000, gameURL: gameURL, skipStreamsWithoutSupportedVideo: false) { result in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else {
                     return
                 }
