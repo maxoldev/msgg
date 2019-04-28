@@ -11,37 +11,37 @@ import TVServices
 import MSGGCore
 import MSGGAPI
 
-struct FavoriteStreamInfo: Codable {
-    let channelID: MSGGCore.IDType
-    let streamer: String
-    let avatarURL: String
+public struct FavoriteStreamInfo: Codable {
+    public let channelID: MSGGCore.IDType
+    public let streamer: String
+    public let avatarURL: String
 }
 
-class FavoritesService: FavoritesServiceProtocol {
+public class FavoritesService: FavoritesServiceProtocol {
     
-    static let listUpdatedNotification = Notification.Name("FavoritesService.listUpdatedNotification")
+    public static let listUpdatedNotification = Notification.Name("FavoritesService.listUpdatedNotification")
     
+    fileprivate let userDefaults: UserDefaults
+    fileprivate let userDefaultsKeyToStoreList: String
     fileprivate(set) var favoriteStreamInfoList: [FavoriteStreamInfo]
     fileprivate let streamsService: StreamsServiceProtocol
     fileprivate var onlineStreams = [MSGGCore.Stream]()
     fileprivate var offlineStreamInfos = [FavoriteStreamInfo]()
     
-    init(streamsService: StreamsServiceProtocol) {
+    public init(streamsService: StreamsServiceProtocol, userDefaults: UserDefaults, userDefaultsKeyToStoreList: String) {
         self.streamsService = streamsService
+        self.userDefaults = userDefaults
+        self.userDefaultsKeyToStoreList = userDefaultsKeyToStoreList
         
-        if let data = FavoritesService.userDefaults.data(forKey: UserDefaultsKeys.favorites.rawValue) {
+        if let data = userDefaults.data(forKey: userDefaultsKeyToStoreList) {
             favoriteStreamInfoList = try! JSONDecoder().decode([FavoriteStreamInfo].self, from: data)
         } else {
             favoriteStreamInfoList = []
         }
     }
     
-    fileprivate static var userDefaults: UserDefaults {
-        return UserDefaults.init(suiteName: Appex.sharedSuiteName)!
-    }
-    
-    func getStreams(completion: @escaping (Result<(online: [MSGGCore.Stream], offline: [FavoriteStreamInfo]), Error>) -> ()) {
-        streamsService.getStreams(limit: AppConfig.itemLimit, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { result in
+    public func getStreams(limit: Int, completion: @escaping (Result<(online: [MSGGCore.Stream], offline: [FavoriteStreamInfo]), Error>) -> ()) {
+        streamsService.getStreams(limit: limit, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { result in
             switch result {
             case let .success(streams):
                 let favoriteStreamIDSet = Set(self.favoriteStreamInfoList.map({ $0.channelID }))
@@ -59,7 +59,7 @@ class FavoritesService: FavoritesServiceProtocol {
         }
     }
     
-    func addToFavorites(stream: MSGGCore.Stream) {
+    public func addToFavorites(stream: MSGGCore.Stream) {
         guard !favoriteStreamInfoList.contains(where: { $0.channelID == stream.channelID }) else {
             Logger.warning("Stream with ID \(stream.channelID) has been already contained in favorites list")
             return
@@ -74,7 +74,7 @@ class FavoritesService: FavoritesServiceProtocol {
         saveListOnDisk()
     }
 
-    func addToFavorites(offlineStreamInfo: FavoriteStreamInfo) {
+    public func addToFavorites(offlineStreamInfo: FavoriteStreamInfo) {
         guard !favoriteStreamInfoList.contains(where: { $0.channelID == offlineStreamInfo.channelID }) else {
             Logger.warning("Stream with ID \(offlineStreamInfo.channelID) has been already contained in favorites list")
             return
@@ -87,7 +87,7 @@ class FavoritesService: FavoritesServiceProtocol {
         saveListOnDisk()
     }
 
-    func removeFromFavorites(channelID: IDType) {
+    public func removeFromFavorites(channelID: IDType) {
         guard favoriteStreamInfoList.contains(where: { $0.channelID == channelID }) else {
             Logger.warning("Stream with ID \(channelID) hasn't been contained in favorites list")
             return
@@ -101,15 +101,14 @@ class FavoritesService: FavoritesServiceProtocol {
         saveListOnDisk()
     }
     
-    func isFavorite(channelID: IDType) -> Bool {
+    public func isFavorite(channelID: IDType) -> Bool {
         return favoriteStreamInfoList.contains(where: { $0.channelID == channelID })
     }
     
     fileprivate func saveListOnDisk() {
-//        favoriteStreamInfoList.append(FavoriteStreamInfo(channelID: 999, streamer: "Test", avatarURL: ""))
         let data = try! JSONEncoder().encode(favoriteStreamInfoList)
-        FavoritesService.userDefaults.set(data, forKey: UserDefaultsKeys.favorites.rawValue)
-        FavoritesService.userDefaults.synchronize()
+        userDefaults.set(data, forKey: userDefaultsKeyToStoreList)
+        userDefaults.synchronize()
     }
     
     fileprivate func notifyChanges() {

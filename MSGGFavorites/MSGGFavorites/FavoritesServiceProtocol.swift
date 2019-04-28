@@ -9,9 +9,9 @@
 import Foundation
 import MSGGCore
 
-protocol FavoritesServiceProtocol {
+public protocol FavoritesServiceProtocol {
     
-    func getStreams(completion: @escaping (Result<(online: [MSGGCore.Stream], offline: [FavoriteStreamInfo]), Error>) -> ())
+    func getStreams(limit: Int, completion: @escaping (Result<(online: [MSGGCore.Stream], offline: [FavoriteStreamInfo]), Error>) -> ())
     func addToFavorites(stream: MSGGCore.Stream)
     func addToFavorites(offlineStreamInfo: FavoriteStreamInfo)
     func removeFromFavorites(channelID: IDType)

@@ -12,6 +12,8 @@
 		942D4272226149B2006AF281 /* CategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D4271226149B2006AF281 /* CategoryCVCell.swift */; };
 		942D427422614A31006AF281 /* GameListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D427322614A31006AF281 /* GameListVC.swift */; };
 		94336FEF21866392000E8491 /* ClassicStreamCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94336FEE21866392000E8491 /* ClassicStreamCVCell.swift */; };
+		9439C367227651A000E2CEDC /* libMSGGFavorites.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9439C366227651A000E2CEDC /* libMSGGFavorites.a */; };
+		9439C369227651A500E2CEDC /* libMSGGFavorites.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9439C368227651A500E2CEDC /* libMSGGFavorites.a */; };
 		9439C396225FEF02001E55EB /* StreamCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439C395225FEF02001E55EB /* StreamCVCell.swift */; };
 		94560CF922620774008EE0B1 /* StreamListHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94560CF722620774008EE0B1 /* StreamListHeaderReusableView.swift */; };
 		94560CFA22620774008EE0B1 /* StreamListHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */; };
@@ -30,13 +32,11 @@
 		949330F22182707200B29B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949330F12182707200B29B0D /* Assets.xcassets */; };
 		949C9A5C2267CD0E00720FBD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 949C9A5E2267CD0E00720FBD /* Localizable.stringsdict */; };
 		949C9A622267E05000720FBD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A612267E05000720FBD /* CustomTabBar.swift */; };
-		949C9A642267EEC100720FBD /* Appex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* Appex.swift */; };
-		949C9A652267EEC100720FBD /* Appex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* Appex.swift */; };
+		949C9A642267EEC100720FBD /* CrossTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* CrossTargetConfig.swift */; };
+		949C9A652267EEC100720FBD /* CrossTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C9A632267EEC100720FBD /* CrossTargetConfig.swift */; };
 		94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60B9E225CB7F20099A4DA /* StreamVC.swift */; };
 		94B971D4226BDF9F00EE2FD9 /* libMSGGCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B971D3226BDF9F00EE2FD9 /* libMSGGCore.a */; };
 		94B971D6226BDFA500EE2FD9 /* libMSGGCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B971D5226BDFA500EE2FD9 /* libMSGGCore.a */; };
-		94B971F8226CE2BF00EE2FD9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */; };
-		94B971F9226CE31800EE2FD9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */; };
 		94CC02AA226A0D3100A99449 /* ItemListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02A9226A0D3100A99449 /* ItemListLayout.swift */; };
 		94CC02AC226A71F000A99449 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AB226A71F000A99449 /* SettingsService.swift */; };
 		94CC02AE226A8DBC00A99449 /* StreamListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AD226A8DBC00A99449 /* StreamListRouter.swift */; };
@@ -52,11 +52,8 @@
 		94D7E7462263C8FF00A7784A /* StreamerCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E7442263C8FF00A7784A /* StreamerCVCell.swift */; };
 		94D7E7492263D06200A7784A /* TitleHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D7E7472263D06200A7784A /* TitleHeaderReusableView.xib */; };
 		94D7E74A2263D06200A7784A /* TitleHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7E7482263D06200A7784A /* TitleHeaderReusableView.swift */; };
-		94D83C29225F46DB0014C5A3 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D83C28225F46DB0014C5A3 /* FavoritesService.swift */; };
 		94E01D062269371B00A5F17A /* UIViewController+Topmost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E01D052269371B00A5F17A /* UIViewController+Topmost.swift */; };
 		94E01D0B22694B7B00A5F17A /* DepedencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */; };
-		94E01D11226950CC00A5F17A /* FavoritesServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E01D10226950CC00A5F17A /* FavoritesServiceProtocol.swift */; };
-		94E01D12226950CC00A5F17A /* FavoritesServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E01D10226950CC00A5F17A /* FavoritesServiceProtocol.swift */; };
 		94E01D132269528F00A5F17A /* DepedencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */; };
 		94EB7686225DEECB00297DCD /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB7685225DEECB00297DCD /* PlayerView.swift */; };
 		94EB768C225DF04C00297DCD /* VCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB768B225DF04C00297DCD /* VCFactory.swift */; };
@@ -64,7 +61,6 @@
 		94F07D7322651B0600601036 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F07D7222651B0600601036 /* TVServices.framework */; };
 		94F07D7622651B0600601036 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F07D7522651B0600601036 /* ServiceProvider.swift */; };
 		94F07D7A22651B0600601036 /* TopShelf.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94F07D7122651B0600601036 /* TopShelf.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		94F07D7F2265373A00601036 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D83C28225F46DB0014C5A3 /* FavoritesService.swift */; };
 		94F07D89226537B500601036 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D426D2261262B006AF281 /* UserDefaultsKeys.swift */; };
 		94FA4A66226BD4AD00FF200F /* libMSGGAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FA4A65226BD4AD00FF200F /* libMSGGAPI.a */; };
 		94FA4A68226BD4B200FF200F /* libMSGGAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FA4A67226BD4B200FF200F /* libMSGGAPI.a */; };
@@ -105,6 +101,8 @@
 		942D4271226149B2006AF281 /* CategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCVCell.swift; sourceTree = "<group>"; };
 		942D427322614A31006AF281 /* GameListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListVC.swift; sourceTree = "<group>"; };
 		94336FEE21866392000E8491 /* ClassicStreamCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicStreamCVCell.swift; sourceTree = "<group>"; };
+		9439C366227651A000E2CEDC /* libMSGGFavorites.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMSGGFavorites.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9439C368227651A500E2CEDC /* libMSGGFavorites.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMSGGFavorites.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9439C395225FEF02001E55EB /* StreamCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamCVCell.swift; sourceTree = "<group>"; };
 		94560CF722620774008EE0B1 /* StreamListHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListHeaderReusableView.swift; sourceTree = "<group>"; };
 		94560CF822620774008EE0B1 /* StreamListHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamListHeaderReusableView.xib; sourceTree = "<group>"; };
@@ -126,11 +124,10 @@
 		949C9A5F2267CD1600720FBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		949C9A602267CD2700720FBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		949C9A612267E05000720FBD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		949C9A632267EEC100720FBD /* Appex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appex.swift; sourceTree = "<group>"; };
+		949C9A632267EEC100720FBD /* CrossTargetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossTargetConfig.swift; sourceTree = "<group>"; };
 		94B60B9E225CB7F20099A4DA /* StreamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamVC.swift; sourceTree = "<group>"; };
 		94B971D3226BDF9F00EE2FD9 /* libMSGGCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMSGGCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B971D5226BDFA500EE2FD9 /* libMSGGCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMSGGCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		94CC02A9226A0D3100A99449 /* ItemListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListLayout.swift; sourceTree = "<group>"; };
 		94CC02AB226A71F000A99449 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		94CC02AD226A8DBC00A99449 /* StreamListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListRouter.swift; sourceTree = "<group>"; };
@@ -146,10 +143,8 @@
 		94D7E7442263C8FF00A7784A /* StreamerCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamerCVCell.swift; sourceTree = "<group>"; };
 		94D7E7472263D06200A7784A /* TitleHeaderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleHeaderReusableView.xib; sourceTree = "<group>"; };
 		94D7E7482263D06200A7784A /* TitleHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleHeaderReusableView.swift; sourceTree = "<group>"; };
-		94D83C28225F46DB0014C5A3 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		94E01D052269371B00A5F17A /* UIViewController+Topmost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Topmost.swift"; sourceTree = "<group>"; };
 		94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepedencyContainer.swift; sourceTree = "<group>"; };
-		94E01D10226950CC00A5F17A /* FavoritesServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesServiceProtocol.swift; sourceTree = "<group>"; };
 		94EB7685225DEECB00297DCD /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		94EB768B225DF04C00297DCD /* VCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCFactory.swift; sourceTree = "<group>"; };
 		94EB768F225E1BCC00297DCD /* PlayerControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlButton.swift; sourceTree = "<group>"; };
@@ -174,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9439C367227651A000E2CEDC /* libMSGGFavorites.a in Frameworks */,
 				94B971D4226BDF9F00EE2FD9 /* libMSGGCore.a in Frameworks */,
 				94FA4A68226BD4B200FF200F /* libMSGGAPI.a in Frameworks */,
 				A4895CD43B8A98EBE93CF4D3 /* Pods_MSGG.framework in Frameworks */,
@@ -184,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9439C369227651A500E2CEDC /* libMSGGFavorites.a in Frameworks */,
 				94B971D6226BDFA500EE2FD9 /* libMSGGCore.a in Frameworks */,
 				94FA4A66226BD4AD00FF200F /* libMSGGAPI.a in Frameworks */,
 				94F07D7322651B0600601036 /* TVServices.framework in Frameworks */,
@@ -197,6 +194,8 @@
 		0E4C44A4D037EDC8F8074746 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9439C368227651A500E2CEDC /* libMSGGFavorites.a */,
+				9439C366227651A000E2CEDC /* libMSGGFavorites.a */,
 				94B971D5226BDFA500EE2FD9 /* libMSGGCore.a */,
 				94B971D3226BDF9F00EE2FD9 /* libMSGGCore.a */,
 				94FA4A67226BD4B200FF200F /* libMSGGAPI.a */,
@@ -281,11 +280,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9439C34E22764FEE00E2CEDC /* CrossTarget */ = {
+			isa = PBXGroup;
+			children = (
+				949C9A632267EEC100720FBD /* CrossTargetConfig.swift */,
+				94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */,
+				942D426D2261262B006AF281 /* UserDefaultsKeys.swift */,
+			);
+			path = CrossTarget;
+			sourceTree = "<group>";
+		};
 		94418EF4224D091C007614DD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				94D83C2B225F47850014C5A3 /* Favorites */,
-				942D426D2261262B006AF281 /* UserDefaultsKeys.swift */,
 				94CC02AB226A71F000A99449 /* SettingsService.swift */,
 				946ECED0226675B6001E44ED /* SettingsServiceImpl.swift */,
 			);
@@ -328,6 +335,7 @@
 		949330DE2182707100B29B0D = {
 			isa = PBXGroup;
 			children = (
+				9439C34E22764FEE00E2CEDC /* CrossTarget */,
 				949330E92182707100B29B0D /* MSGG */,
 				94F07D7422651B0600601036 /* TopShelf */,
 				949330E82182707100B29B0D /* Products */,
@@ -353,9 +361,6 @@
 				94418EF4224D091C007614DD /* Services */,
 				94336FEB21866350000E8491 /* Screens */,
 				949330EA2182707100B29B0D /* AppDelegate.swift */,
-				949C9A632267EEC100720FBD /* Appex.swift */,
-				94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */,
-				94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */,
 				949330EE2182707100B29B0D /* Main.storyboard */,
 				949330F12182707200B29B0D /* Assets.xcassets */,
 				949330F32182707200B29B0D /* Info.plist */,
@@ -382,15 +387,6 @@
 				94E01D052269371B00A5F17A /* UIViewController+Topmost.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		94D83C2B225F47850014C5A3 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				94E01D10226950CC00A5F17A /* FavoritesServiceProtocol.swift */,
-				94D83C28225F46DB0014C5A3 /* FavoritesService.swift */,
-			);
-			path = Favorites;
 			sourceTree = "<group>";
 		};
 		94EB7684225DEEB700297DCD /* Views */ = {
@@ -609,14 +605,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E01D11226950CC00A5F17A /* FavoritesServiceProtocol.swift in Sources */,
 				94560D0C22621D38008EE0B1 /* GenreListVC.swift in Sources */,
 				94CC02B4226A926200A99449 /* StreamRouter.swift in Sources */,
 				94CC02B0226A8DF600A99449 /* BaseRouter.swift in Sources */,
 				94560D0E2262229A008EE0B1 /* CatergoryListVC.swift in Sources */,
 				949330ED2182707100B29B0D /* StreamListVC.swift in Sources */,
 				946ECED1226675B6001E44ED /* SettingsServiceImpl.swift in Sources */,
-				949C9A642267EEC100720FBD /* Appex.swift in Sources */,
+				949C9A642267EEC100720FBD /* CrossTargetConfig.swift in Sources */,
 				949330EB2182707100B29B0D /* AppDelegate.swift in Sources */,
 				94CC02AE226A8DBC00A99449 /* StreamListRouter.swift in Sources */,
 				9415A26F22639445007D2F82 /* FavoriteListVC.swift in Sources */,
@@ -630,11 +625,9 @@
 				94EB7690225E1BCC00297DCD /* PlayerControlButton.swift in Sources */,
 				94D7E74A2263D06200A7784A /* TitleHeaderReusableView.swift in Sources */,
 				94D1273C22673600006E04EC /* HintView.swift in Sources */,
-				94D83C29225F46DB0014C5A3 /* FavoritesService.swift in Sources */,
 				94D127412267375D006E04EC /* UIView+Constraints.swift in Sources */,
 				94560CF922620774008EE0B1 /* StreamListHeaderReusableView.swift in Sources */,
 				94D7E7422263BE5C00A7784A /* BaseCollectionVC.swift in Sources */,
-				94B971F8226CE2BF00EE2FD9 /* AppConfig.swift in Sources */,
 				942D427422614A31006AF281 /* GameListVC.swift in Sources */,
 				94CC02AC226A71F000A99449 /* SettingsService.swift in Sources */,
 				94E01D0B22694B7B00A5F17A /* DepedencyContainer.swift in Sources */,
@@ -654,10 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F07D7622651B0600601036 /* ServiceProvider.swift in Sources */,
-				949C9A652267EEC100720FBD /* Appex.swift in Sources */,
-				94E01D12226950CC00A5F17A /* FavoritesServiceProtocol.swift in Sources */,
-				94B971F9226CE31800EE2FD9 /* AppConfig.swift in Sources */,
-				94F07D7F2265373A00601036 /* FavoritesService.swift in Sources */,
+				949C9A652267EEC100720FBD /* CrossTargetConfig.swift in Sources */,
 				94E01D132269528F00A5F17A /* DepedencyContainer.swift in Sources */,
 				94F07D89226537B500601036 /* UserDefaultsKeys.swift in Sources */,
 			);
@@ -738,6 +728,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UHB2EZ956C;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -799,6 +790,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UHB2EZ956C;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -826,7 +818,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MSGG/MSGG.entitlements;
-				DEVELOPMENT_TEAM = UHB2EZ956C;
 				INFOPLIST_FILE = MSGG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -846,7 +837,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MSGG/MSGG.entitlements;
-				DEVELOPMENT_TEAM = UHB2EZ956C;
 				INFOPLIST_FILE = MSGG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -864,8 +854,6 @@
 			baseConfigurationReference = 477F60B9BCDFDBF484179930 /* Pods-TopShelf.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UHB2EZ956C;
 				INFOPLIST_FILE = TopShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -885,8 +873,6 @@
 			baseConfigurationReference = 7D9E3A30894EEA638F1A1FA1 /* Pods-TopShelf.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UHB2EZ956C;
 				INFOPLIST_FILE = TopShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

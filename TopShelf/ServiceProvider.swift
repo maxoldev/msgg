@@ -11,6 +11,7 @@ import TVServices
 import Swinject
 import MSGGCore
 import MSGGAPI
+import MSGGFavorites
 
 class ServiceProvider: NSObject, TVTopShelfProvider {
 
@@ -22,7 +23,12 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
     fileprivate func registerDependencies() {
         let container = DepedencyContainer.global
         container.register(StreamsServiceProtocol.self, factory: { _ in StreamsService() })
-        container.register(FavoritesServiceProtocol.self, factory: { r in FavoritesService(streamsService: r.resolve(StreamsServiceProtocol.self)!) })
+        container.register(FavoritesServiceProtocol.self) { r in
+            let streamsService = r.resolve(StreamsServiceProtocol.self)!
+            let userDefaults = UserDefaults.init(suiteName: CrossTargetConfig.sharedSuiteName)!
+            let userDefaultsKeyToStoreList = UserDefaultsKeys.favorites.rawValue
+            return FavoritesService(streamsService: streamsService, userDefaults: userDefaults, userDefaultsKeyToStoreList: userDefaultsKeyToStoreList)
+        }
     }
 
     // MARK: - TVTopShelfProvider protocol
@@ -41,7 +47,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         
         let onlineStreams = getOnlineFavoriteStreamsSynchronously()
         recreateImageCacheFolder()
-        var favoriteStreamItems = onlineStreams.map { (stream) -> TVContentItem in
+        let favoriteStreamItems = onlineStreams.map { (stream) -> TVContentItem in
             let item = TVContentItem(contentIdentifier: TVContentIdentifier(identifier: "\(stream.channelID)", container: onlineFavoriteStreamsSectionIdentifier))
             let imageURL = downloadImageWithURLAndReturnLocalURL(URL(string: stream.previewURL)!)
             item.setImageURL(imageURL, forTraits: [])
@@ -65,7 +71,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         let semaphore = DispatchSemaphore(value: 0)
         
         let favoritesService = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
-        favoritesService.getStreams { result in
+        favoritesService.getStreams(limit: CrossTargetConfig.itemLimit) { result in
             defer {
                 semaphore.signal()
             }
@@ -84,12 +90,12 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
     
     fileprivate func makeURL(for stream: MSGGCore.Stream) -> URL? {
         var components = URLComponents()
-        components.scheme = Appex.scheme
+        components.scheme = CrossTargetConfig.scheme
         let ggStream = GoodGame.Stream(stream: stream)
         guard let encoded = try? JSONEncoder().encode(ggStream) else {
             return nil
         }
-        components.queryItems = [URLQueryItem(name: Appex.streamQueryItemName, value: String(data: encoded, encoding: .utf8))]
+        components.queryItems = [URLQueryItem(name: CrossTargetConfig.streamQueryItemName, value: String(data: encoded, encoding: .utf8))]
         return components.url
     }
     

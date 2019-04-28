@@ -10,6 +10,7 @@ import UIKit
 import Swinject
 import MSGGCore
 import MSGGAPI
+import MSGGFavorites
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,8 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = DepedencyContainer.global
         
         container.register(StreamsServiceProtocol.self) { _ in StreamsService() }
-        container.register(FavoritesServiceProtocol.self) { r in 
-            FavoritesService(streamsService: r.resolve(StreamsServiceProtocol.self)!)
+        container.register(FavoritesServiceProtocol.self) { r in
+            let streamsService = r.resolve(StreamsServiceProtocol.self)!
+            let userDefaults = UserDefaults.init(suiteName: CrossTargetConfig.sharedSuiteName)!
+            let userDefaultsKeyToStoreList = UserDefaultsKeys.favorites.rawValue
+            return FavoritesService(streamsService: streamsService, userDefaults: userDefaults, userDefaultsKeyToStoreList: userDefaultsKeyToStoreList)
         }.inObjectScope(.container)
     
         container.register(CategoriesServiceProtocol.self) { _ in CategoriesService() }
@@ -76,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func getStream(from url: URL) -> MSGGCore.Stream? {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-            let encodedStr = components.queryItems?.first(where: { $0.name == Appex.streamQueryItemName })?.value,
+            let encodedStr = components.queryItems?.first(where: { $0.name == CrossTargetConfig.streamQueryItemName })?.value,
             let data = encodedStr.data(using: .utf8) else {
             return nil
         }

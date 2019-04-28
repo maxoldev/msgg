@@ -8,6 +8,9 @@
       location = "group:MSGGAPI/MSGGAPI.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MSGGFavorites/MSGGFavorites.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MSGG.xcodeproj">
    </FileRef>
    <FileRef

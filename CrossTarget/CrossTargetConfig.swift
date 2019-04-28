@@ -1,5 +1,5 @@
 //
-//  Appex.swift
+//  CrossTargetConfig.swift
 //  MSGG
 //
 //  Created by Maxim Solovyov on 18/04/2019.
@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct Appex {
+struct CrossTargetConfig {
     
     static let scheme = "msgg"
     static let streamQueryItemName = "ggStream"
     static let sharedSuiteName = "group.com.ms.MSGG2"
+    static let itemLimit = 2000
 }

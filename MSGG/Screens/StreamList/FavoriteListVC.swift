@@ -8,6 +8,7 @@
 
 import UIKit
 import MSGGCore
+import MSGGFavorites
 
 class FavoriteListVC: BaseCollectionVC {
 
@@ -41,7 +42,7 @@ class FavoriteListVC: BaseCollectionVC {
     
     override func loadData() {
         isLoading = true
-        favoritesService.getStreams { result in
+        favoritesService.getStreams(limit: CrossTargetConfig.itemLimit) { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {
                     return

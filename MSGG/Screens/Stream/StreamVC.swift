@@ -11,6 +11,7 @@ import AVFoundation
 import SDWebImage
 import MSGGCore
 import MSGGAPI
+import MSGGFavorites
 
 class StreamVC: UIViewController {
 
