@@ -1,6 +1,6 @@
 //
 //  APIConstants.swift
-//  MSGG
+//  MSGGAPI
 //
 //  Created by Maxim Solovyov on 09/04/2019.
 //  Copyright © 2019 MaximSolovyov. All rights reserved.
@@ -15,8 +15,6 @@ struct APIConstants {
     static let baseVideoURL = "https://hls.goodgame.ru/hls/%@.m3u8"
     static let baseAPIUrl4 = "https://goodgame.ru/api/4/"
     static let smilExt = "smil"
-    
-    static let itemLimit = 2000
 }
 
 enum APIEndpoint: String {

@@ -1,6 +1,6 @@
 //
 //  CategoriesService.swift
-//  MSGG
+//  MSGGAPI
 //
 //  Created by Maxim Solovyov on 13/04/2019.
 //  Copyright © 2019 MaximSolovyov. All rights reserved.

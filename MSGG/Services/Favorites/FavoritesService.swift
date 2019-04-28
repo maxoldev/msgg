@@ -41,7 +41,7 @@ class FavoritesService: FavoritesServiceProtocol {
     }
     
     func getStreams(completion: @escaping (Result<(online: [MSGGCore.Stream], offline: [FavoriteStreamInfo]), Error>) -> ()) {
-        streamsService.getStreams(limit: 2000, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { result in
+        streamsService.getStreams(limit: AppConfig.itemLimit, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { result in
             switch result {
             case let .success(streams):
                 let favoriteStreamIDSet = Set(self.favoriteStreamInfoList.map({ $0.channelID }))

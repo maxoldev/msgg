@@ -35,6 +35,8 @@
 		94B60B9F225CB7F20099A4DA /* StreamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B60B9E225CB7F20099A4DA /* StreamVC.swift */; };
 		94B971D4226BDF9F00EE2FD9 /* libMSGGCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B971D3226BDF9F00EE2FD9 /* libMSGGCore.a */; };
 		94B971D6226BDFA500EE2FD9 /* libMSGGCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B971D5226BDFA500EE2FD9 /* libMSGGCore.a */; };
+		94B971F8226CE2BF00EE2FD9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */; };
+		94B971F9226CE31800EE2FD9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */; };
 		94CC02AA226A0D3100A99449 /* ItemListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02A9226A0D3100A99449 /* ItemListLayout.swift */; };
 		94CC02AC226A71F000A99449 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AB226A71F000A99449 /* SettingsService.swift */; };
 		94CC02AE226A8DBC00A99449 /* StreamListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC02AD226A8DBC00A99449 /* StreamListRouter.swift */; };
@@ -128,6 +130,7 @@
 		94B60B9E225CB7F20099A4DA /* StreamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamVC.swift; sourceTree = "<group>"; };
 		94B971D3226BDF9F00EE2FD9 /* libMSGGCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMSGGCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B971D5226BDFA500EE2FD9 /* libMSGGCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMSGGCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		94CC02A9226A0D3100A99449 /* ItemListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListLayout.swift; sourceTree = "<group>"; };
 		94CC02AB226A71F000A99449 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		94CC02AD226A8DBC00A99449 /* StreamListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamListRouter.swift; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 				949330EA2182707100B29B0D /* AppDelegate.swift */,
 				949C9A632267EEC100720FBD /* Appex.swift */,
 				94E01D0A22694B7B00A5F17A /* DepedencyContainer.swift */,
+				94B971F7226CE2BF00EE2FD9 /* AppConfig.swift */,
 				949330EE2182707100B29B0D /* Main.storyboard */,
 				949330F12182707200B29B0D /* Assets.xcassets */,
 				949330F32182707200B29B0D /* Info.plist */,
@@ -630,6 +634,7 @@
 				94D127412267375D006E04EC /* UIView+Constraints.swift in Sources */,
 				94560CF922620774008EE0B1 /* StreamListHeaderReusableView.swift in Sources */,
 				94D7E7422263BE5C00A7784A /* BaseCollectionVC.swift in Sources */,
+				94B971F8226CE2BF00EE2FD9 /* AppConfig.swift in Sources */,
 				942D427422614A31006AF281 /* GameListVC.swift in Sources */,
 				94CC02AC226A71F000A99449 /* SettingsService.swift in Sources */,
 				94E01D0B22694B7B00A5F17A /* DepedencyContainer.swift in Sources */,
@@ -651,6 +656,7 @@
 				94F07D7622651B0600601036 /* ServiceProvider.swift in Sources */,
 				949C9A652267EEC100720FBD /* Appex.swift in Sources */,
 				94E01D12226950CC00A5F17A /* FavoritesServiceProtocol.swift in Sources */,
+				94B971F9226CE31800EE2FD9 /* AppConfig.swift in Sources */,
 				94F07D7F2265373A00601036 /* FavoritesService.swift in Sources */,
 				94E01D132269528F00A5F17A /* DepedencyContainer.swift in Sources */,
 				94F07D89226537B500601036 /* UserDefaultsKeys.swift in Sources */,

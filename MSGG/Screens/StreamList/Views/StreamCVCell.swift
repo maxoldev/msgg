@@ -38,7 +38,7 @@ class StreamCVCell: UICollectionViewCell {
             }
             self.thumbImageView.sd_setImage(with: URL(string: posterURL),
                                        placeholderImage: UIImage(named: "gg-logo"),
-                                       options: [SDWebImageOptions.fromLoaderOnly])
+                                       options: [SDWebImageOptions.fromLoaderOnly, SDWebImageOptions.retryFailed])
         }
         warningImageView.isHidden = !warning
     }
