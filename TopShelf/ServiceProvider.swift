@@ -40,6 +40,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         onlineFavoriteStreamsSection.title = NSLocalizedString("live-followed-streams", comment: "")
         
         let onlineStreams = getOnlineFavoriteStreamsSynchronously()
+        recreateImageCacheFolder()
         var favoriteStreamItems = onlineStreams.map { (stream) -> TVContentItem in
             let item = TVContentItem(contentIdentifier: TVContentIdentifier(identifier: "\(stream.channelID)", container: onlineFavoriteStreamsSectionIdentifier))
             let imageURL = downloadImageWithURLAndReturnLocalURL(URL(string: stream.previewURL)!)
@@ -103,14 +104,28 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
     fileprivate func downloadImageWithURLAndReturnLocalURL(_ url: URL) -> URL? {
         do {
             let data = try Data(contentsOf: url)
-            let filename = url.lastPathComponent
-            let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
-            let filepath = NSString(string: paths.first!).appendingPathComponent(filename)
+            let filename = "\(UUID())"
+            let filepath = NSString(string: getImageCacheFolderPath).appendingPathComponent(filename)
             let localFileURL = URL(fileURLWithPath: filepath)
             try data.write(to: localFileURL)
             return localFileURL
         } catch {
             return nil
+        }
+    }
+    
+    fileprivate lazy var getImageCacheFolderPath: String = {
+        let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+        let imageCacheFolder = NSString(string: paths.first!).appendingPathComponent("preview_images")
+        return imageCacheFolder
+    }()
+    
+    fileprivate func recreateImageCacheFolder() {
+        try? FileManager.default.removeItem(atPath: getImageCacheFolderPath)
+        do {
+            try FileManager.default.createDirectory(atPath: getImageCacheFolderPath, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            Logger.error(error)
         }
     }
 }
