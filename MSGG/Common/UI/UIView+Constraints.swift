@@ -13,26 +13,21 @@ extension UIView {
     public func ms_pinEdgesToSuperview(insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {
         translatesAutoresizingMaskIntoConstraints = false
         
-        let leftConstraint = NSLayoutConstraint(item: self, attribute: .left, relatedBy: .equal, toItem: superview, attribute: .left, multiplier: 1.0, constant: insets.left)
+        let constraints = [leadingAnchor.constraint(equalTo: superview!.leadingAnchor, constant: insets.left),
+                           trailingAnchor.constraint(equalTo: superview!.trailingAnchor, constant: insets.right),
+                           topAnchor.constraint(equalTo: superview!.topAnchor, constant: insets.top),
+                           bottomAnchor.constraint(equalTo: superview!.bottomAnchor, constant: insets.bottom)]
 
-        let rightConstraint = NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: superview, attribute: .right, multiplier: 1.0, constant: insets.right)
-
-        let bottomConstraint = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: superview, attribute: .bottom, multiplier: 1.0, constant: insets.bottom)
-
-        let topConstraint = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview, attribute: .top, multiplier: 1.0, constant: insets.top)
-        
-        superview?.addConstraints([leftConstraint, rightConstraint, bottomConstraint, topConstraint])
+        NSLayoutConstraint.activate(constraints)
     }
 
     public func ms_pinEdgesToSuperview(constraintParams: [(attribute: NSLayoutConstraint.Attribute, relation: NSLayoutConstraint.Relation, constant: CGFloat)]) {
         translatesAutoresizingMaskIntoConstraints = false
         
-        var constraints = [NSLayoutConstraint]()
-        for constraintParam in constraintParams {
-            let constraint = NSLayoutConstraint(item: self, attribute: constraintParam.attribute, relatedBy: constraintParam.relation, toItem: superview, attribute: constraintParam.attribute, multiplier: 1.0, constant: constraintParam.constant)
-            constraints.append(constraint)
+        let constraints = constraintParams.map { (attribute, relation, constant) in
+            NSLayoutConstraint(item: self, attribute: attribute, relatedBy: relation, toItem: superview, attribute: attribute, multiplier: 1.0, constant: constant)
         }
         
-        superview?.addConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
     }
 }

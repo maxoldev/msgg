@@ -74,8 +74,8 @@ class StreamVC: UIViewController {
             self.view.layer.zPosition = 1000
             hintView.ms_pinEdgesToSuperview(constraintParams: [(.top, .greaterThanOrEqual, 60),
                                                                (.bottom, .equal, -60),
-                                                               (.left, .equal, 90),
-                                                               (.right, .equal, -90)])
+                                                               (.leading, .equal, 90),
+                                                               (.trailing, .equal, -90)])
             self.hintView = hintView
             hintView.show(animated: true, autoHideTime: 5)
             hintView.onHideCompletion = { [weak self] in
