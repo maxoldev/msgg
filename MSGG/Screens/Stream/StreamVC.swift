@@ -16,9 +16,6 @@ import MSGGFavorites
 class StreamVC: UIViewController {
 
     var stream: MSGGCore.Stream?
-    var currentGame: Game?
-    var currentViewerCount = 0
-    var selectedSource: StreamSource?
     
     @IBOutlet weak var playerView: PlayerView!
     @IBOutlet weak var controlsView: UIView!
@@ -38,6 +35,10 @@ class StreamVC: UIViewController {
     fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
     fileprivate let settingsService = DepedencyContainer.global.resolve(SettingsService.self)!
     
+    fileprivate var currentGame: Game?
+    fileprivate var currentViewerCount = 0
+    fileprivate var selectedSource: StreamSource?
+
     fileprivate var updatingViewerCountTimer: Timer?
     fileprivate var hidingControlsTimer: Timer?
     fileprivate var isMenuButtonDisabled = false
