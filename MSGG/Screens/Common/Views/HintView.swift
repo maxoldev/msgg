@@ -74,6 +74,7 @@ class HintView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.textColor = UIColor.white
         label.shadowColor = UIColor.black
         label.shadowOffset = CGSize(width: 2, height: 2)
         label.adjustsFontSizeToFitWidth = true
