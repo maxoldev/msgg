@@ -46,14 +46,19 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         onlineFavoriteStreamsSection.title = NSLocalizedString("live-followed-streams", comment: "")
         
         let onlineStreams = getOnlineFavoriteStreamsSynchronously()
-        recreateImageCacheFolder()
+        
+        let imageCache = ThumbnailImageCache()
+        imageCache.recreateImageCacheFolder()
+        
+        let extensionDataCoder = TopShelfExtensionDataCoder()
+        
         let favoriteStreamItems = onlineStreams.map { (stream) -> TVContentItem in
             let item = TVContentItem(contentIdentifier: TVContentIdentifier(identifier: "\(stream.channelID)", container: onlineFavoriteStreamsSectionIdentifier))
-            let imageURL = downloadImageWithURLAndReturnLocalURL(URL(string: stream.previewURL)!)
+            let imageURL = imageCache.downloadImageWithURLAndReturnLocalURL(URL(string: stream.previewURL)!)
             item.setImageURL(imageURL, forTraits: [])
             item.imageShape = .HDTV
             item.title = "\(stream.streamer) - \(stream.title)"
-            let url = makeURL(for: stream)
+            let url = extensionDataCoder.makeURL(for: stream)
             item.playURL = url
             item.displayURL = url
             return item
@@ -88,50 +93,11 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         return streams
     }
     
-    fileprivate func makeURL(for stream: MSGGCore.Stream) -> URL? {
-        var components = URLComponents()
-        components.scheme = CrossTargetConfig.scheme
-        let ggStream = GoodGame.Stream(stream: stream)
-        guard let encoded = try? JSONEncoder().encode(ggStream) else {
-            return nil
-        }
-        components.queryItems = [URLQueryItem(name: CrossTargetConfig.streamQueryItemName, value: String(data: encoded, encoding: .utf8))]
-        return components.url
-    }
-    
     fileprivate func makeTestItem(withTitle title: String, container: TVContentIdentifier?) -> TVContentItem {
         let testItem = TVContentItem(contentIdentifier: TVContentIdentifier(identifier: "test", container: container))
         testItem.setImageURL(URL(string: ""), forTraits: [])
         testItem.imageShape = .HDTV
         testItem.title = title
         return testItem
-    }
-    
-    fileprivate func downloadImageWithURLAndReturnLocalURL(_ url: URL) -> URL? {
-        do {
-            let data = try Data(contentsOf: url)
-            let filename = "\(UUID())"
-            let filepath = NSString(string: getImageCacheFolderPath).appendingPathComponent(filename)
-            let localFileURL = URL(fileURLWithPath: filepath)
-            try data.write(to: localFileURL)
-            return localFileURL
-        } catch {
-            return nil
-        }
-    }
-    
-    fileprivate lazy var getImageCacheFolderPath: String = {
-        let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
-        let imageCacheFolder = NSString(string: paths.first!).appendingPathComponent("preview_images")
-        return imageCacheFolder
-    }()
-    
-    fileprivate func recreateImageCacheFolder() {
-        try? FileManager.default.removeItem(atPath: getImageCacheFolderPath)
-        do {
-            try FileManager.default.createDirectory(atPath: getImageCacheFolderPath, withIntermediateDirectories: true, attributes: nil)
-        } catch {
-            Logger.error(error)
-        }
     }
 }
