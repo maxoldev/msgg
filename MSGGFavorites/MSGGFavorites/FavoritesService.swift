@@ -18,9 +18,7 @@ public struct FavoriteStreamInfo: Codable {
 }
 
 public class FavoritesService: FavoritesServiceProtocol {
-    
-    public static let listUpdatedNotification = Notification.Name("FavoritesService.listUpdatedNotification")
-    
+        
     fileprivate let userDefaults: UserDefaults
     fileprivate let userDefaultsKeyToStoreList: String
     fileprivate(set) var favoriteStreamInfoList: [FavoriteStreamInfo]
@@ -28,6 +26,8 @@ public class FavoritesService: FavoritesServiceProtocol {
     fileprivate var onlineStreams = [MSGGCore.Stream]()
     fileprivate var offlineStreamInfos = [FavoriteStreamInfo]()
     
+    fileprivate var listUpdatedCallback: (() -> ())?
+
     public init(streamsService: StreamsServiceProtocol, userDefaults: UserDefaults, userDefaultsKeyToStoreList: String) {
         self.streamsService = streamsService
         self.userDefaults = userDefaults
@@ -39,6 +39,8 @@ public class FavoritesService: FavoritesServiceProtocol {
             favoriteStreamInfoList = []
         }
     }
+    
+    // MARK: - FavoritesServiceProtocol
     
     public func getStreams(limit: Int, completion: @escaping (Result<(online: [MSGGCore.Stream], offline: [FavoriteStreamInfo]), Error>) -> ()) {
         streamsService.getStreams(limit: limit, gameURL: nil, skipStreamsWithoutSupportedVideo: false) { result in
@@ -105,6 +107,12 @@ public class FavoritesService: FavoritesServiceProtocol {
         return favoriteStreamInfoList.contains(where: { $0.channelID == channelID })
     }
     
+    public func setListUpdatedCallback(_ callback: (() -> ())?) {
+        listUpdatedCallback = callback
+    }
+
+    // MARK: -
+    
     fileprivate func saveListOnDisk() {
         let data = try! JSONEncoder().encode(favoriteStreamInfoList)
         userDefaults.set(data, forKey: userDefaultsKeyToStoreList)
@@ -112,7 +120,7 @@ public class FavoritesService: FavoritesServiceProtocol {
     }
     
     fileprivate func notifyChanges() {
-        NotificationCenter.default.post(name: FavoritesService.listUpdatedNotification, object: nil)
+        listUpdatedCallback?()
         NotificationCenter.default.post(name: NSNotification.Name.TVTopShelfItemsDidChange, object: nil)
     }
 }

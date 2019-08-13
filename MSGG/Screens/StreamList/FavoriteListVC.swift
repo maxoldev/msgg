@@ -12,24 +12,25 @@ import MSGGFavorites
 
 class FavoriteListVC: BaseCollectionVC {
 
-    enum Section {
+    fileprivate enum Section {
         case reload
         case online(streams: [MSGGCore.Stream])
         case offline(streamInfos: [FavoriteStreamInfo])
     }
     
-    var sections = [Section.reload]
+    fileprivate var sections = [Section.reload]
     fileprivate var needToReload = false
-    fileprivate let favoritesService = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
+    fileprivate lazy var favoritesService: FavoritesServiceProtocol = {
+        let service = DepedencyContainer.global.resolve(FavoritesServiceProtocol.self)!
+        service.setListUpdatedCallback { [unowned self] in
+            self.favoritesUpdatedNotified()
+        }
+        return service
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        NotificationCenter.default.addObserver(self, selector: #selector(favoritesUpdatedNotified), name: FavoritesService.listUpdatedNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

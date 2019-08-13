@@ -21,8 +21,9 @@ class StreamListVC: ItemListVC<MSGGCore.Stream> {
         case genre(Genre)
     }
     
-    fileprivate let service = DepedencyContainer.global.resolve(StreamsServiceProtocol.self)!
     var context = Context.allStreams
+
+    fileprivate let service = DepedencyContainer.global.resolve(StreamsServiceProtocol.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()

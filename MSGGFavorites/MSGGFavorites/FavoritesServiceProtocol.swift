@@ -16,4 +16,5 @@ public protocol FavoritesServiceProtocol {
     func addToFavorites(offlineStreamInfo: FavoriteStreamInfo)
     func removeFromFavorites(channelID: IDType)
     func isFavorite(channelID: IDType) -> Bool
+    func setListUpdatedCallback(_: (() -> ())?)
 }
